@@ -1,4 +1,18 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <circle cx="16" cy="16" r="14" fill="#20392B" stroke="#D9982F" stroke-width="2"/>
-  <polygon points="16,8 26,24 6,24" fill="#D9982F"/>
+  <defs>
+    <clipPath id="c"><circle cx="16" cy="16" r="15"/></clipPath>
+  </defs>
+  <g clip-path="url(#c)">
+    <!-- sky -->
+    <rect x="0" y="0" width="32" height="32" fill="#20392B"/>
+    <!-- sun -->
+    <circle cx="16" cy="13" r="5" fill="#D9982F"/>
+    <!-- back ridge -->
+    <path d="M0 22 L7 14 L13 20 L20 11 L26 18 L32 13 L32 32 L0 32 Z" fill="#2E4D3A"/>
+    <!-- front peak with snow cap -->
+    <path d="M0 32 L11 17 L22 32 Z" fill="#BC4B2A"/>
+    <path d="M11 17 L14.3 21.5 L12.5 22.2 L11 20.5 L9.4 22.2 L7.6 21.5 Z" fill="#F3E9D2"/>
+    <path d="M14 32 L24 19 L32 32 Z" fill="#9A3A20"/>
+  </g>
+  <circle cx="16" cy="16" r="15" fill="none" stroke="#D9982F" stroke-width="2"/>
 </svg>
