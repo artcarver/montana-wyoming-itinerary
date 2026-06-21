@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Spectral:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { background: #E7DBBC; }
+  ::selection { background: #BC4B2A; color: #F3E9D2; }
+  .om-scroll::-webkit-scrollbar { width: 10px; }
+  .om-scroll::-webkit-scrollbar-track { background: #E2D5B2; }
+  .om-scroll::-webkit-scrollbar-thumb { background: #B7A879; border-radius: 0; }
+  @keyframes om-rise { from { transform: translateY(6px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+</style>
+</helmet>
+
+<div style="min-height:100vh; background:#F3E9D2; color:#2A2018; font-family:'Spectral',Georgia,serif; -webkit-font-smoothing:antialiased;">
+
+  <!-- ===== TOP BAR ===== -->
+  <div style="position:sticky; top:0; z-index:50; height:62px; background:#20392B; border-bottom:3px solid #BC4B2A; display:flex; align-items:center; justify-content:space-between; padding:0 22px;">
+    <div style="display:flex; align-items:center; gap:14px;">
+      <div style="width:30px; height:30px; border:2px solid #D9982F; border-radius:50%; display:flex; align-items:center; justify-content:center; flex:none;">
+        <div style="width:14px; height:14px; background:#D9982F; clip-path:polygon(50% 0,100% 100%,0 100%);"></div>
+      </div>
+      <div style="line-height:1;">
+        <div style="font-family:'Oswald',sans-serif; font-weight:600; letter-spacing:2.5px; color:#F3E9D2; font-size:15px; text-transform:uppercase;">Montana &amp; Wyoming</div>
+        <div style="font-family:'Oswald',sans-serif; font-weight:300; letter-spacing:3.5px; color:#9CB3A0; font-size:10px; text-transform:uppercase; margin-top:2px;">National Parks &middot; Aug 8&ndash;16 2026</div>
+      </div>
+    </div>
+    <div style="display:flex; gap:4px; background:#1A2E22; padding:4px; border:1px solid #2E4D3A;">
+      <button onClick="{{ showOverview }}" style="{{ ovBtnStyle }}">Overview</button>
+      <button onClick="{{ showItinerary }}" style="{{ itBtnStyle }}">Day by Day</button>
+    </div>
+  </div>
+
+  <!-- ===== OVERVIEW ===== -->
+  <sc-if value="{{ isOverview }}" hint-placeholder-val="{{ true }}">
+  <div>
+    <!-- HERO -->
+    <div style="position:relative; overflow:hidden; background:#EBDFBF; border-bottom:3px solid #20392B;">
+      <svg viewBox="0 0 1200 470" preserveAspectRatio="xMidYMax slice" style="position:absolute; inset:0; width:100%; height:100%; display:block;">
+        <rect x="0" y="0" width="1200" height="470" fill="#EFE4C6"></rect>
+        <rect x="0" y="0" width="1200" height="150" fill="#E5D7B2"></rect>
+        <circle cx="905" cy="172" r="74" fill="#D9982F"></circle>
+        <circle cx="905" cy="172" r="74" fill="none" stroke="#C97F22" stroke-width="2" stroke-dasharray="2 9"></circle>
+        <g fill="none" stroke="#C9B988" stroke-width="1.4" opacity="0.7">
+          <ellipse cx="300" cy="150" rx="240" ry="86"></ellipse>
+          <ellipse cx="300" cy="150" rx="180" ry="62"></ellipse>
+          <ellipse cx="300" cy="150" rx="120" ry="40"></ellipse>
+        </g>
+        <polygon points="0,470 250,210 470,470" fill="#6FA0A6"></polygon>
+        <polygon points="330,470 600,170 840,470" fill="#3E7B7E"></polygon>
+        <polygon points="560,300 690,200 760,290 700,470 600,470" fill="#FFFFFF" opacity="0.5"></polygon>
+        <polygon points="720,470 980,235 1200,470" fill="#3C6E47"></polygon>
+        <polygon points="1010,470 1200,300 1200,470" fill="#2E5238"></polygon>
+        <polygon points="0,470 1200,470 1200,400 0,440" fill="#20392B"></polygon>
+        <g fill="#20392B">
+          <polygon points="120,440 138,400 156,440"></polygon>
+          <polygon points="150,445 165,410 180,445"></polygon>
+          <polygon points="1040,448 1058,408 1076,448"></polygon>
+        </g>
+      </svg>
+      <div style="position:relative; max-width:1080px; margin:0 auto; padding:64px 40px 92px;">
+        <div style="display:inline-block; font-family:'Oswald',sans-serif; letter-spacing:4px; font-size:13px; font-weight:500; text-transform:uppercase; color:#20392B; background:#D9982F; padding:6px 14px;">A 9-Day Road Trip</div>
+        <h1 style="font-family:'Oswald',sans-serif; font-weight:700; font-size:84px; line-height:0.92; letter-spacing:1px; text-transform:uppercase; margin:18px 0 0; color:#20392B; text-shadow:2px 2px 0 rgba(243,233,210,0.6);">Montana<br>&amp; Wyoming</h1>
+        <p style="font-family:'Spectral',serif; font-size:21px; max-width:540px; margin:20px 0 0; color:#2A2018; font-weight:400;">San Diego to Glacier, Yellowstone &amp; Grand Teton and back &mdash; three national parks across two states in nine days.</p>
+        <div style="display:flex; flex-wrap:wrap; gap:30px; margin-top:34px;">
+          <div><div style="font-family:'Oswald',sans-serif; font-weight:700; font-size:40px; color:#BC4B2A; line-height:1;">9</div><div style="font-family:'Oswald',sans-serif; letter-spacing:2px; font-size:11px; text-transform:uppercase; color:#5A5036; margin-top:3px;">Days</div></div>
+          <div><div style="font-family:'Oswald',sans-serif; font-weight:700; font-size:40px; color:#BC4B2A; line-height:1;">3</div><div style="font-family:'Oswald',sans-serif; letter-spacing:2px; font-size:11px; text-transform:uppercase; color:#5A5036; margin-top:3px;">National Parks</div></div>
+          <div><div style="font-family:'Oswald',sans-serif; font-weight:700; font-size:40px; color:#BC4B2A; line-height:1;">8</div><div style="font-family:'Oswald',sans-serif; letter-spacing:2px; font-size:11px; text-transform:uppercase; color:#5A5036; margin-top:3px;">Nights</div></div>
+          <div><div style="font-family:'Oswald',sans-serif; font-weight:700; font-size:40px; color:#BC4B2A; line-height:1;">~1,400</div><div style="font-family:'Oswald',sans-serif; letter-spacing:2px; font-size:11px; text-transform:uppercase; color:#5A5036; margin-top:3px;">Miles Driven</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div style="max-width:1080px; margin:0 auto; padding:54px 40px 80px;">
+
+      <!-- THREE PARKS -->
+      <div style="font-family:'Oswald',sans-serif; text-transform:uppercase; letter-spacing:3px; font-size:13px; color:#BC4B2A; font-weight:600; margin-top:56px;">The Parks</div>
+      <h2 style="font-family:'Oswald',sans-serif; font-weight:600; font-size:32px; text-transform:uppercase; letter-spacing:0.5px; margin:4px 0 22px; color:#20392B;">Three landscapes, three characters</h2>
+      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:20px;">
+        <!-- Glacier -->
+        <div style="background:#FBF5E4; border:2px solid #20392B;">
+          <div style="height:118px; background:#3E7B7E; position:relative; overflow:hidden;">
+            <svg viewBox="0 0 200 118" preserveAspectRatio="xMidYMax slice" style="position:absolute; inset:0; width:100%; height:100%;">
+              <polygon points="0,118 55,34 110,118" fill="#2F5E60"></polygon>
+              <polygon points="60,118 120,20 185,118" fill="#34696B"></polygon>
+              <polygon points="92,55 120,32 142,52 130,118 108,118" fill="#EAF0EC" opacity="0.55"></polygon>
+              <polygon points="140,118 190,48 200,118" fill="#2A5557"></polygon>
+            </svg>
+          </div>
+          <div style="padding:16px 18px 20px;">
+            <div style="font-family:'Oswald',sans-serif; font-weight:700; font-size:21px; text-transform:uppercase; color:#20392B;">Glacier</div>
+            <div style="font-family:'Oswald',sans-serif; letter-spacing:2px; font-size:10px; text-transform:uppercase; color:#3E7B7E; margin-top:2px;">Days 1&ndash;4 &middot; Montana</div>
+            <p style="font-family:'Spectral',serif; font-size:14px; line-height:1.5; color:#3D3422; margin:12px 0 0;">Going-to-the-Sun Road, Avalanche Lake, the Many Glacier valley, and the iconic Wild Goose Island.</p>
+          </div>
+        </div>
+        <!-- Yellowstone -->
+        <div style="background:#FBF5E4; border:2px solid #20392B;">
+          <div style="height:118px; background:#BC4B2A; position:relative; overflow:hidden;">
+            <svg viewBox="0 0 200 118" preserveAspectRatio="xMidYMid slice" style="position:absolute; inset:0; width:100%; height:100%;">
+              <g fill="none" stroke="#E8A35C" stroke-width="2.4" opacity="0.85">
+                <circle cx="100" cy="62" r="14"></circle>
+                <circle cx="100" cy="62" r="26"></circle>
+                <circle cx="100" cy="62" r="38"></circle>
+                <circle cx="100" cy="62" r="50"></circle>
+              </g>
+              <circle cx="100" cy="62" r="8" fill="#F3E9D2"></circle>
+              <g fill="#E8A35C"><circle cx="40" cy="30" r="3"></circle><circle cx="160" cy="34" r="2.4"></circle><circle cx="52" cy="96" r="2.4"></circle></g>
+            </svg>
+          </div>
+          <div style="padding:16px 18px 20px;">
+            <div style="font-family:'Oswald',sans-serif; font-weight:700; font-size:21px; text-transform:uppercase; color:#20392B;">Yellowstone</div>
+            <div style="font-family:'Oswald',sans-serif; letter-spacing:2px; font-size:10px; text-transform:uppercase; color:#BC4B2A; margin-top:2px;">Days 4&ndash;7 &middot; Wyoming</div>
+            <p style="font-family:'Spectral',serif; font-size:14px; line-height:1.5; color:#3D3422; margin:12px 0 0;">Old Faithful, Grand Prismatic, the Grand Canyon of the Yellowstone, and bison in Lamar Valley.</p>
+          </div>
+        </div>
+        <!-- Grand Teton -->
+        <div style="background:#FBF5E4; border:2px solid #20392B;">
+          <div style="height:118px; background:#3C6E47; position:relative; overflow:hidden;">
+            <svg viewBox="0 0 200 118" preserveAspectRatio="xMidYMax slice" style="position:absolute; inset:0; width:100%; height:100%;">
+              <polygon points="0,118 38,30 70,118" fill="#2F5739"></polygon>
+              <polygon points="48,118 104,8 158,118" fill="#36633F"></polygon>
+              <polygon points="86,40 104,12 122,40 112,118 96,118" fill="#EAF0EC" opacity="0.5"></polygon>
+              <polygon points="132,118 176,40 200,118" fill="#2C5236"></polygon>
+              <rect x="0" y="104" width="200" height="14" fill="#244029"></rect>
+            </svg>
+          </div>
+          <div style="padding:16px 18px 20px;">
+            <div style="font-family:'Oswald',sans-serif; font-weight:700; font-size:21px; text-transform:uppercase; color:#20392B;">Grand Teton</div>
+            <div style="font-family:'Oswald',sans-serif; letter-spacing:2px; font-size:10px; text-transform:uppercase; color:#3C6E47; margin-top:2px;">Days 7&ndash;8 &middot; Wyoming</div>
+            <p style="font-family:'Spectral',serif; font-size:14px; line-height:1.5; color:#3D3422; margin:12px 0 0;">Jenny Lake, Oxbow Bend, Mormon Row barns, and sunrise reflections at Schwabacher Landing.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- DAY CARDS -->
+      <div style="font-family:'Oswald',sans-serif; text-transform:uppercase; letter-spacing:3px; font-size:13px; color:#BC4B2A; font-weight:600; margin-top:56px;">Day by Day</div>
+      <h2 style="font-family:'Oswald',sans-serif; font-weight:600; font-size:32px; text-transform:uppercase; letter-spacing:0.5px; margin:4px 0 22px; color:#20392B;">The whole trip at a glance</h2>
+      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:18px;">
+        <sc-for list="{{ days }}" as="day" hint-placeholder-count="9">
+          <button onClick="{{ day.onOpen }}" style="text-align:left; cursor:pointer; background:#FBF5E4; border:2px solid #20392B; border-top:6px solid {{ day.regionColor }}; padding:18px 18px 20px; font-family:inherit; display:flex; flex-direction:column; gap:10px; transition:transform 0.12s;" style-hover="transform:translateY(-3px); background:#FFFCF1;">
+            <div style="display:flex; align-items:center; justify-content:space-between;">
+              <span style="font-family:'Oswald',sans-serif; font-weight:700; letter-spacing:1px; font-size:12px; text-transform:uppercase; color:{{ day.regionColor }};">Day {{ day.num }}</span>
+              <span style="font-family:'Oswald',sans-serif; font-size:11px; letter-spacing:1px; text-transform:uppercase; color:#8A7C58;">{{ day.dateShort }}</span>
+            </div>
+            <div style="font-family:'Oswald',sans-serif; font-weight:600; font-size:18px; line-height:1.1; text-transform:uppercase; color:#20392B;">{{ day.title }}</div>
+            <div style="font-family:'Spectral',serif; font-size:13px; line-height:1.45; color:#5A4F36; flex:1;">{{ day.subtitle }}</div>
+            <div style="display:flex; gap:7px; flex-wrap:wrap;">
+              <span style="font-family:'Oswald',sans-serif; font-size:10px; letter-spacing:0.5px; text-transform:uppercase; color:#9A6B2E; border:1px solid #D8C58F; padding:2px 7px;">{{ day.driveShort }}</span>
+              <sc-if value="{{ day.walkShort }}" hint-placeholder-val="{{ true }}"><span style="font-family:'Oswald',sans-serif; font-size:10px; letter-spacing:0.5px; text-transform:uppercase; color:#3C6E47; border:1px solid #B6CDB9; padding:2px 7px;">{{ day.walkShort }}</span></sc-if>
+            </div>
+          </button>
+        </sc-for>
+      </div>
+
+      <!-- HOTELS -->
+      <div style="font-family:'Oswald',sans-serif; text-transform:uppercase; letter-spacing:3px; font-size:13px; color:#BC4B2A; font-weight:600; margin-top:56px;">Where You Sleep</div>
+      <h2 style="font-family:'Oswald',sans-serif; font-weight:600; font-size:32px; text-transform:uppercase; letter-spacing:0.5px; margin:4px 0 22px; color:#20392B;">Lodging &amp; confirmations</h2>
+      <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:16px;">
+        <sc-for list="{{ hotels }}" as="hotel" hint-placeholder-count="6">
+          <div style="background:#FBF5E4; border:1px solid #C9B98A; border-left:4px solid #BC4B2A; padding:16px 18px;">
+            <div style="font-family:'Oswald',sans-serif; font-size:10px; letter-spacing:1.5px; text-transform:uppercase; color:#9A6B2E;">{{ hotel.nights }}</div>
+            <div style="font-family:'Oswald',sans-serif; font-weight:600; font-size:17px; text-transform:uppercase; color:#20392B; margin-top:5px; line-height:1.1;">{{ hotel.name }}</div>
+            <div style="font-family:'Spectral',serif; font-size:13px; color:#5A4F36; margin-top:3px;">{{ hotel.location }}</div>
+            <div style="display:flex; justify-content:space-between; align-items:flex-end; margin-top:12px; border-top:1px dashed #C9B98A; padding-top:9px;">
+              <div><div style="font-family:'Oswald',sans-serif; font-size:9px; letter-spacing:1px; text-transform:uppercase; color:#9A8B62;">Confirmation</div><div style="font-family:'Oswald',sans-serif; font-size:12px; color:#3D3422; letter-spacing:0.5px;">{{ hotel.confirmation }}</div></div>
+              <div style="font-family:'Oswald',sans-serif; font-weight:600; font-size:16px; color:#BC4B2A;">{{ hotel.cost }}</div>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+
+      <div style="text-align:center; margin-top:54px;">
+        <button onClick="{{ showItinerary }}" style="cursor:pointer; font-family:'Oswald',sans-serif; font-weight:600; letter-spacing:2px; text-transform:uppercase; font-size:14px; color:#F3E9D2; background:#20392B; border:none; padding:15px 34px;" style-hover="background:#BC4B2A;">Open the full day-by-day &rarr;</button>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div style="background:#20392B; color:#9CB3A0; text-align:center; padding:26px; font-family:'Oswald',sans-serif; letter-spacing:2px; font-size:11px; text-transform:uppercase;">For the benefit and enjoyment of the people &middot; Aug 2026</div>
+  </div>
+  </sc-if>
+
+  <!-- ===== ITINERARY ===== -->
+  <sc-if value="{{ isItinerary }}" hint-placeholder-val="{{ true }}">
+  <div style="display:flex; height:calc(100vh - 62px);">
+    <!-- SIDEBAR -->
+    <div class="om-scroll" style="width:264px; flex:none; background:#EBDFBF; border-right:2px solid #20392B; overflow-y:auto;">
+      <div style="padding:16px 18px 10px; font-family:'Oswald',sans-serif; text-transform:uppercase; letter-spacing:2.5px; font-size:11px; color:#9A6B2E; font-weight:600;">The Itinerary</div>
+      <sc-for list="{{ days }}" as="day" hint-placeholder-count="9">
+        <button onClick="{{ day.onNav }}" style="{{ day.navStyle }}">
+          <div style="display:flex; align-items:center; gap:9px;">
+            <span style="font-family:'Oswald',sans-serif; font-weight:700; font-size:11px; letter-spacing:1px; text-transform:uppercase; color:{{ day.regionColor }};">Day {{ day.num }}</span>
+            <span style="font-family:'Oswald',sans-serif; font-size:10px; letter-spacing:1px; text-transform:uppercase; color:#9A8B62;">{{ day.dateShort }}</span>
+          </div>
+          <div style="font-family:'Oswald',sans-serif; font-weight:500; font-size:14px; line-height:1.15; text-transform:uppercase; color:#20392B; margin-top:4px;">{{ day.title }}</div>
+        </button>
+      </sc-for>
+      <div style="padding:18px; border-top:1px dashed #C9B98A; margin-top:6px;">
+        <button onClick="{{ showOverview }}" style="cursor:pointer; width:100%; font-family:'Oswald',sans-serif; letter-spacing:1.5px; text-transform:uppercase; font-size:11px; color:#20392B; background:none; border:1px solid #20392B; padding:9px;" style-hover="background:#20392B; color:#F3E9D2;">&larr; Back to overview</button>
+      </div>
+    </div>
+
+    <!-- MAIN SCROLL -->
+    <div class="om-scroll" id="om-main" style="flex:1; overflow-y:auto; background:#F3E9D2;">
+      <sc-for list="{{ days }}" as="day" hint-placeholder-count="9">
+        <div id="om-day-{{ day.idx }}" style="border-bottom:2px solid #E0D2AC;">
+          <!-- sticky day header -->
+          <div style="position:sticky; top:0; z-index:10; background:#20392B; color:#F3E9D2; padding:0; overflow:hidden;">
+            <div style="position:absolute; right:0; top:0; bottom:0; width:280px; opacity:0.16; color:#F3E9D2;">{{ day.motifArt }}</div>
+            <div style="position:relative; padding:20px 30px 22px;">
+              <div style="display:flex; align-items:baseline; gap:14px; flex-wrap:wrap;">
+                <span style="font-family:'Oswald',sans-serif; font-weight:700; font-size:13px; letter-spacing:2px; text-transform:uppercase; color:#D9982F;">Day {{ day.num }}</span>
+                <span style="font-family:'Oswald',sans-serif; font-size:12px; letter-spacing:1.5px; text-transform:uppercase; color:#9CB3A0;">{{ day.weekday }}, {{ day.date }}</span>
+                <span style="font-family:'Oswald',sans-serif; font-size:10px; letter-spacing:1.5px; text-transform:uppercase; color:#20392B; background:{{ day.regionColor }}; padding:3px 9px;">{{ day.regionLabel }}</span>
+              </div>
+              <h2 style="font-family:'Oswald',sans-serif; font-weight:600; font-size:30px; text-transform:uppercase; letter-spacing:0.5px; margin:8px 0 0; line-height:1; color:#F3E9D2;">{{ day.title }}</h2>
+              <p style="font-family:'Spectral',serif; font-size:15px; color:#D7E0D2; margin:8px 0 0; max-width:600px;">{{ day.subtitle }}</p>
+              <div style="display:flex; gap:18px; flex-wrap:wrap; margin-top:14px;">
+                <div style="display:flex; align-items:center; gap:7px;"><span style="font-family:'Oswald',sans-serif; font-size:9px; letter-spacing:1px; text-transform:uppercase; color:#9CB3A0;">Drive</span><span style="font-family:'Oswald',sans-serif; font-weight:500; font-size:13px; color:#F3E9D2;">{{ day.drive }}</span></div>
+                <sc-if value="{{ day.walk }}" hint-placeholder-val="{{ true }}"><div style="display:flex; align-items:center; gap:7px;"><span style="font-family:'Oswald',sans-serif; font-size:9px; letter-spacing:1px; text-transform:uppercase; color:#9CB3A0;">On Foot</span><span style="font-family:'Oswald',sans-serif; font-weight:500; font-size:13px; color:#F3E9D2;">{{ day.walk }}</span></div></sc-if>
+                <sc-if value="{{ day.sun }}" hint-placeholder-val="{{ true }}"><div style="display:flex; align-items:center; gap:7px;"><span style="font-family:'Oswald',sans-serif; font-size:9px; letter-spacing:1px; text-transform:uppercase; color:#9CB3A0;">Sun</span><span style="font-family:'Oswald',sans-serif; font-weight:500; font-size:13px; color:#F3E9D2;">{{ day.sun }}</span></div></sc-if>
+              </div>
+            </div>
+          </div>
+
+          <div style="padding:24px 30px 36px; max-width:760px;">
+            <!-- wildlife strip -->
+            <sc-if value="{{ day.hasWildlife }}" hint-placeholder-val="{{ false }}">
+              <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap; background:#EFE4C6; border:1px dashed #C9A86E; padding:11px 15px; margin-bottom:22px;">
+                <span style="font-family:'Oswald',sans-serif; font-size:10px; letter-spacing:1.5px; text-transform:uppercase; color:#7A5230; font-weight:600;">Keep an eye out for</span>
+                <sc-for list="{{ day.wildlife }}" as="w" hint-placeholder-count="3">
+                  <span style="display:inline-flex; align-items:center; gap:7px; background:#FBF5E4; border:1px solid #C9B98A; border-radius:20px; padding:4px 12px 4px 5px;">
+                    <span style="width:24px; height:24px; border-radius:50%; background:#7A5230; color:#F3E9D2; display:inline-flex; align-items:center; justify-content:center; padding:4px;">{{ w.icon }}</span>
+                    <span style="font-family:'Oswald',sans-serif; font-size:11px; letter-spacing:0.5px; text-transform:uppercase; color:#3D3422;">{{ w.name }}</span>
+                  </span>
+                </sc-for>
+              </div>
+            </sc-if>
+
+            <!-- hotel card -->
+            <sc-if value="{{ day.hotel }}" hint-placeholder-val="{{ false }}">
+              <div style="background:#FBF5E4; border:1px solid #C9B98A; border-left:4px solid #BC4B2A; padding:13px 16px; margin-bottom:24px; display:flex; justify-content:space-between; align-items:center; gap:14px; flex-wrap:wrap;">
+                <div>
+                  <div style="font-family:'Oswald',sans-serif; font-size:9px; letter-spacing:1.5px; text-transform:uppercase; color:#9A6B2E;">{{ day.hotel.tag }}</div>
+                  <div style="font-family:'Oswald',sans-serif; font-weight:600; font-size:16px; text-transform:uppercase; color:#20392B; margin-top:3px;">{{ day.hotel.name }}</div>
+                  <div style="font-family:'Spectral',serif; font-size:12px; color:#5A4F36;">{{ day.hotel.location }}</div>
+                </div>
+                <div style="text-align:right;">
+                  <div style="font-family:'Oswald',sans-serif; font-size:9px; letter-spacing:1px; text-transform:uppercase; color:#9A8B62;">Conf {{ day.hotel.confirmation }}</div>
+                  <div style="font-family:'Oswald',sans-serif; font-weight:600; font-size:16px; color:#BC4B2A; margin-top:2px;">{{ day.hotel.cost }}</div>
+                </div>
+              </div>
+            </sc-if>
+
+            <!-- stops timeline -->
+            <div style="position:relative;">
+              <sc-for list="{{ day.stops }}" as="stop" hint-placeholder-count="6">
+                <div style="position:relative; padding-left:30px; padding-bottom:4px;">
+                  <div style="position:absolute; left:7px; top:8px; bottom:0; width:2px; background:#E0D2AC;"></div>
+                  <div style="position:absolute; left:0; top:7px; width:16px; height:16px; border-radius:50%; background:#F3E9D2; border:3px solid {{ stop.kindColor }};"></div>
+                  <button onClick="{{ stop.onToggle }}" style="display:block; width:100%; text-align:left; cursor:pointer; background:none; border:none; padding:0 0 18px; font-family:inherit;">
+                    <div style="display:flex; align-items:baseline; gap:10px;">
+                      <span style="font-family:'Oswald',sans-serif; font-weight:600; font-size:13px; letter-spacing:0.5px; color:#9A6B2E; flex:none; min-width:64px;">{{ stop.t }}</span>
+                      <span style="font-family:'Oswald',sans-serif; font-size:9px; letter-spacing:1px; text-transform:uppercase; color:#F3E9D2; background:{{ stop.kindColor }}; padding:2px 7px; flex:none;">{{ stop.kindLabel }}</span>
+                    </div>
+                    <div style="display:flex; align-items:center; gap:8px; margin-top:5px;">
+                      <h4 style="font-family:'Oswald',sans-serif; font-weight:500; font-size:18px; text-transform:uppercase; letter-spacing:0.3px; color:#20392B; margin:0; flex:1;">{{ stop.n }}</h4>
+                      <span style="font-family:'Oswald',sans-serif; font-size:16px; color:{{ stop.kindColor }}; flex:none;">{{ stop.caret }}</span>
+                    </div>
+                    <p style="font-family:'Spectral',serif; font-size:14px; line-height:1.5; color:#4A4029; margin:4px 0 0;">{{ stop.s }}</p>
+                    <div style="display:flex; gap:7px; flex-wrap:wrap; margin-top:8px;">
+                      <sc-if value="{{ stop.walk }}" hint-placeholder-val="{{ false }}"><span style="font-family:'Oswald',sans-serif; font-size:10px; letter-spacing:0.5px; text-transform:uppercase; color:#3C6E47; border:1px solid #B6CDB9; padding:2px 8px;">&#9650; {{ stop.walk }}</span></sc-if>
+                      <sc-if value="{{ stop.drive }}" hint-placeholder-val="{{ false }}"><span style="font-family:'Oswald',sans-serif; font-size:10px; letter-spacing:0.5px; text-transform:uppercase; color:#9A6B2E; border:1px solid #D8C58F; padding:2px 8px;">&#9656; {{ stop.drive }}</span></sc-if>
+                    </div>
+                    <sc-if value="{{ stop.isOpen }}" hint-placeholder-val="{{ false }}">
+                      <div style="margin-top:11px; background:#EFE4C6; border-left:3px solid {{ stop.kindColor }}; padding:12px 15px; animation:om-rise 0.18s ease;">
+                        <p style="font-family:'Spectral',serif; font-size:14px; line-height:1.6; color:#3D3422; margin:0;">{{ stop.d }}</p>
+                      </div>
+                    </sc-if>
+                  </button>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+        </div>
+      </sc-for>
+      <div style="background:#20392B; color:#9CB3A0; text-align:center; padding:30px; font-family:'Oswald',sans-serif; letter-spacing:2px; font-size:11px; text-transform:uppercase;">End of the trail &middot; Fly home Aug 16</div>
+    </div>
+  </div>
+  </sc-if>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1200,&quot;height&quot;:820},&quot;defaultView&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;overview&quot;,&quot;itinerary&quot;],&quot;default&quot;:&quot;overview&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;expandByDefault&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  state = { view: null, activeDay: 0, open: {} };
+
+  componentDidMount() {
+    this.ensureWired();
+    const dv = this.props.defaultView;
+    if (dv === 'itinerary') this.setState({ view: 'itinerary' });
+  }
+
+  ensureWired() {
+    const main = document.getElementById('om-main');
+    if (main && this._wiredEl !== main) {
+      this._wiredEl = main;
+      this._onScroll = () => { this.updateActive(); };
+      main.addEventListener('scroll', this._onScroll, { passive: true });
+    }
+  }
+
+  // ---- view helpers ----
+  effView() { return this.state.view || (this.props.defaultView === 'itinerary' ? 'itinerary' : 'overview'); }
+  showOverview = () => { this.setState({ view: 'overview' }); };
+  showItinerary = () => { this.setState({ view: 'itinerary' }); };
+
+  openFromOverview(i) {
+    this._pendingDay = i;
+    this.setState({ view: 'itinerary', activeDay: i });
+  }
+
+  // ---- scroll spy (id-based, light DOM) ----
+  updateActive() {
+    if (this._suppressSpy) return;
+    const main = document.getElementById('om-main');
+    if (!main) return;
+    const mt = main.getBoundingClientRect().top;
+    let active = 0;
+    for (let i = 0; i < 9; i++) {
+      const el = document.getElementById('om-day-' + i);
+      if (!el) continue;
+      if (el.getBoundingClientRect().top - mt <= 90) active = i;
+    }
+    if (active !== this.state.activeDay) this.setState({ activeDay: active });
+  }
+
+  scrollToDay(i) {
+    this.setState({ activeDay: i });
+    this._suppressSpy = true;
+    clearTimeout(this._spyTimer);
+    clearInterval(this._anim);
+    setTimeout(() => {
+      const main = document.getElementById('om-main');
+      const el = document.getElementById('om-day-' + i);
+      if (main && el) {
+        const target = el.getBoundingClientRect().top - main.getBoundingClientRect().top + main.scrollTop + 1;
+        this.animateScroll(main, target);
+      } else {
+        this._suppressSpy = false;
+      }
+    }, 0);
+  }
+
+  animateScroll(main, target) {
+    const start = main.scrollTop;
+    const dist = target - start;
+    if (Math.abs(dist) < 2) { main.scrollTop = target; this._suppressSpy = false; return; }
+    const steps = 28;
+    let n = 0;
+    clearInterval(this._anim);
+    this._anim = setInterval(() => {
+      n++;
+      const p = Math.min(1, n / steps);
+      const e = p < 0.5 ? 2 * p * p : 1 - Math.pow(-2 * p + 2, 2) / 2;
+      main.scrollTop = start + dist * e;
+      if (p >= 1) {
+        clearInterval(this._anim);
+        this._spyTimer = setTimeout(() => { this._suppressSpy = false; }, 60);
+      }
+    }, 16);
+  }
+
+  componentDidUpdate() {
+    this.ensureWired();
+    if (this._pendingDay != null && document.getElementById('om-day-' + this._pendingDay) && document.getElementById('om-main')) {
+      const i = this._pendingDay; this._pendingDay = null;
+      setTimeout(() => this.scrollToDay(i), 40);
+    }
+  }
+
+  toggleStop(key) {
+    this.setState(s => ({ open: { ...s.open, [key]: !this.isOpen(key) } }));
+  }
+  isOpen(key) {
+    if (key in this.state.open) return this.state.open[key];
+    return !!(this.props.expandByDefault);
+  }
+
+  // ---- motif art (svg react elements) ----
+  motif(type) {
+    const h = React.createElement;
+    const sv = (vb, kids) => h('svg', { viewBox: vb, preserveAspectRatio: 'xMidYMid slice', width: '100%', height: '100%' }, kids);
+    if (type === 'geyser') {
+      return sv('0 0 120 120', [
+        h('g', { key: 'g', fill: 'none', stroke: 'currentColor', strokeWidth: 3 },
+          [14, 28, 42, 56].map((r, k) => h('circle', { key: k, cx: 78, cy: 60, r }))),
+        h('circle', { key: 'c', cx: 78, cy: 60, r: 7, fill: 'currentColor' })
+      ]);
+    }
+    if (type === 'teton') {
+      return sv('0 0 240 120', [
+        h('polygon', { key: 1, points: '0,120 44,28 84,120', fill: 'currentColor' }),
+        h('polygon', { key: 2, points: '64,120 128,8 196,120', fill: 'currentColor' }),
+        h('polygon', { key: 3, points: '150,120 210,40 240,120', fill: 'currentColor' })
+      ]);
+    }
+    if (type === 'route') {
+      return sv('0 0 240 120', [
+        h('polyline', { key: 'l', points: '20,96 70,40 120,72 170,30 220,64', fill: 'none', stroke: 'currentColor', strokeWidth: 3, strokeDasharray: '2 8', strokeLinecap: 'round' }),
+        ...[[20, 96], [70, 40], [120, 72], [170, 30], [220, 64]].map((p, k) => h('circle', { key: k, cx: p[0], cy: p[1], r: 6, fill: 'currentColor' }))
+      ]);
+    }
+    // mountain default
+    return sv('0 0 240 120', [
+      h('polygon', { key: 1, points: '0,120 56,40 112,120', fill: 'currentColor', opacity: 0.7 }),
+      h('polygon', { key: 2, points: '70,120 140,18 210,120', fill: 'currentColor' }),
+      h('polygon', { key: 3, points: '160,120 220,50 240,120', fill: 'currentColor', opacity: 0.8 })
+    ]);
+  }
+
+  // ---- wildlife icons ----
+  icon(name) {
+    const h = React.createElement;
+    const s = (kids) => h('svg', { viewBox: '0 0 30 30', width: '100%', height: '100%', fill: 'none', stroke: 'currentColor', strokeWidth: 1.7, strokeLinecap: 'round', strokeLinejoin: 'round' }, kids);
+    const n = name.toLowerCase();
+    if (n.indexOf('bear') >= 0) return s([
+      h('circle', { key: 1, cx: 9, cy: 9, r: 3 }), h('circle', { key: 2, cx: 21, cy: 9, r: 3 }),
+      h('circle', { key: 3, cx: 15, cy: 16, r: 7 }), h('circle', { key: 4, cx: 15, cy: 19, r: 2.3 })
+    ]);
+    if (n.indexOf('moose') >= 0) return s([
+      h('ellipse', { key: 1, cx: 15, cy: 19, rx: 4.5, ry: 6 }),
+      h('path', { key: 2, d: 'M11 13 Q5 12 4 7 M11 13 Q8 8 11 5' }),
+      h('path', { key: 3, d: 'M19 13 Q25 12 26 7 M19 13 Q22 8 19 5' })
+    ]);
+    if (n.indexOf('elk') >= 0) return s([
+      h('ellipse', { key: 1, cx: 15, cy: 20, rx: 4, ry: 6 }),
+      h('path', { key: 2, d: 'M12 14 L7 5 M9.5 9 L5 8 M8.5 7 L9 3' }),
+      h('path', { key: 3, d: 'M18 14 L23 5 M20.5 9 L25 8 M21.5 7 L21 3' })
+    ]);
+    if (n.indexOf('goat') >= 0) return s([
+      h('ellipse', { key: 1, cx: 15, cy: 17, rx: 4.5, ry: 6 }),
+      h('path', { key: 2, d: 'M12.5 11 Q10 5 13.5 4' }), h('path', { key: 3, d: 'M17.5 11 Q20 5 16.5 4' }),
+      h('path', { key: 4, d: 'M15 23 L15 27' })
+    ]);
+    if (n.indexOf('wolf') >= 0) return s([
+      h('path', { key: 1, d: 'M8 9 L10 14 M22 9 L20 14' }),
+      h('path', { key: 2, d: 'M10 13 Q15 11 20 13 L18 21 Q15 23 12 21 Z' }),
+      h('path', { key: 3, d: 'M13 18 L11 20 M17 18 L19 20' })
+    ]);
+    if (n.indexOf('pronghorn') >= 0) return s([
+      h('ellipse', { key: 1, cx: 15, cy: 19, rx: 4, ry: 6 }),
+      h('path', { key: 2, d: 'M12 13 Q11 6 13 5 Q15 5 14 8' }),
+      h('path', { key: 3, d: 'M18 13 Q19 6 17 5 Q15 5 16 8' })
+    ]);
+    if (n.indexOf('eagle') >= 0) return s([
+      h('path', { key: 1, d: 'M3 16 Q11 7 15 15 Q19 7 27 16' }),
+      h('circle', { key: 2, cx: 15, cy: 16, r: 2 }), h('path', { key: 3, d: 'M15 18 L15 23' })
+    ]);
+    return s([h('circle', { key: 1, cx: 15, cy: 15, r: 7 })]);
+  }
+
+  // ---- raw data ----
+  rawDays() {
+    const K = this.KINDS;
+    return [
+      {
+        num: 1, weekday: 'Saturday', date: 'August 8', dateShort: 'Aug 8', title: 'Fly In to Glacier',
+        subtitle: 'Land in Bozeman, stock up, and make the long, scenic drive north to the edge of Glacier.',
+        region: 'transit', regionLabel: 'San Diego \u2192 Glacier', motif: 'route',
+        drive: '5h 15m / 312 mi', walk: '', sun: 'Sunset 8:50 PM',
+        hotel: { tag: 'Tonight \u2014 Night 1 of 2', name: 'Mini Golden Inns', location: 'Hungry Horse, MT', confirmation: '73478801173025', cost: '$475' },
+        stops: [
+          { t: '5:00 AM', n: 'San Diego Int\u2019l Airport', k: 'travel', s: 'Check in and clear security for a connecting Delta flight to Bozeman.', d: 'This is a connection, not a nonstop \u2014 confirm your layover city and gate the night before. Departure is 6:29 AM; you gain an hour crossing into Mountain Time.' },
+          { t: '12:05 PM', n: 'Arrive Bozeman (BZN)', k: 'travel', s: 'Small airport \u2014 rental counters are right in the terminal.', d: 'You should be on the road within 30\u201340 minutes of landing. Mountain Time from here on.' },
+          { t: '12:45 PM', n: 'Lunch + Grocery Run', k: 'meal', s: 'Downtown Bozeman Main Street, 10 min from the airport, then stock the kitchenette.', d: 'Pickle Barrel, Feed Cafe, or any Main Street spot. Stop at Town & Country Foods or Albertsons for breakfast items, sandwiches, snacks, and water for the next two days \u2014 your room has a kitchenette.' },
+          { t: '2:15 PM', n: 'Madison Buffalo Jump', k: 'view', s: 'A cliff where Native Americans drove bison herds for thousands of years.', d: '45 min west of Bozeman off I-90. Short walk to the overlook with interpretive signs and valley views. 15\u201320 min stop, small $6 park fee.', drive: '45 min from Bozeman' },
+          { t: '2:45 PM', n: 'Missouri Headwaters', k: 'view', s: 'Where the Jefferson, Madison, and Gallatin rivers merge to form the Missouri.', d: 'Lewis and Clark camped here in 1805. Short walk to the confluence point, picnic tables if you want to stretch. 15\u201320 min.' },
+          { t: '6:30 PM', n: 'Mini Golden Inns \u2014 Check In', k: 'lodge', s: 'Hungry Horse, just outside the west entrance. Settle in and unload groceries.', d: 'Check-in is 4\u20139 PM with no 24hr desk \u2014 call ahead if past 9 PM. Kitchenette in the room.' },
+          { t: '8:00 PM', n: 'Lake McDonald Sunset', k: 'view', s: 'First taste of Glacier \u2014 Apgar Village shoreline in golden light.', d: 'West Glacier entrance is 15 min away. Walk the rocky beach at Apgar; the famous colorful rocks are scattered along the shore. Sunset around 8:50 PM. Drive up toward the lodge for glassy evening reflections.', drive: '15 min to Apgar' }
+        ]
+      },
+      {
+        num: 2, weekday: 'Sunday', date: 'August 9', dateShort: 'Aug 9', title: 'Glacier West Side',
+        subtitle: 'Old-growth cedars, turquoise gorges, and the gradual climb to Avalanche Lake \u2014 the headline hike.',
+        region: 'glacier', regionLabel: 'Glacier NP', motif: 'mountain',
+        drive: '~1.5h in park', walk: '~9 mi if you do it all', sun: 'Rise 6:20 / Set 8:50',
+        wildlife: ['Mountain goat', 'Moose'],
+        hotel: { tag: 'Tonight \u2014 Night 2 of 2', name: 'Mini Golden Inns', location: 'Hungry Horse, MT', confirmation: '73478801173025', cost: 'Incl.' },
+        stops: [
+          { t: '8:00 AM', n: 'Enter West Glacier', k: 'view', s: 'Buy the America the Beautiful pass here \u2014 it covers every park on the trip.', d: '$80 annual pass covers Glacier, Yellowstone, and Grand Teton. Get to Avalanche before 9:30 AM \u2014 the lot fills fast and stays full till late afternoon.' },
+          { t: '8:25 AM', n: 'Lake McDonald Lodge', k: 'view', s: 'Historic Swiss chalet lodge with a massive stone fireplace, right on the lake.', d: 'Walk the dark-wood lobby, then down to the shore where red, green, and blue rocks are visible through the clear water. 20\u201330 min.' },
+          { t: '9:00 AM', n: 'Johns Lake Loop', k: 'trail', s: 'Easy 2-mile forest loop \u2014 a gentle warm-up before the big hike.', d: 'Flat, well-maintained, and far less crowded than Avalanche. Views of Johns Lake and the surrounding peaks. 45 min\u20131 hr.', walk: '2 mi / flat' },
+          { t: '10:00 AM', n: 'Trail of the Cedars', k: 'trail', s: 'Flat 1-mile boardwalk through ancient red cedar and hemlock forest.', d: 'Towering old-growth trees, ferns everywhere, and a gorge with turquoise water carving through rock. Completely flat and accessible. Don\u2019t rush it.', walk: '1 mi loop / flat' },
+          { t: '10:45 AM', n: 'Avalanche Lake', k: 'trail', s: 'The main event \u2014 a mountain lake walled by cliffs streaming with waterfalls.', d: 'A gradual 5.8-mile round trip; the 500 ft of gain is spread over nearly 3 miles so it never feels steep. Sit at the lake a while when you arrive \u2014 the setting is spectacular.', walk: '5.8 mi RT / gradual' },
+          { t: '3:00 PM', n: 'Apgar Village', k: 'view', s: 'Visitor center, lakeshore, gift shop, and a well-earned ice cream.', d: 'Browse the displays and walk the Apgar shore. Glacier Park Boat Co. runs ~1.5 hr Lake McDonald cruises from the dock if you want time on the water.' },
+          { t: '8:00 PM', n: 'Lake McDonald Sunset', k: 'view', s: 'Last chance on the west side \u2014 glassy water and mountain reflections.', d: 'Tomorrow you cross to the east side and won\u2019t be back. If you caught it last night, skip and rest \u2014 tomorrow is Going-to-the-Sun Road and you start early.' }
+        ]
+      },
+      {
+        num: 3, weekday: 'Monday', date: 'August 10', dateShort: 'Aug 10', title: 'Going-to-the-Sun Road',
+        subtitle: 'Fifty miles of road carved into the mountainside, over the Continental Divide at Logan Pass.',
+        region: 'glacier', regionLabel: 'Going-to-the-Sun Road', motif: 'mountain',
+        drive: '~2.5h / 50 mi', walk: '5\u20137 mi', sun: 'Rise 6:20 / Set 8:45',
+        wildlife: ['Mountain goat'],
+        hotel: { tag: 'Tonight', name: 'St. Mary Village', location: 'St. Mary, MT \u2014 east entrance', confirmation: '73478287602240', cost: '$409' },
+        stops: [
+          { t: '8:30 AM', n: 'The Loop', k: 'view', s: 'Big switchback where the road starts climbing in earnest \u2014 all new territory.', d: 'Pullout with views down the valley you just drove. From here the road narrows, clings to the mountainside, and the views open dramatically.' },
+          { t: '8:45 AM', n: 'Weeping Wall', k: 'view', s: 'Water cascades down the rock face directly onto the road \u2014 you drive through it.', d: 'Lighter flow in August than spring but still there. Bird Woman Falls Overlook and Big Bend follow close behind \u2014 both quick, stunning pullouts.' },
+          { t: '9:15 AM', n: 'Logan Pass', k: 'view', s: 'The top. 6,646 ft, the Continental Divide, and the trailheads for the two best walks.', d: 'Arrive by 9:15 for a parking shot \u2014 if the lot is full, wait it out. Small visitor center and restrooms.', drive: '24 min from The Loop' },
+          { t: '9:30 AM', n: 'Hidden Lake Overlook', k: 'trail', s: 'Boardwalk-then-dirt climb to an overlook above Hidden Lake, ringed by peaks.', d: 'Mountain goats are commonly spotted \u2014 scan the meadows and rocks. Stop at the ridge overlook; don\u2019t descend to the lake itself (steep climb back). Bearhat Mountain rises beyond.', walk: '2.7 mi RT / 500 ft' },
+          { t: '11:00 AM', n: 'Highline Trail', k: 'trail', s: 'A flat traverse carved into a cliff face with the Garden Wall above.', d: 'Sheer drop below, a bolted cable at the narrow start if heights unsettle you. Walk even 15\u201320 min out for a view you won\u2019t find anywhere else, then turn around.', walk: '1\u20132 mi RT / flat' },
+          { t: '12:05 PM', n: 'Jackson Glacier Overlook', k: 'view', s: 'One of the easiest glaciers to see without hiking \u2014 the park\u2019s 7th largest.', d: 'Roadside pullout with interpretive signs. Sunrift Gorge follows with a 5-min walk to a slot canyon.' },
+          { t: '12:45 PM', n: 'Sun Point', k: 'view', s: 'A rocky point jutting into St. Mary Lake with wide mountain views.', d: 'Optional flat lakeshore walk to Baring Falls (1.2 mi RT). Wind can be strong out on the point.' },
+          { t: '1:15 PM', n: 'St. Mary Falls', k: 'trail', s: 'Short forest descent to a powerful waterfall with a turquoise pool.', d: '1.7-mile round trip with some stairs. Add 1.4 mi to reach Virginia Falls \u2014 even bigger and more dramatic \u2014 if your legs are up for it.', walk: '1.7 mi RT / stairs' },
+          { t: '2:15 PM', n: 'Wild Goose Island', k: 'view', s: 'The iconic shot \u2014 a tiny island in St. Mary Lake backed by mountains.', d: 'Roadside pullout. Pull over, take the photo, keep going. Rising Sun area nearby has a store and boat tours.' },
+          { t: '3:00 PM', n: 'St. Mary Village \u2014 Check In', k: 'lodge', s: 'Right at the east entrance. Done driving \u2014 free afternoon to recover.', d: 'On-site restaurant and general store. Evening lakeshore walk at Rising Sun for east-side light, looking back toward the mountains as the sun drops behind them.' }
+        ]
+      },
+      {
+        num: 4, weekday: 'Tuesday', date: 'August 11', dateShort: 'Aug 11', title: 'Many Glacier + Drive South',
+        subtitle: 'The most dramatic valley in Glacier, then the longest drive of the trip \u2014 south to Yellowstone\u2019s door.',
+        region: 'transit', regionLabel: 'Glacier \u2192 Yellowstone', motif: 'mountain',
+        drive: '~7.5h \u2014 longest day', walk: '3\u20135 mi', sun: '',
+        wildlife: ['Moose'],
+        hotel: { tag: 'Tonight', name: 'Yellowstone Basin Inn', location: 'Gardiner, MT \u2014 north gate', confirmation: 'BE-70789', cost: '$291' },
+        stops: [
+          { t: '7:50 AM', n: 'Arrive Many Glacier', k: 'view', s: 'The most dramatic valley in the park \u2014 peaks closing in on all sides.', d: 'Park near the Many Glacier Hotel or Swiftcurrent Motor Inn. You\u2019ll see why people call this the best area in Glacier.', drive: '35 min from St. Mary' },
+          { t: '8:00 AM', n: 'Fishercap Lake', k: 'trail', s: 'A flat 0.3-mile walk to one of the best moose-spotting lakes in the park.', d: 'Moose frequently feed in the marshy edges in early morning. Even without one, the peaks behind the lake are beautiful. 15\u201320 min.', walk: '0.6 mi RT / flat' },
+          { t: '8:45 AM', n: 'Many Glacier Boat Ride', k: 'boat', s: 'Guided tour across Swiftcurrent Lake and Lake Josephine \u2014 the once-in-a-lifetime one.', d: 'Two boats with a short guided walk between the lakes; mountains surround you from the water. First departure ~8:30\u20139:00 AM, tickets at the dock, 1.5\u20132 hrs. Walk the Swiftcurrent shore to the Many Glacier Hotel deck first \u2014 one of the best lodge views anywhere.', walk: 'boat 1.5\u20132 hrs' },
+          { t: '12:05 PM', n: 'Rocky Mountain Front Drive', k: 'drive', s: 'US-89 south along a wall of peaks rising straight from the prairie.', d: 'Through the Blackfeet Reservation \u2014 the Museum of the Plains Indian is in Browning if you want a 20\u201330 min stop. One of the most striking geological transitions in the lower 48: plains, then a wall of rock with no foothills.', drive: '~6+ hrs total to Gardiner' },
+          { t: '2:00 PM', n: 'Choteau', k: 'meal', s: 'Small town at the foot of the Rockies \u2014 lunch and dinosaur fossils.', d: 'A few Main Street spots for lunch. The Old Trail Museum has dinosaurs from the Two Medicine Formation nearby. 30\u201345 min.' },
+          { t: '5:00 PM', n: 'Livingston', k: 'town', s: 'A gritty, authentic western town on the Yellowstone River.', d: 'Walk Main Street, grab a coffee, stretch. Dan Bailey\u2019s Fly Shop is an institution. 15\u201320 min.' },
+          { t: '5:30 PM', n: 'Paradise Valley', k: 'drive', s: 'US-89 follows the Yellowstone River south \u2014 Absaroka and Gallatin ranges framing it.', d: 'One of the most scenic stretches of highway in Montana. Watch for elk and deer in the fields. About an hour to Gardiner.' },
+          { t: '6:45 PM', n: 'Gardiner + Roosevelt Arch', k: 'lodge', s: 'Yellowstone\u2019s original 1903 north entrance \u2014 you\u2019ve arrived.', d: 'Check into Yellowstone Basin Inn (free homemade breakfast). Walk to the stone arch inscribed \u201cFor the Benefit and Enjoyment of the People.\u201d If you have energy, preview Mammoth Hot Springs \u2014 5 min into the park, travertine glowing at sunset, elk on the lawns.' }
+        ]
+      },
+      {
+        num: 5, weekday: 'Wednesday', date: 'August 12', dateShort: 'Aug 12', title: 'Yellowstone North & East',
+        subtitle: 'Wildlife at dawn, otherworldly travertine terraces, and the Grand Canyon of the Yellowstone.',
+        region: 'yellowstone', regionLabel: 'Yellowstone NP', motif: 'geyser',
+        drive: '~5.5h in park', walk: '3\u20135 mi', sun: 'Rise 6:15',
+        wildlife: ['Bison', 'Gray wolf', 'Grizzly bear', 'Pronghorn'],
+        hotel: { tag: 'Tonight \u2014 Night 1 of 2', name: 'Yellowstone West Gate Hotel', location: 'West Yellowstone, MT', confirmation: '73478829989296', cost: '$588' },
+        stops: [
+          { t: '6:00 AM', n: 'Lamar Valley at Dawn', k: 'wildlife', s: 'The best wildlife viewing in the lower 48 \u2014 the optional but unforgettable early start.', d: 'Bison herds everywhere, pronghorn in the sage, and with luck wolves on the ridgelines and grizzlies in the meadows. Bring binoculars; look for clusters of spotting scopes and ask what they\u2019re watching. Best window 6:00\u20139:00 AM. (Sleep-in option: start at Mammoth at 8 AM instead.)', drive: '1h 15m from Gardiner' },
+          { t: '9:45 AM', n: 'Petrified Tree', k: 'view', s: 'A standing petrified redwood \u2014 50 million years old, turned to stone.', d: 'Short dead-end road west of Tower Junction; 10-min walk from parking. Calcite Springs Overlook (basalt columns, steam vents) and Tower Fall (132-ft drop through volcanic spires) follow close by.' },
+          { t: '10:45 AM', n: 'Mammoth Hot Springs', k: 'thermal', s: 'Otherworldly white-and-orange travertine terraces built over thousands of years.', d: 'Walk the Upper Terraces boardwalk loop (~1.5 mi) and the shorter Lower Terraces. The formations change constantly \u2014 some active last year may be dry now. Elk are almost always on the lawns by the hotel.', walk: '~2 mi boardwalk' },
+          { t: '1:00 PM', n: 'Norris Geyser Basin', k: 'thermal', s: 'The hottest, most dynamic thermal area in the park \u2014 two boardwalk loops.', d: 'Porcelain Basin is an eerie white landscape of steaming vents; Back Basin is forested and holds Steamboat, the world\u2019s tallest active geyser (erupts unpredictably). Budget an hour for both.', walk: '~2 mi boardwalk' },
+          { t: '2:30 PM', n: 'Grand Canyon of the Yellowstone', k: 'view', s: 'A 1,200-ft canyon stained yellow and orange, with two thundering waterfalls.', d: 'Artist Point is the famous one \u2014 Lower Falls (308 ft, twice the height of Niagara) framed down the canyon. Add Lookout Point, Uncle Tom\u2019s 328 steps, or the Brink of the Lower Falls trail if your legs allow.', walk: '1\u20133 mi / viewpoints' },
+          { t: '4:00 PM', n: 'Hayden Valley', k: 'wildlife', s: 'A vast open meadow along the river \u2014 hundreds of bison, sometimes grizzlies.', d: 'Drive slowly, pull over at the designated turnouts, and scan. Impressive even from the car. Don\u2019t approach \u2014 bison look slow but run 35 mph.' },
+          { t: '5:45 PM', n: 'West Gate Hotel \u2014 Check In', k: 'lodge', s: 'Two nights in West Yellowstone \u2014 no repacking tomorrow.', d: 'Pool and hot tub to soak your legs after a massive day. Walk to dinner \u2014 Madison Crossing, Firehole, or Pete\u2019s Pizza are all close.' }
+        ]
+      },
+      {
+        num: 6, weekday: 'Thursday', date: 'August 13', dateShort: 'Aug 13', title: 'Yellowstone Geyser Loop',
+        subtitle: 'The recovery day \u2014 geysers, rainbow hot springs, and bubbling mud, almost all on flat boardwalks.',
+        region: 'yellowstone', regionLabel: 'Yellowstone NP', motif: 'geyser',
+        drive: '~3.5h in park', walk: '6\u20138 mi / mostly flat', sun: 'No early alarm',
+        hotel: { tag: 'Tonight \u2014 Night 2 of 2', name: 'Yellowstone West Gate Hotel', location: 'West Yellowstone, MT', confirmation: '73478829989296', cost: 'Incl.' },
+        stops: [
+          { t: '9:40 AM', n: 'Firehole Canyon Drive', k: 'view', s: 'A one-way loop along the Firehole River \u2014 falls and a thermal swimming hole.', d: 'Firehole Falls drops ~40 ft right by the road. Further along, the river is naturally heated and people actually swim in August. Turquoise water in a canyon \u2014 worth the 10-min detour.' },
+          { t: '10:00 AM', n: 'Fountain Paint Pot', k: 'thermal', s: 'All four Yellowstone thermal types in one short loop \u2014 the bubbling mud pots steal it.', d: 'Geysers, hot springs, mud pots, and fumaroles on a 0.5-mile boardwalk. Firehole Lake Drive nearby has Great Fountain and White Dome geysers visible from the car.', walk: '0.5 mi loop' },
+          { t: '11:15 AM', n: 'Grand Prismatic Spring', k: 'thermal', s: 'The largest hot spring in the U.S. \u2014 370 ft of orange, yellow, green, and deep blue.', d: 'The boardwalk takes you right alongside it; steam will partly obscure the view (that\u2019s normal) and you\u2019ll feel the heat. Excelsior Geyser Crater on the same loop pours 4,000 gallons a minute into the river.', walk: '0.8 mi boardwalk' },
+          { t: '11:45 AM', n: 'Fairy Falls Overlook', k: 'trail', s: 'The climb to the iconic overhead view of Grand Prismatic\u2019s full rainbow.', d: 'About a mile of flat gravel then a short hillside to the platform \u2014 the photo you\u2019ve seen everywhere. Continue 0.6 mi to Fairy Falls itself if you want the extra mile.', walk: '2 mi RT / short climb' },
+          { t: '12:45 PM', n: 'Biscuit Basin', k: 'thermal', s: 'A short, quieter loop \u2014 Sapphire Pool is impossibly blue and clear.', d: 'Black Sand Basin next door adds Emerald Pool and the frequently-erupting Cliff Geyser. 15\u201320 min each.', walk: '0.4 mi loop' },
+          { t: '2:00 PM', n: 'Old Faithful', k: 'thermal', s: 'The eruption \u2014 130\u2013180 ft every ~90 minutes. Check the predicted time and grab a seat early.', d: 'Eruptions last 2\u20135 minutes and impress every time. Lunch at the Old Faithful Inn first \u2014 a 1904 log landmark with a 65-ft stone fireplace, worth walking through even if you don\u2019t eat.' },
+          { t: '2:15 PM', n: 'Upper Geyser Basin Loop', k: 'trail', s: 'The densest concentration of geysers on Earth \u2014 over 150 in one square mile.', d: 'A 3-mile boardwalk past Geyser Hill, Castle, Grand (tallest predictable, 200 ft), Riverside, and the deep-blue Morning Glory Pool at the far end. The heart of Yellowstone \u2014 take your time.', walk: '~3 mi loop / flat' },
+          { t: '5:15 PM', n: 'West Thumb Geyser Basin', k: 'thermal', s: 'Thermal features right on the shore of Yellowstone Lake \u2014 including Fishing Cone.', d: 'A lakeside boardwalk where steaming springs meet the vast lake, unlike any other basin. You\u2019ll be back here at sunrise tomorrow for a completely different scene.', walk: '0.6 mi boardwalk' }
+        ]
+      },
+      {
+        num: 7, weekday: 'Friday', date: 'August 14', dateShort: 'Aug 14', title: 'Yellowstone to Grand Teton',
+        subtitle: 'Drive the empty dawn road south, then a full day in the drive-and-stop paradise of Grand Teton.',
+        region: 'teton', regionLabel: 'Yellowstone \u2192 Grand Teton', motif: 'teton',
+        drive: '~4h', walk: '3\u20135 mi', sun: 'Rise 6:20 / Set 8:40',
+        wildlife: ['Moose', 'Elk', 'Bald eagle'],
+        hotel: { tag: 'Tonight', name: 'Elk Country Inn', location: 'Jackson, WY', confirmation: '73478885538868', cost: '$534' },
+        stops: [
+          { t: '6:45 AM', n: 'West Thumb at Sunrise', k: 'thermal', s: 'You saw it yesterday \u2014 at dawn it\u2019s a different place entirely.', d: 'Steam pours thick off every pool in the cold morning air, the lake is glassy, the light low and warm. If any early alarm pays off, this is it.', drive: '1h 45m from West Yellowstone' },
+          { t: '8:15 AM', n: 'Colter Bay Village', k: 'trail', s: 'First Grand Teton stop \u2014 Jackson Lake with the Teton Range across the water.', d: 'Walk the flat 2-mile lakeshore loop. The visitor center has a notable collection of Native American art and artifacts.', walk: '2 mi loop / flat' },
+          { t: '9:15 AM', n: 'Jackson Lake Lodge', k: 'view', s: '60-ft picture windows framing the Teton Range like a painting.', d: 'Pull in, grab a coffee, and stand at the windows. The view alone is worth the stop. Willow Flats Overlook just south is a reliable morning moose spot.' },
+          { t: '9:30 AM', n: 'Oxbow Bend', k: 'view', s: 'One of the most photographed bends anywhere \u2014 Mount Moran mirrored in still water.', d: 'Morning is best, when the Snake River is calmest. Roadside pullout, 5\u201310 min.' },
+          { t: '9:45 AM', n: 'Signal Mountain Summit', k: 'drive', s: 'A 5-mile road to a 360\u00b0 panorama \u2014 the widest Teton view with no hiking.', d: 'Tetons, Jackson Lake, the Snake River valley, and the Gros Ventre range to the east. Two viewpoints at the top. 30\u201345 min round trip.', drive: '5 mi up / 5 mi down' },
+          { t: '10:45 AM', n: 'Jenny Lake + Hidden Falls', k: 'trail', s: 'Boat shuttle across the lake to a powerful waterfall and Inspiration Point.', d: 'A 12-min shuttle, then ~1 mile of trail (some stairs on the Inspiration Point section) to a wide view back over Jenny Lake. The whole loop runs about 1.5 hrs including the boat.', walk: '~1.5 mi RT / boat' },
+          { t: '1:45 PM', n: 'Snake River Overlook', k: 'view', s: 'Ansel Adams\u2019 famous composition \u2014 the river winding beneath the range.', d: 'Roadside pullout on the main highway. The shot that made the Tetons iconic. Quick stop.' },
+          { t: '2:00 PM', n: 'Snake River Scenic Float', k: 'boat', s: 'If booked \u2014 10 miles of calm water with the full range as backdrop.', d: 'No rapids, just a guided scenic float. Eagles, ospreys, moose, and elk are commonly seen. ~3 hrs including shuttle, $85\u2013100 pp. Skip ahead to Schwabacher if you didn\u2019t book.' },
+          { t: '5:00 PM', n: 'Schwabacher Landing', k: 'view', s: 'Teton reflections in still water with a beaver dam in the foreground.', d: 'A short gravel road to the Snake River. Famous as a sunrise spot but beautiful anytime \u2014 you\u2019ll return at dawn tomorrow.' },
+          { t: '5:30 PM', n: 'Mormon Row', k: 'view', s: 'Iconic homestead barns framing the Tetons \u2014 the T.A. Moulton Barn.', d: 'Drive the gravel road slowly, stop at each barn. The mountains behind them look almost fake \u2014 the scale is hard to process. Continue Antelope Flats Road for pronghorn and bison.' },
+          { t: '7:00 PM', n: 'Jackson Town Square', k: 'town', s: 'Elk-antler arches at every corner \u2014 the best dinner scene of the trip.', d: 'Antlers shed at the nearby National Elk Refuge. Check into Elk Country Inn (walkable from the square), then dinner: Hatch tacos, Liberty Burgers, Thai Me Up, or Snake River Brewing.' }
+        ]
+      },
+      {
+        num: 8, weekday: 'Saturday', date: 'August 15', dateShort: 'Aug 15', title: 'Teton Sunrise to Bozeman',
+        subtitle: 'The Tetons at sunrise are the final act \u2014 then a scenic drive north through Gallatin Canyon.',
+        region: 'teton', regionLabel: 'Grand Teton \u2192 Bozeman', motif: 'teton',
+        drive: '~4.5h', walk: '3\u20134 mi', sun: 'Rise 6:20',
+        hotel: { tag: 'Tonight', name: 'MountainView Lodge', location: 'Bozeman, MT', confirmation: '73478920208263', cost: '$269' },
+        stops: [
+          { t: '6:10 AM', n: 'Schwabacher Landing Sunrise', k: 'view', s: 'Mirror-flat Snake River, drifting mist, and the full range glowing pink and orange.', d: 'Arrive before the sun crests the Gros Ventre to the east. This is the photo people fly across the country for. Best window 6:10\u20136:45 AM.', walk: '0.5 mi / flat' },
+          { t: '6:45 AM', n: 'Mormon Row \u2014 Morning Light', k: 'view', s: 'The T.A. Moulton Barn dark against bright peaks in golden first light.', d: 'Five minutes from Schwabacher. The sagebrush glows; one of the most iconic images in the American West. 10\u201315 min.' },
+          { t: '7:00 AM', n: 'Oxbow Bend \u2014 Morning Calm', k: 'view', s: 'Mount Moran mirrored in the stillest water of the day.', d: 'A second look at the bend, when the river is glassiest. 5\u201310 min, then a real breakfast at Signal Mountain Lodge or Dornan\u2019s.' },
+          { t: '10:00 AM', n: 'Gallatin Canyon', k: 'drive', s: 'A narrow river canyon \u2014 world-famous fly fishing the whole way.', d: 'US-191 runs right alongside the Gallatin River with mountains pressing in. Fishermen stand in the water at nearly every pullout. One of Montana\u2019s best drives.' },
+          { t: '10:30 AM', n: 'Ousel Falls Trail', k: 'trail', s: 'A 1.6-mile walk near Big Sky to a waterfall dropping into a narrow gorge.', d: 'Easy forest trail with a few steps near the falls \u2014 quieter than anything in the parks. 30\u201345 min.', walk: '1.6 mi RT / easy' },
+          { t: '12:30 PM', n: 'Palisade Falls', k: 'trail', s: 'A paved 1.2-mile trail to a fall over hexagonal columns of basalt.', d: 'In Hyalite Canyon south of Bozeman \u2014 columnar basalt formed by cooling lava. Wheelchair-accessible most of the way. A nice final nature stop to close the parks.', walk: '1.2 mi RT / paved' },
+          { t: '3:00 PM', n: 'Bozeman Hot Springs', k: 'view', s: 'Soak in mineral pools after eight days of driving and walking.', d: 'Multiple indoor and outdoor pools, cool to 106\u00b0F, 8 miles west of town. Some evenings have live music. The right way to close the trip.' },
+          { t: '4:30 PM', n: 'Downtown Bozeman', k: 'town', s: 'A mile of local shops, bookstores, and the best coffee in Montana.', d: 'Treeline Coffee Roasters, Country Bookshelf, and Heyday for a cocktail. More character than you\u2019d expect from a college town.' },
+          { t: '5:30 PM', n: 'Museum of the Rockies', k: 'view', s: 'One of the world\u2019s great dinosaur collections \u2014 T. rex, Triceratops, eggs and nests.', d: 'On the MSU campus, plus a planetarium and Montana history. Worth 1\u20131.5 hrs; check closing time. Dinner after at Blackbird, Montana Ale Works, or Roost Fried Chicken.' }
+        ]
+      },
+      {
+        num: 9, weekday: 'Sunday', date: 'August 16', dateShort: 'Aug 16', title: 'Fly Home',
+        subtitle: 'No parks, no long drives, no dawn alarms \u2014 an easy morning and a nonstop flight home.',
+        region: 'home', regionLabel: 'Bozeman \u2192 San Diego', motif: 'route',
+        drive: '15 min to airport', walk: '', sun: 'Sleep in',
+        stops: [
+          { t: '8:30 AM', n: 'Story Mill Community Park', k: 'trail', s: 'One last easy walk \u2014 paved trails, wetlands, and Bridger Mountain views.', d: 'A 60-acre park right in Bozeman with boardwalks along Bozeman Creek. The Bridgers glow in morning light. Flat and peaceful, as far as you want.', walk: 'up to 1.5 mi / flat' },
+          { t: '9:00 AM', n: 'Breakfast in Bozeman', k: 'meal', s: 'Last meal of the trip \u2014 Treeline, Nova Cafe, or the 1906 Western Cafe.', d: 'The Western Cafe is the most Montana breakfast you\u2019ll have; Nova and Jam! are creative sit-downs; Wild Crumb for a quick pastry.' },
+          { t: '10:15 AM', n: 'Bozeman Airport (BZN)', k: 'travel', s: 'Return the rental, check bags \u2014 a small, easy airport.', d: '1.5 hours before departure is plenty. Southwest allows 2 free checked bags \u2014 pack everything you don\u2019t want to carry.' },
+          { t: '12:05 PM', n: 'Southwest BZN \u2192 SAN', k: 'travel', s: 'Nonstop to San Diego, 1h 45m. You gain an hour going west.', d: 'Arrive San Diego 1:50 PM Pacific. You\u2019re home.' }
+        ]
+      }
+    ];
+  }
+
+  KINDS = {
+    travel: { label: 'Travel', color: '#5E7E8B' },
+    drive: { label: 'Scenic Drive', color: '#9A6B2E' },
+    trail: { label: 'Trail', color: '#3C6E47' },
+    view: { label: 'Viewpoint', color: '#3E7B7E' },
+    thermal: { label: 'Geothermal', color: '#BC4B2A' },
+    wildlife: { label: 'Wildlife', color: '#7A5230' },
+    lodge: { label: 'Lodging', color: '#20392B' },
+    boat: { label: 'On the Water', color: '#3E7B7E' },
+    town: { label: 'Town', color: '#9A6B2E' },
+    meal: { label: 'Food', color: '#9A6B2E' }
+  };
+  REGIONS = {
+    glacier: '#3E7B7E', transit: '#C98A2E', yellowstone: '#BC4B2A', teton: '#3C6E47', home: '#5E7E8B'
+  };
+
+  renderVals() {
+    const view = this.effView();
+    const isOverview = view === 'overview';
+    const active = this.state.activeDay;
+
+    const tabBase = "cursor:pointer; font-family:'Oswald',sans-serif; font-weight:500; letter-spacing:1.5px; text-transform:uppercase; font-size:12px; border:none; padding:8px 16px;";
+    const ovBtnStyle = tabBase + (isOverview ? 'background:#D9982F; color:#20392B;' : 'background:transparent; color:#9CB3A0;');
+    const itBtnStyle = tabBase + (!isOverview ? 'background:#D9982F; color:#20392B;' : 'background:transparent; color:#9CB3A0;');
+
+    const days = this.rawDays().map((d, di) => {
+      const regionColor = this.REGIONS[d.region];
+      const stops = d.stops.map((st, si) => {
+        const key = di + '-' + si;
+        const open = this.isOpen(key);
+        const kind = this.KINDS[st.k] || this.KINDS.view;
+        return {
+          ...st,
+          key,
+          kindLabel: kind.label,
+          kindColor: kind.color,
+          isOpen: open,
+          caret: open ? '\u2212' : '+',
+          walk: st.walk || '',
+          drive: st.drive || '',
+          onToggle: () => this.toggleStop(key)
+        };
+      });
+      const isActive = di === active;
+      const navStyle = "cursor:pointer; display:block; width:100%; text-align:left; font-family:inherit; padding:11px 18px; border:none; border-left:4px solid " +
+        (isActive ? regionColor : 'transparent') + '; background:' + (isActive ? '#FBF5E4' : 'transparent') + ';';
+      const wildlife = (d.wildlife || []).map(name => ({ name, icon: this.icon(name) }));
+      return {
+        num: d.num, weekday: d.weekday, date: d.date, dateShort: d.dateShort,
+        title: d.title, subtitle: d.subtitle,
+        regionColor, regionLabel: d.regionLabel,
+        drive: d.drive, walk: d.walk, sun: d.sun,
+        driveShort: d.drive, walkShort: d.walk || '',
+        motifArt: this.motif(d.motif),
+        hotel: d.hotel || null,
+        wildlife, hasWildlife: wildlife.length > 0,
+        stops,
+        navStyle,
+        idx: di,
+        onNav: () => this.scrollToDay(di),
+        onOpen: () => this.openFromOverview(di)
+      };
+    });
+
+    const hotels = [
+      { nights: 'Aug 8\u20139 \u00b7 2 nights', name: 'Mini Golden Inns', location: 'Hungry Horse, MT', confirmation: '73478801173025', cost: '$475' },
+      { nights: 'Aug 10 \u00b7 1 night', name: 'St. Mary Village', location: 'St. Mary, MT', confirmation: '73478287602240', cost: '$409' },
+      { nights: 'Aug 11 \u00b7 1 night', name: 'Yellowstone Basin Inn', location: 'Gardiner, MT', confirmation: 'BE-70789', cost: '$291' },
+      { nights: 'Aug 12\u201313 \u00b7 2 nights', name: 'Yellowstone West Gate', location: 'West Yellowstone, MT', confirmation: '73478829989296', cost: '$588' },
+      { nights: 'Aug 14 \u00b7 1 night', name: 'Elk Country Inn', location: 'Jackson, WY', confirmation: '73478885538868', cost: '$534' },
+      { nights: 'Aug 15 \u00b7 1 night', name: 'MountainView Lodge', location: 'Bozeman, MT', confirmation: '73478920208263', cost: '$269' }
+    ];
+
+    const routePins = [
+      { label: 'Glacier', sub: 'Days 1\u20134', x: '50%', y: '12%', color: '#3E7B7E' },
+      { label: 'Bozeman', sub: 'Fly in / out', x: '62%', y: '38%', color: '#9A6B2E' },
+      { label: 'Yellowstone', sub: 'Days 4\u20137', x: '56%', y: '60%', color: '#BC4B2A' },
+      { label: 'Grand Teton', sub: 'Days 7\u20138', x: '64%', y: '80%', color: '#3C6E47' },
+      { label: 'San Diego', sub: 'Start / Home', x: '12%', y: '86%', color: '#5E7E8B' }
+    ];
+
+    return {
+      isOverview, isItinerary: !isOverview,
+      ovBtnStyle, itBtnStyle,
+      showOverview: this.showOverview, showItinerary: this.showItinerary,
+      days, hotels, routePins
+    };
+  }
+}
+</script>
+</body>
+</html>
