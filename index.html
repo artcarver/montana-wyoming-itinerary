@@ -220,6 +220,7 @@
             </div>
             <div style="font-family:'Oswald',sans-serif; font-weight:600; font-size:17px; text-transform:uppercase; color:#20392B; margin-top:5px; line-height:1.1;">{{ hotel.name }}</div>
             <div style="font-family:'Spectral',serif; font-size:13px; color:#5A4F36; margin-top:3px;">{{ hotel.location }}</div>
+            <sc-if value="{{ hotel.breakfast }}" hint-placeholder-val="{{ false }}"><span style="display:inline-block; font-family:'Oswald',sans-serif; font-size:9px; letter-spacing:1px; text-transform:uppercase; color:#3C6E47; background:#E3E8DF; border:1px solid #B6CDB9; padding:2px 8px; margin-top:7px;">&#9728; Breakfast included</span></sc-if>
             <sc-if value="{{ hotel.isOpen }}" hint-placeholder-val="{{ false }}">
               <div style="margin-top:12px; border-top:1px dashed #C9B98A; padding-top:11px; animation:om-rise 0.18s ease;">
                 <div style="display:flex; gap:26px; flex-wrap:wrap;">
@@ -346,6 +347,7 @@
                   <div style="font-family:'Oswald',sans-serif; font-size:9px; letter-spacing:1.5px; text-transform:uppercase; color:#9A6B2E;">{{ day.hotel.tag }}</div>
                   <div style="font-family:'Oswald',sans-serif; font-weight:600; font-size:16px; text-transform:uppercase; color:#20392B; margin-top:3px;">{{ day.hotel.name }}</div>
                   <div style="font-family:'Spectral',serif; font-size:12px; color:#5A4F36;">{{ day.hotel.location }}</div>
+                  <sc-if value="{{ day.hotel.breakfast }}" hint-placeholder-val="{{ false }}"><span style="display:inline-block; font-family:'Oswald',sans-serif; font-size:9px; letter-spacing:1px; text-transform:uppercase; color:#3C6E47; background:#E3E8DF; border:1px solid #B6CDB9; padding:2px 8px; margin-top:7px;">&#9728; Breakfast included</span></sc-if>
                 </div>
                 <sc-if value="{{ day.hotel.checkin }}" hint-placeholder-val="{{ false }}">
                 <div class="om-hotel-times" style="display:flex; gap:18px;">
@@ -614,7 +616,7 @@ class Component extends DCLogic {
         region: 'transit', regionLabel: 'Glacier \u2192 Yellowstone', motif: 'mountain',
         drive: '~7.5h \u2014 longest day', walk: '3\u20135 mi', sun: '',
         wildlife: ['Moose'],
-        hotel: { tag: 'Tonight', name: 'Yellowstone Basin Inn', location: 'Gardiner, MT \u2014 north gate', confirmation: 'BE-70789', cost: '$291', checkin: '4\u20139 PM', checkout: '10 AM' },
+        hotel: { tag: 'Tonight', name: 'Yellowstone Basin Inn', location: 'Gardiner, MT \u2014 north gate', confirmation: 'BE-70789', cost: '$291', checkin: '4\u20139 PM', checkout: '10 AM', breakfast: true },
         stops: [
           { t: '7:50 AM', n: 'Arrive Many Glacier', k: 'view', s: 'The most dramatic valley in the park \u2014 peaks closing in on all sides.', d: 'Park near the Many Glacier Hotel or Swiftcurrent Motor Inn. You\u2019ll see why people call this the best area in Glacier.', drive: '35 min from St. Mary' },
           { t: '8:00 AM', n: 'Fishercap Lake', k: 'trail', s: 'A flat 0.3-mile walk to one of the best moose-spotting lakes in the park.', d: 'Moose frequently feed in the marshy edges in early morning. Even without one, the peaks behind the lake are beautiful. 15\u201320 min.', walk: '0.6 mi RT / flat' },
@@ -632,7 +634,7 @@ class Component extends DCLogic {
         region: 'yellowstone', regionLabel: 'Yellowstone NP', motif: 'geyser',
         drive: '~5.5h in park', walk: '3\u20135 mi', sun: 'Rise 6:15',
         wildlife: ['Bison', 'Gray wolf', 'Grizzly bear', 'Pronghorn'],
-        hotel: { tag: 'Tonight \u2014 Night 1 of 2', name: 'Yellowstone West Gate Hotel', location: 'West Yellowstone, MT', confirmation: '73478829989296', cost: '$588', checkin: '4 PM', checkout: '11 AM' },
+        hotel: { tag: 'Tonight \u2014 Night 1 of 2', name: 'Yellowstone West Gate Hotel', location: 'West Yellowstone, MT', confirmation: '73478829989296', cost: '$588', checkin: '4 PM', checkout: '11 AM', breakfast: true },
         stops: [
           { t: '6:00 AM', n: 'Lamar Valley at Dawn', k: 'wildlife', s: 'The best wildlife viewing in the lower 48 \u2014 the optional but unforgettable early start.', d: 'Bison herds everywhere, pronghorn in the sage, and with luck wolves on the ridgelines and grizzlies in the meadows. Bring binoculars; look for clusters of spotting scopes and ask what they\u2019re watching. Best window 6:00\u20139:00 AM. (Sleep-in option: start at Mammoth at 8 AM instead.)', drive: '1h 15m from Gardiner' },
           { t: '9:45 AM', n: 'Petrified Tree', k: 'view', s: 'A standing petrified redwood \u2014 50 million years old, turned to stone.', d: 'Short dead-end road west of Tower Junction; 10-min walk from parking. Calcite Springs Overlook (basalt columns, steam vents) and Tower Fall (132-ft drop through volcanic spires) follow close by.' },
@@ -648,7 +650,7 @@ class Component extends DCLogic {
         subtitle: 'The recovery day \u2014 geysers, rainbow hot springs, and bubbling mud, almost all on flat boardwalks.',
         region: 'yellowstone', regionLabel: 'Yellowstone NP', motif: 'geyser',
         drive: '~3.5h in park', walk: '6\u20138 mi / mostly flat', sun: 'No early alarm',
-        hotel: { tag: 'Tonight \u2014 Night 2 of 2', name: 'Yellowstone West Gate Hotel', location: 'West Yellowstone, MT', confirmation: '73478829989296', cost: 'Incl.', checkin: '4 PM', checkout: '11 AM' },
+        hotel: { tag: 'Tonight \u2014 Night 2 of 2', name: 'Yellowstone West Gate Hotel', location: 'West Yellowstone, MT', confirmation: '73478829989296', cost: 'Incl.', checkin: '4 PM', checkout: '11 AM', breakfast: true },
         stops: [
           { t: '9:40 AM', n: 'Firehole Canyon Drive', k: 'view', s: 'A one-way loop along the Firehole River \u2014 falls and a thermal swimming hole.', d: 'Firehole Falls drops ~40 ft right by the road. Further along, the river is naturally heated and people actually swim in August. Turquoise water in a canyon \u2014 worth the 10-min detour.' },
           { t: '10:00 AM', n: 'Fountain Paint Pot', k: 'thermal', s: 'All four Yellowstone thermal types in one short loop \u2014 the bubbling mud pots steal it.', d: 'Geysers, hot springs, mud pots, and fumaroles on a 0.5-mile boardwalk. Firehole Lake Drive nearby has Great Fountain and White Dome geysers visible from the car.', walk: '0.5 mi loop' },
@@ -666,7 +668,7 @@ class Component extends DCLogic {
         region: 'teton', regionLabel: 'Yellowstone \u2192 Grand Teton', motif: 'teton',
         drive: '~4h', walk: '3\u20135 mi', sun: 'Rise 6:20 / Set 8:40',
         wildlife: ['Moose', 'Elk', 'Bald eagle'],
-        hotel: { tag: 'Tonight', name: 'Elk Country Inn', location: 'Jackson, WY', confirmation: '73478885538868', cost: '$534', checkin: '4 PM', checkout: '11 AM' },
+        hotel: { tag: 'Tonight', name: 'Elk Country Inn', location: 'Jackson, WY', confirmation: '73478885538868', cost: '$534', checkin: '4 PM', checkout: '11 AM', breakfast: true },
         stops: [
           { t: '6:45 AM', n: 'West Thumb at Sunrise', k: 'thermal', s: 'You saw it yesterday \u2014 at dawn it\u2019s a different place entirely.', d: 'Steam pours thick off every pool in the cold morning air, the lake is glassy, the light low and warm. If any early alarm pays off, this is it.', drive: '1h 45m from West Yellowstone' },
           { t: '8:15 AM', n: 'Colter Bay Village', k: 'trail', s: 'First Grand Teton stop \u2014 Jackson Lake with the Teton Range across the water.', d: 'Walk the flat 2-mile lakeshore loop. The visitor center has a notable collection of Native American art and artifacts.', walk: '2 mi loop / flat' },
@@ -686,7 +688,7 @@ class Component extends DCLogic {
         subtitle: 'The Tetons at sunrise are the final act \u2014 then a scenic drive north through Gallatin Canyon.',
         region: 'teton', regionLabel: 'Grand Teton \u2192 Bozeman', motif: 'teton',
         drive: '~4.5h', walk: '3\u20134 mi', sun: 'Rise 6:20',
-        hotel: { tag: 'Tonight', name: 'MountainView Lodge', location: 'Bozeman, MT', confirmation: '73478920208263', cost: '$269', checkin: '3 PM', checkout: '11 AM' },
+        hotel: { tag: 'Tonight', name: 'MountainView Lodge', location: 'Bozeman, MT', confirmation: '73478920208263', cost: '$269', checkin: '3 PM', checkout: '11 AM', breakfast: true },
         stops: [
           { t: '6:10 AM', n: 'Schwabacher Landing Sunrise', k: 'view', s: 'Mirror-flat Snake River, drifting mist, and the full range glowing pink and orange.', d: 'Arrive before the sun crests the Gros Ventre to the east. This is the photo people fly across the country for. Best window 6:10\u20136:45 AM.', walk: '0.5 mi / flat' },
           { t: '6:45 AM', n: 'Mormon Row \u2014 Morning Light', k: 'view', s: 'The T.A. Moulton Barn dark against bright peaks in golden first light.', d: 'Five minutes from Schwabacher. The sagebrush glows; one of the most iconic images in the American West. 10\u201315 min.' },
@@ -787,10 +789,10 @@ class Component extends DCLogic {
     const hotels = [
       { nights: 'Aug 8\u20139 \u00b7 2 nights', name: 'Mini Golden Inns', location: 'Hungry Horse, MT', confirmation: '73478801173025', cost: '$475', checkin: '4\u20139 PM', checkout: '11 AM' },
       { nights: 'Aug 10 \u00b7 1 night', name: 'St. Mary Village', location: 'St. Mary, MT', confirmation: '73478287602240', cost: '$409', checkin: '4 PM', checkout: '11 AM' },
-      { nights: 'Aug 11 \u00b7 1 night', name: 'Yellowstone Basin Inn', location: 'Gardiner, MT', confirmation: 'BE-70789', cost: '$291', checkin: '4\u20139 PM', checkout: '10 AM', address: '4 Maiden Basin Drive, Gardiner, MT 59030', phone: '406-848-7080' },
-      { nights: 'Aug 12\u201313 \u00b7 2 nights', name: 'Yellowstone West Gate', location: 'West Yellowstone, MT', confirmation: '73478829989296', cost: '$588', checkin: '4 PM', checkout: '11 AM' },
-      { nights: 'Aug 14 \u00b7 1 night', name: 'Elk Country Inn', location: 'Jackson, WY', confirmation: '73478885538868', cost: '$534', checkin: '4 PM', checkout: '11 AM' },
-      { nights: 'Aug 15 \u00b7 1 night', name: 'MountainView Lodge', location: 'Bozeman, MT', confirmation: '73478920208263', cost: '$269', checkin: '3 PM', checkout: '11 AM', address: '1121 Reeves Rd West, Bozeman, MT 59718' }
+      { nights: 'Aug 11 \u00b7 1 night', name: 'Yellowstone Basin Inn', location: 'Gardiner, MT', confirmation: 'BE-70789', cost: '$291', checkin: '4\u20139 PM', checkout: '10 AM', breakfast: true, address: '4 Maiden Basin Drive, Gardiner, MT 59030', phone: '406-848-7080' },
+      { nights: 'Aug 12\u201313 \u00b7 2 nights', name: 'Yellowstone West Gate', location: 'West Yellowstone, MT', confirmation: '73478829989296', cost: '$588', checkin: '4 PM', checkout: '11 AM', breakfast: true },
+      { nights: 'Aug 14 \u00b7 1 night', name: 'Elk Country Inn', location: 'Jackson, WY', confirmation: '73478885538868', cost: '$534', checkin: '4 PM', checkout: '11 AM', breakfast: true },
+      { nights: 'Aug 15 \u00b7 1 night', name: 'MountainView Lodge', location: 'Bozeman, MT', confirmation: '73478920208263', cost: '$269', checkin: '3 PM', checkout: '11 AM', breakfast: true, address: '1121 Reeves Rd West, Bozeman, MT 59718' }
     ].map((ht, i) => ({
       ...ht,
       isOpen: this.isHotelOpen(i),
