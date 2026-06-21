@@ -195,19 +195,6 @@
         </sc-for>
       </div>
 
-      <!-- WILDLIFE -->
-      <div style="font-family:'Oswald',sans-serif; text-transform:uppercase; letter-spacing:3px; font-size:13px; color:#BC4B2A; font-weight:600; margin-top:56px;">In the Wild</div>
-      <h2 style="font-family:'Oswald',sans-serif; font-weight:600; font-size:32px; text-transform:uppercase; letter-spacing:0.5px; margin:4px 0 8px; color:#20392B;">Wildlife to watch for</h2>
-      <p style="font-family:'Spectral',serif; font-size:15px; color:#5A4F36; margin:0 0 22px; max-width:600px;">Across Glacier, Yellowstone, and Grand Teton &mdash; keep binoculars handy at dawn and dusk, and never approach.</p>
-      <div style="display:flex; flex-wrap:wrap; gap:12px;">
-        <sc-for list="{{ allWildlife }}" as="w" hint-placeholder-count="8">
-          <span style="display:inline-flex; align-items:center; gap:11px; background:#FBF5E4; border:1px solid #C9B98A; border-radius:30px; padding:7px 18px 7px 7px;">
-            <span style="width:36px; height:36px; border-radius:50%; background:#7A5230; color:#F3E9D2; display:inline-flex; align-items:center; justify-content:center; padding:7px; flex:none;">{{ w.icon }}</span>
-            <span style="font-family:'Oswald',sans-serif; font-size:13px; letter-spacing:0.5px; text-transform:uppercase; color:#3D3422;">{{ w.name }}</span>
-          </span>
-        </sc-for>
-      </div>
-
       <!-- HOTELS -->
       <div style="font-family:'Oswald',sans-serif; text-transform:uppercase; letter-spacing:3px; font-size:13px; color:#BC4B2A; font-weight:600; margin-top:56px;">Where You Sleep</div>
       <h2 style="font-family:'Oswald',sans-serif; font-weight:600; font-size:32px; text-transform:uppercase; letter-spacing:0.5px; margin:4px 0 22px; color:#20392B;">Lodging &amp; confirmations</h2>
@@ -780,12 +767,6 @@ class Component extends DCLogic {
       };
     });
 
-    const seenW = {};
-    const allWildlife = [];
-    this.rawDays().forEach(d => (d.wildlife || []).forEach(name => {
-      if (!seenW[name]) { seenW[name] = true; allWildlife.push({ name, icon: this.icon(name) }); }
-    }));
-
     const hotels = [
       { nights: 'Aug 8\u20139 \u00b7 2 nights', name: 'Mini Golden Inns', location: 'Hungry Horse, MT', confirmation: '73478801173025', cost: '$475', checkin: '4\u20139 PM', checkout: '11 AM' },
       { nights: 'Aug 10 \u00b7 1 night', name: 'St. Mary Village', location: 'St. Mary, MT', confirmation: '73478287602240', cost: '$409', checkin: '4 PM', checkout: '11 AM' },
@@ -812,7 +793,7 @@ class Component extends DCLogic {
       isOverview, isItinerary: !isOverview,
       ovBtnStyle, itBtnStyle,
       showOverview: this.showOverview, showItinerary: this.showItinerary,
-      days, hotels, routePins, allWildlife
+      days, hotels, routePins
     };
   }
 }
