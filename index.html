@@ -355,6 +355,47 @@
           </div>
         </div>
       </sc-for>
+
+      <!-- booking checklist -->
+      <div class="om-day-content" style="padding:30px 30px 40px; max-width:760px;">
+        <div style="background:#FBF5E4; border:1px solid #C9B98A; border-top:4px solid #20392B; padding:22px 24px 8px;">
+          <div style="font-family:'Oswald',sans-serif; font-weight:600; font-size:18px; letter-spacing:1px; text-transform:uppercase; color:#20392B;">Before You Go &mdash; Reservations</div>
+          <div style="font-family:'Spectral',serif; font-size:13px; color:#5A4F36; margin:6px 0 18px;">Hotels are all booked. These are the activities and passes left to lock in &mdash; with who to book and by when.</div>
+
+          <div style="border-top:1px solid #E0D2A8; padding:14px 0; display:flex; justify-content:space-between; align-items:flex-start; gap:16px; flex-wrap:wrap;">
+            <div style="flex:1; min-width:220px;">
+              <div style="font-family:'Oswald',sans-serif; font-weight:600; font-size:15px; text-transform:uppercase; color:#20392B;">Snake River Scenic Float</div>
+              <div style="font-family:'Spectral',serif; font-size:13px; color:#5A4F36; margin-top:3px;">Solitude Float Trips (highest-rated) &middot; 307-733-2871 &middot; grand-teton-scenic-floats.com. Aim for the 5 PM Aug 14 slot. Backup: Barker-Ewing, barkerewing.com.</div>
+            </div>
+            <div style="font-family:'Oswald',sans-serif; font-size:11px; letter-spacing:1px; text-transform:uppercase; color:#BC4B2A; background:#F6E2D8; border:1px solid #E3B7A4; padding:4px 10px; white-space:nowrap;">Lock in by Aug 1</div>
+          </div>
+
+          <div style="border-top:1px solid #E0D2A8; padding:14px 0; display:flex; justify-content:space-between; align-items:flex-start; gap:16px; flex-wrap:wrap;">
+            <div style="flex:1; min-width:220px;">
+              <div style="font-family:'Oswald',sans-serif; font-weight:600; font-size:15px; text-transform:uppercase; color:#20392B;">Park Entry Pass</div>
+              <div style="font-family:'Spectral',serif; font-size:13px; color:#5A4F36; margin-top:3px;">America the Beautiful annual pass, $80 &middot; store.usgs.gov. Covers Glacier, Yellowstone &amp; Grand Teton for the whole car. No vehicle reservations needed anywhere in 2026.</div>
+            </div>
+            <div style="font-family:'Oswald',sans-serif; font-size:11px; letter-spacing:1px; text-transform:uppercase; color:#9A6B2E; background:#F1E6CC; border:1px solid #D8C292; padding:4px 10px; white-space:nowrap;">Anytime / at gate</div>
+          </div>
+
+          <div style="border-top:1px solid #E0D2A8; padding:14px 0; display:flex; justify-content:space-between; align-items:flex-start; gap:16px; flex-wrap:wrap;">
+            <div style="flex:1; min-width:220px;">
+              <div style="font-family:'Oswald',sans-serif; font-weight:600; font-size:15px; text-transform:uppercase; color:#20392B;">Jenny Lake Boat Shuttle</div>
+              <div style="font-family:'Spectral',serif; font-size:13px; color:#5A4F36; margin-top:3px;">Jenny Lake Boating &middot; jennylakeboating.com. No reservation &mdash; boats run every 10&ndash;15 min, 7 AM&ndash;7 PM. Just arrive early (~8 AM) at the East Boat Dock and pay.</div>
+            </div>
+            <div style="font-family:'Oswald',sans-serif; font-size:11px; letter-spacing:1px; text-transform:uppercase; color:#3C6E47; background:#E3E8DF; border:1px solid #B6CDB9; padding:4px 10px; white-space:nowrap;">Walk-up &middot; no booking</div>
+          </div>
+
+          <div style="border-top:1px solid #E0D2A8; padding:14px 0; display:flex; justify-content:space-between; align-items:flex-start; gap:16px; flex-wrap:wrap;">
+            <div style="flex:1; min-width:220px;">
+              <div style="font-family:'Oswald',sans-serif; font-weight:600; font-size:15px; text-transform:uppercase; color:#20392B;">Many Glacier Boat Tour</div>
+              <div style="font-family:'Spectral',serif; font-size:13px; color:#5A4F36; margin-top:3px;">Glacier Park Boat Co. &middot; glacierparkboats.com. The Aug 10, 5 PM tour is already reserved &mdash; nothing more to do but show up by 4:30.</div>
+            </div>
+            <div style="font-family:'Oswald',sans-serif; font-size:11px; letter-spacing:1px; text-transform:uppercase; color:#3C6E47; background:#E3E8DF; border:1px solid #B6CDB9; padding:4px 10px; white-space:nowrap;">Reserved &check;</div>
+          </div>
+        </div>
+      </div>
+
       <div style="background:#20392B; color:#9CB3A0; text-align:center; padding:30px; font-family:'Oswald',sans-serif; letter-spacing:2px; font-size:11px; text-transform:uppercase;">End of the trail &middot; Fly home Aug 16</div>
     </div>
   </div>
@@ -596,9 +637,9 @@ class Component extends DCLogic {
           { t: '12:45 PM', n: 'Sun Point', k: 'view', s: 'A rocky point jutting into St. Mary Lake with wide mountain views.', d: 'Optional flat lakeshore walk to Baring Falls (1.2 mi RT). Wind can be strong out on the point.' },
           { t: '1:15 PM', n: 'St. Mary Falls', k: 'trail', s: 'Short forest descent to a powerful waterfall with a turquoise pool.', d: '1.7-mile round trip with some stairs. Add 1.4 mi to reach Virginia Falls \u2014 even bigger and more dramatic \u2014 if your legs are up for it.', walk: '1.7 mi RT / stairs' },
           { t: '2:15 PM', n: 'Wild Goose Island', k: 'view', s: 'The iconic shot \u2014 a tiny island in St. Mary Lake backed by mountains.', d: 'Roadside pullout. Pull over, take the photo, keep going. Rising Sun area nearby has a store and boat tours.' },
-          { t: '3:30 PM', n: 'Drive to Many Glacier', k: 'drive', s: 'Head north to the Many Glacier valley for tonight\u2019s booked boat tour.', d: 'About 35 min from the St. Mary area. You\u2019ll check into St. Mary Village afterward this evening \u2014 no need to stop first.', drive: '35 min' },
+          { t: '3:30 PM', n: 'Drive to Many Glacier', k: 'drive', s: 'Head north to the Many Glacier valley for the evening boat tour.', d: 'About 35 min from the St. Mary area. You\u2019ll check into St. Mary Village afterward this evening \u2014 no need to stop first.', drive: '35 min' },
           { t: '4:15 PM', n: 'Many Glacier Hotel Deck', k: 'view', s: 'Pick up your tickets, then walk the Swiftcurrent shore to the historic lodge deck.', d: 'Tickets at the dock directly behind Many Glacier Hotel \u2014 arrive 30 min before departure. The lakeside deck is one of the best lodge views anywhere while you wait for the boat.' },
-          { t: '5:00 PM', n: 'Many Glacier Boat Tour', k: 'boat', s: 'BOOKED \u2014 guided cruise across Swiftcurrent Lake and Lake Josephine, the trip\u2019s once-in-a-lifetime boat ride.', d: 'Glacier Park Boat Co. \u00b7 Conf# ZZ062126193 \u00b7 2 adults. Two boats with a short guided walk between the lakes; peaks close in from every side. ~1.5 hrs. Be at the ticket office by 4:30 to claim your seats.', walk: 'boat ~1.5 hrs' },
+          { t: '5:00 PM', n: 'Many Glacier Boat Tour', k: 'boat', s: 'Guided cruise across Swiftcurrent Lake and Lake Josephine \u2014 the trip\u2019s once-in-a-lifetime boat ride.', d: 'Glacier Park Boat Co. runs two boats with a short guided walk between the lakes; peaks close in from every side. ~1.5 hrs. Be at the ticket office behind Many Glacier Hotel by 4:30 to claim your seats.', walk: 'boat ~1.5 hrs' },
           { t: '6:45 PM', n: 'St. Mary Village \u2014 Check In + Dinner', k: 'lodge', s: 'Drive back to St. Mary, check in, and an easy evening.', d: 'On-site restaurant and general store. An evening lakeshore walk at Rising Sun catches the east-side light as the sun drops behind the peaks.' }
         ]
       },
