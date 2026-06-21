@@ -44,6 +44,8 @@
     .om-day-content { padding: 18px 16px 28px !important; max-width: 100% !important; }
     .om-hotel-times { gap: 30px !important; margin-top: 4px !important; }
     .om-hotel-times > div { text-align: left !important; }
+    .om-wildlife { gap: 8px !important; padding: 12px 13px !important; }
+    .om-wildlife-label { width: 100% !important; margin-bottom: 2px !important; }
   }
 </style>
 </helmet>
@@ -290,41 +292,20 @@
                 <sc-if value="{{ day.walk }}" hint-placeholder-val="{{ true }}"><div style="display:flex; align-items:center; gap:7px;"><span style="font-family:'Oswald',sans-serif; font-size:9px; letter-spacing:1px; text-transform:uppercase; color:#9CB3A0;">On Foot</span><span style="font-family:'Oswald',sans-serif; font-weight:500; font-size:13px; color:#F3E9D2;">{{ day.walk }}</span></div></sc-if>
                 <sc-if value="{{ day.sun }}" hint-placeholder-val="{{ true }}"><div style="display:flex; align-items:center; gap:7px;"><span style="font-family:'Oswald',sans-serif; font-size:9px; letter-spacing:1px; text-transform:uppercase; color:#9CB3A0;">Sun</span><span style="font-family:'Oswald',sans-serif; font-weight:500; font-size:13px; color:#F3E9D2;">{{ day.sun }}</span></div></sc-if>
               </div>
-              <sc-if value="{{ day.hasWildlife }}" hint-placeholder-val="{{ false }}">
-              <div style="display:flex; align-items:center; gap:9px; flex-wrap:wrap; margin-top:14px; padding-top:13px; border-top:1px solid #2E4D3A;">
-                <span style="font-family:'Oswald',sans-serif; font-size:9px; letter-spacing:1px; text-transform:uppercase; color:#9CB3A0; flex:none;">Wildlife</span>
-                <sc-for list="{{ day.wildlife }}" as="w" hint-placeholder-count="3">
-                  <span style="display:inline-flex; align-items:center; gap:7px; background:#2E4D3A; border-radius:20px; padding:3px 13px 3px 3px;">
-                    <span style="width:24px; height:24px; border-radius:50%; background:#20392B; color:#D9982F; display:inline-flex; align-items:center; justify-content:center; padding:4px; flex:none;">{{ w.icon }}</span>
-                    <span style="font-family:'Oswald',sans-serif; font-size:11px; letter-spacing:0.5px; text-transform:uppercase; color:#E7DBBC;">{{ w.name }}</span>
-                  </span>
-                </sc-for>
-              </div>
-              </sc-if>
             </div>
           </div>
 
           <div class="om-day-content" style="padding:24px 30px 36px; max-width:760px;">
-            <!-- hotel card -->
-            <sc-if value="{{ day.hotel }}" hint-placeholder-val="{{ false }}">
-              <div style="background:#FBF5E4; border:1px solid #C9B98A; border-left:4px solid #BC4B2A; padding:13px 16px; margin-bottom:24px; display:flex; justify-content:space-between; align-items:center; gap:14px; flex-wrap:wrap;">
-                <div>
-                  <div style="font-family:'Oswald',sans-serif; font-size:9px; letter-spacing:1.5px; text-transform:uppercase; color:#9A6B2E;">{{ day.hotel.tag }}</div>
-                  <div style="font-family:'Oswald',sans-serif; font-weight:600; font-size:16px; text-transform:uppercase; color:#20392B; margin-top:3px;">{{ day.hotel.name }}</div>
-                  <div style="font-family:'Spectral',serif; font-size:12px; color:#5A4F36;">{{ day.hotel.location }}</div>
-                </div>
-                <sc-if value="{{ day.hotel.checkin }}" hint-placeholder-val="{{ false }}">
-                <div class="om-hotel-times" style="display:flex; gap:18px;">
-                  <div style="text-align:right;">
-                    <div style="font-family:'Oswald',sans-serif; font-size:9px; letter-spacing:1px; text-transform:uppercase; color:#9A8B62;">Check-in</div>
-                    <div style="font-family:'Oswald',sans-serif; font-weight:600; font-size:15px; color:#3C6E47; margin-top:2px;">{{ day.hotel.checkin }}</div>
-                  </div>
-                  <div style="text-align:right;">
-                    <div style="font-family:'Oswald',sans-serif; font-size:9px; letter-spacing:1px; text-transform:uppercase; color:#9A8B62;">Check-out</div>
-                    <div style="font-family:'Oswald',sans-serif; font-weight:600; font-size:15px; color:#BC4B2A; margin-top:2px;">{{ day.hotel.checkout }}</div>
-                  </div>
-                </div>
-                </sc-if>
+            <!-- wildlife strip -->
+            <sc-if value="{{ day.hasWildlife }}" hint-placeholder-val="{{ false }}">
+              <div class="om-wildlife" style="display:flex; align-items:center; gap:12px; flex-wrap:wrap; background:#EFE4C6; border:1px dashed #C9A86E; padding:11px 15px; margin-bottom:22px;">
+                <span class="om-wildlife-label" style="font-family:'Oswald',sans-serif; font-size:10px; letter-spacing:1.5px; text-transform:uppercase; color:#7A5230; font-weight:600;">Keep an eye out for</span>
+                <sc-for list="{{ day.wildlife }}" as="w" hint-placeholder-count="3">
+                  <span style="display:inline-flex; align-items:center; gap:7px; background:#FBF5E4; border:1px solid #C9B98A; border-radius:20px; padding:4px 12px 4px 5px;">
+                    <span style="width:24px; height:24px; border-radius:50%; background:#7A5230; color:#F3E9D2; display:inline-flex; align-items:center; justify-content:center; padding:4px; flex:none;">{{ w.icon }}</span>
+                    <span style="font-family:'Oswald',sans-serif; font-size:11px; letter-spacing:0.5px; text-transform:uppercase; color:#3D3422;">{{ w.name }}</span>
+                  </span>
+                </sc-for>
               </div>
             </sc-if>
 
@@ -357,6 +338,29 @@
                 </div>
               </sc-for>
             </div>
+
+            <!-- hotel card — where you sleep tonight -->
+            <sc-if value="{{ day.hotel }}" hint-placeholder-val="{{ false }}">
+              <div style="background:#FBF5E4; border:1px solid #C9B98A; border-left:4px solid #BC4B2A; padding:13px 16px; margin-top:18px; display:flex; justify-content:space-between; align-items:center; gap:14px; flex-wrap:wrap;">
+                <div>
+                  <div style="font-family:'Oswald',sans-serif; font-size:9px; letter-spacing:1.5px; text-transform:uppercase; color:#9A6B2E;">{{ day.hotel.tag }}</div>
+                  <div style="font-family:'Oswald',sans-serif; font-weight:600; font-size:16px; text-transform:uppercase; color:#20392B; margin-top:3px;">{{ day.hotel.name }}</div>
+                  <div style="font-family:'Spectral',serif; font-size:12px; color:#5A4F36;">{{ day.hotel.location }}</div>
+                </div>
+                <sc-if value="{{ day.hotel.checkin }}" hint-placeholder-val="{{ false }}">
+                <div class="om-hotel-times" style="display:flex; gap:18px;">
+                  <div style="text-align:right;">
+                    <div style="font-family:'Oswald',sans-serif; font-size:9px; letter-spacing:1px; text-transform:uppercase; color:#9A8B62;">Check-in</div>
+                    <div style="font-family:'Oswald',sans-serif; font-weight:600; font-size:15px; color:#3C6E47; margin-top:2px;">{{ day.hotel.checkin }}</div>
+                  </div>
+                  <div style="text-align:right;">
+                    <div style="font-family:'Oswald',sans-serif; font-size:9px; letter-spacing:1px; text-transform:uppercase; color:#9A8B62;">Check-out</div>
+                    <div style="font-family:'Oswald',sans-serif; font-weight:600; font-size:15px; color:#BC4B2A; margin-top:2px;">{{ day.hotel.checkout }}</div>
+                  </div>
+                </div>
+                </sc-if>
+              </div>
+            </sc-if>
           </div>
         </div>
       </sc-for>
