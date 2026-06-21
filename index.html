@@ -25,9 +25,15 @@
     .om-topbar { padding: 0 14px !important; }
     .om-topbar-sub { display: none !important; }
     .om-topbar-btn { padding: 8px 11px !important; font-size: 11px !important; letter-spacing: 1px !important; }
-    .om-hero-inner { padding: 28px 18px 44px !important; }
-    .om-h1 { font-size: 46px !important; }
-    .om-hero-p { font-size: 16px !important; max-width: 100% !important; }
+    .om-hero { background: #20392B !important; border-bottom-color: #BC4B2A !important; }
+    .om-hero-svg { display: none !important; }
+    .om-hero-inner { padding: 36px 20px 40px !important; text-align: center !important; }
+    .om-h1 { font-size: 46px !important; color: #F3E9D2 !important; text-shadow: none !important; }
+    .om-hero-accent { display: block !important; }
+    .om-hero-p { font-size: 16px !important; max-width: 100% !important; color: #C9D6C9 !important; margin-left: auto !important; margin-right: auto !important; }
+    .om-hero-stats { justify-content: center !important; gap: 26px !important; margin-top: 26px !important; }
+    .om-hero-stats > div > div:first-child { color: #D9982F !important; }
+    .om-hero-stats > div > div:last-child { color: #9CB3A0 !important; }
     .om-section-pad { padding: 36px 18px 56px !important; }
     .om-grid-3 { grid-template-columns: 1fr !important; }
     .om-itinerary { flex-direction: column !important; height: auto !important; min-height: calc(100vh - 62px); }
@@ -36,6 +42,8 @@
     .om-day-header-inner { padding: 14px 16px 16px !important; }
     .om-day-h2 { font-size: 22px !important; }
     .om-day-content { padding: 18px 16px 28px !important; max-width: 100% !important; }
+    .om-hotel-times { gap: 30px !important; margin-top: 4px !important; }
+    .om-hotel-times > div { text-align: left !important; }
   }
 </style>
 </helmet>
@@ -67,8 +75,8 @@
   <sc-if value="{{ isOverview }}" hint-placeholder-val="{{ true }}">
   <div>
     <!-- HERO -->
-    <div style="position:relative; overflow:hidden; background:#EBDFBF; border-bottom:3px solid #20392B;">
-      <svg viewBox="0 0 1200 470" preserveAspectRatio="xMidYMax slice" style="position:absolute; inset:0; width:100%; height:100%; display:block;">
+    <div class="om-hero" style="position:relative; overflow:hidden; background:#EBDFBF; border-bottom:3px solid #20392B;">
+      <svg class="om-hero-svg" viewBox="0 0 1200 470" preserveAspectRatio="xMidYMax slice" style="position:absolute; inset:0; width:100%; height:100%; display:block;">
         <rect x="0" y="0" width="1200" height="470" fill="#EFE4C6"></rect>
         <rect x="0" y="0" width="1200" height="150" fill="#E5D7B2"></rect>
         <circle cx="905" cy="172" r="74" fill="#D9982F"></circle>
@@ -93,8 +101,9 @@
       <div class="om-hero-inner" style="position:relative; max-width:1080px; margin:0 auto; padding:64px 40px 92px;">
         <div style="display:inline-block; font-family:'Oswald',sans-serif; letter-spacing:4px; font-size:13px; font-weight:500; text-transform:uppercase; color:#20392B; background:#D9982F; padding:6px 14px;">A 9-Day Road Trip</div>
         <h1 class="om-h1" style="font-family:'Oswald',sans-serif; font-weight:700; font-size:84px; line-height:0.92; letter-spacing:1px; text-transform:uppercase; margin:18px 0 0; color:#20392B; text-shadow:2px 2px 0 rgba(243,233,210,0.6);">Montana<br>&amp; Wyoming</h1>
+        <div class="om-hero-accent" style="display:none; width:90px; height:4px; background:#BC4B2A; margin:16px auto 0;"></div>
         <p class="om-hero-p" style="font-family:'Spectral',serif; font-size:21px; max-width:540px; margin:20px 0 0; color:#2A2018; font-weight:400;">San Diego to Glacier, Yellowstone &amp; Grand Teton and back &mdash; three national parks across two states in nine days.</p>
-        <div style="display:flex; flex-wrap:wrap; gap:30px; margin-top:34px;">
+        <div class="om-hero-stats" style="display:flex; flex-wrap:wrap; gap:30px; margin-top:34px;">
           <div><div style="font-family:'Oswald',sans-serif; font-weight:700; font-size:40px; color:#BC4B2A; line-height:1;">9</div><div style="font-family:'Oswald',sans-serif; letter-spacing:2px; font-size:11px; text-transform:uppercase; color:#5A5036; margin-top:3px;">Days</div></div>
           <div><div style="font-family:'Oswald',sans-serif; font-weight:700; font-size:40px; color:#BC4B2A; line-height:1;">3</div><div style="font-family:'Oswald',sans-serif; letter-spacing:2px; font-size:11px; text-transform:uppercase; color:#5A5036; margin-top:3px;">National Parks</div></div>
           <div><div style="font-family:'Oswald',sans-serif; font-weight:700; font-size:40px; color:#BC4B2A; line-height:1;">8</div><div style="font-family:'Oswald',sans-serif; letter-spacing:2px; font-size:11px; text-transform:uppercase; color:#5A5036; margin-top:3px;">Nights</div></div>
@@ -277,7 +286,7 @@
                   <div style="font-family:'Spectral',serif; font-size:12px; color:#5A4F36;">{{ day.hotel.location }}</div>
                 </div>
                 <sc-if value="{{ day.hotel.checkin }}" hint-placeholder-val="{{ false }}">
-                <div style="display:flex; gap:18px;">
+                <div class="om-hotel-times" style="display:flex; gap:18px;">
                   <div style="text-align:right;">
                     <div style="font-family:'Oswald',sans-serif; font-size:9px; letter-spacing:1px; text-transform:uppercase; color:#9A8B62;">Check-in</div>
                     <div style="font-family:'Oswald',sans-serif; font-weight:600; font-size:15px; color:#3C6E47; margin-top:2px;">{{ day.hotel.checkin }}</div>
