@@ -246,12 +246,12 @@
                   </div>
                   <div style="font-family:'Spectral',serif; font-size:12px; color:#5A4F36; margin-top:10px;">{{ hotel.address }}</div>
                   <div style="margin-top:10px; border-top:1px dashed #D8C58F; padding-top:8px;">
-                    <div onClick="{{ hotel.onPriceToggle }}" style="cursor:pointer; font-family:'Oswald',sans-serif; font-size:10px; letter-spacing:1px; text-transform:uppercase; color:#9A6B2E; display:flex; align-items:center; gap:5px; user-select:none;">
-                      <span>{{ hotel.priceOpen ? '▾' : '▸' }}</span> Check current price
+                    <div onClick="{{ hotel.onPriceToggle }}" style="cursor:pointer; font-family:'Oswald',sans-serif; font-size:10px; letter-spacing:1px; text-transform:uppercase; color:#9A6B2E; display:flex; align-items:center; gap:10px; user-select:none;">
+                      <span style="display:flex; align-items:center; gap:5px;"><span>{{ hotel.priceOpen ? '▾' : '▸' }}</span> Check current price</span>
+                      <span style="font-family:'Spectral',serif; font-size:11px; text-transform:none; letter-spacing:0; color:#5A4F36; font-weight:400;">Booked at <strong style="color:#20392B;">{{ hotel.cost }}</strong></span>
                     </div>
                     <sc-if value="{{ hotel.priceOpen }}" hint-placeholder-val="{{ false }}">
-                      <div style="margin-top:8px; display:flex; align-items:center; gap:14px; flex-wrap:wrap; animation:om-rise 0.15s ease;">
-                        <span style="font-family:'Oswald',sans-serif; font-size:12px; color:#5A4F36;">Booked at <strong style="color:#20392B;">{{ hotel.cost }}</strong></span>
+                      <div style="margin-top:8px; display:flex; align-items:center; gap:10px; flex-wrap:wrap; animation:om-rise 0.15s ease;">
                         <a href="{{ hotel.website }}" target="_blank" rel="noopener" style="font-family:'Oswald',sans-serif; font-size:10px; letter-spacing:0.5px; text-transform:uppercase; color:#3C6E47; border:1px solid #B6CDB9; padding:3px 9px; text-decoration:none;">Hotel site ↗</a>
                         <a href="{{ hotel.expediaHotelUrl }}" target="_blank" rel="noopener" style="font-family:'Oswald',sans-serif; font-size:10px; letter-spacing:0.5px; text-transform:uppercase; color:#9A6B2E; border:1px solid #D8C58F; padding:3px 9px; text-decoration:none;">Expedia listing ↗</a>
                         <a href="{{ hotel.expediaUrl }}" target="_blank" rel="noopener" style="font-family:'Oswald',sans-serif; font-size:10px; letter-spacing:0.5px; text-transform:uppercase; color:#7A6B50; border:1px solid #C9B98A; padding:3px 9px; text-decoration:none;">Compare area ↗</a>
