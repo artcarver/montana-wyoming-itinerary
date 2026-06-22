@@ -27,7 +27,11 @@
   .om-scroll::-webkit-scrollbar-track { background: #E2D5B2; }
   .om-scroll::-webkit-scrollbar-thumb { background: #B7A879; border-radius: 0; }
   @keyframes om-rise { from { transform: translateY(6px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+  .om-day-photo { position: absolute; right: 28px; top: 50%; transform: translateY(-50%) rotate(2.5deg); width: 112px; height: 138px; object-fit: cover; border: 6px solid #F3E9D2; border-bottom-width: 22px; box-shadow: 0 6px 16px rgba(0,0,0,0.4); background: #F3E9D2; z-index: 1; }
+  @media (min-width: 681px) { .om-day-header .om-day-header-inner { padding-right: 172px !important; } }
   @media (max-width: 680px) {
+    .om-day-photo { display: none !important; }
+    .om-day-header { background-image: linear-gradient(100deg, rgba(26,42,32,0.94) 0%, rgba(26,42,32,0.82) 42%, rgba(26,42,32,0.5) 100%), var(--day-img) !important; background-size: cover !important; background-position: center !important; background-repeat: no-repeat !important; }
     .om-topbar { padding: 0 12px !important; gap: 8px !important; }
     .om-topbar-sub { display: none !important; }
     .om-topbar-title { font-size: 13px !important; letter-spacing: 1.5px !important; }
@@ -281,8 +285,9 @@
       <sc-for list="{{ days }}" as="day" hint-placeholder-count="9">
         <div id="om-day-{{ day.idx }}" style="border-bottom:2px solid #E0D2AC;">
           <!-- sticky day header -->
-          <div style="{{ day.headerStyle }}">
+          <div class="om-day-header" style="{{ day.headerStyle }}">
             <sc-if value="{{ day.showMotif }}" hint-placeholder-val="{{ false }}"><div style="position:absolute; right:0; top:0; bottom:0; width:280px; opacity:0.16; color:#F3E9D2;">{{ day.motifArt }}</div></sc-if>
+            <sc-if value="{{ day.hasImage }}" hint-placeholder-val="{{ false }}"><img class="om-day-photo" src="{{ day.image }}" alt=""></sc-if>
             <div class="om-day-header-inner" style="position:relative; padding:20px 30px 22px;">
               <div style="display:flex; align-items:baseline; gap:14px; flex-wrap:wrap;">
                 <span style="font-family:'Oswald',sans-serif; font-weight:700; font-size:13px; letter-spacing:2px; text-transform:uppercase; color:#D9982F;">Day {{ day.num }}</span>
@@ -841,10 +846,9 @@ class Component extends DCLogic {
         driveShort: d.drive, walkShort: d.walk || '',
         motifArt: this.motif(d.motif),
         image: d.image || '',
+        hasImage: !!d.image,
         showMotif: !d.image,
-        headerStyle: d.image
-          ? "position:sticky; top:0; z-index:10; color:#F3E9D2; padding:0; overflow:hidden; background-image:linear-gradient(100deg, rgba(26,42,32,0.94) 0%, rgba(26,42,32,0.82) 42%, rgba(26,42,32,0.5) 100%), url('" + d.image + "'); background-size:cover; background-position:center;"
-          : "position:sticky; top:0; z-index:10; background:#20392B; color:#F3E9D2; padding:0; overflow:hidden;",
+        headerStyle: "position:sticky; top:0; z-index:10; background:#20392B; color:#F3E9D2; padding:0; overflow:hidden;" + (d.image ? " --day-img:url('" + d.image + "');" : ""),
         hotel: d.hotel || null,
         wildlife, hasWildlife: wildlife.length > 0,
         stops,
