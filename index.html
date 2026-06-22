@@ -27,10 +27,10 @@
   .om-scroll::-webkit-scrollbar-track { background: #E2D5B2; }
   .om-scroll::-webkit-scrollbar-thumb { background: #B7A879; border-radius: 0; }
   @keyframes om-rise { from { transform: translateY(6px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-  .om-day-photos { position: absolute; right: 22px; top: 50%; transform: translateY(-50%); display: flex; align-items: center; z-index: 1; }
-  .om-day-polaroid { width: 88px; height: 88px; object-fit: cover; border: 5px solid #F3E9D2; border-bottom-width: 18px; box-shadow: 0 5px 14px rgba(0,0,0,0.4); background: #F3E9D2; transition: transform 0.14s ease; }
+  .om-day-photos { display: flex; align-items: center; flex: none; z-index: 1; }
+  .om-day-polaroid { width: 140px; height: 94px; object-fit: cover; border: 6px solid #F3E9D2; border-bottom-width: 22px; box-shadow: 0 6px 16px rgba(0,0,0,0.42); background: #F3E9D2; transition: transform 0.14s ease; }
   .om-day-polaroid:hover { transform: rotate(0deg) scale(1.06) !important; z-index: 20 !important; }
-  @media (min-width: 681px) { .om-day-header .om-day-header-inner { padding-right: 300px !important; } }
+  @media (min-width: 681px) { .om-day-header-inner { display: flex !important; align-items: center; gap: 30px; } .om-day-text { flex: 0 1 auto; min-width: 0; } }
   @media (max-width: 680px) {
     .om-day-photos { display: none !important; }
     .om-day-header { background-image: linear-gradient(100deg, rgba(26,42,32,0.94) 0%, rgba(26,42,32,0.82) 42%, rgba(26,42,32,0.5) 100%), var(--day-img) !important; background-size: cover !important; background-position: center !important; background-repeat: no-repeat !important; }
@@ -289,8 +289,8 @@
           <!-- sticky day header -->
           <div class="om-day-header" style="{{ day.headerStyle }}">
             <sc-if value="{{ day.showMotif }}" hint-placeholder-val="{{ false }}"><div style="position:absolute; right:0; top:0; bottom:0; width:280px; opacity:0.16; color:#F3E9D2;">{{ day.motifArt }}</div></sc-if>
-            <sc-if value="{{ day.hasPhotos }}" hint-placeholder-val="{{ false }}"><div class="om-day-photos"><sc-for list="{{ day.photos }}" as="p" hint-placeholder-count="3"><img class="om-day-polaroid" src="{{ p.src }}" style="{{ p.style }}" alt=""></sc-for></div></sc-if>
             <div class="om-day-header-inner" style="position:relative; padding:20px 30px 22px;">
+              <div class="om-day-text">
               <div style="display:flex; align-items:baseline; gap:14px; flex-wrap:wrap;">
                 <span style="font-family:'Oswald',sans-serif; font-weight:700; font-size:13px; letter-spacing:2px; text-transform:uppercase; color:#D9982F;">Day {{ day.num }}</span>
                 <span style="font-family:'Oswald',sans-serif; font-size:12px; letter-spacing:1.5px; text-transform:uppercase; color:#9CB3A0;">{{ day.weekday }}, {{ day.date }}</span>
@@ -303,6 +303,8 @@
                 <sc-if value="{{ day.walk }}" hint-placeholder-val="{{ true }}"><div style="display:flex; align-items:center; gap:7px;"><span style="font-family:'Oswald',sans-serif; font-size:9px; letter-spacing:1px; text-transform:uppercase; color:#9CB3A0;">On Foot</span><span style="font-family:'Oswald',sans-serif; font-weight:500; font-size:13px; color:#F3E9D2;">{{ day.walk }}</span></div></sc-if>
                 <sc-if value="{{ day.sun }}" hint-placeholder-val="{{ true }}"><div style="display:flex; align-items:center; gap:7px;"><span style="font-family:'Oswald',sans-serif; font-size:9px; letter-spacing:1px; text-transform:uppercase; color:#9CB3A0;">Sun</span><span style="font-family:'Oswald',sans-serif; font-weight:500; font-size:13px; color:#F3E9D2;">{{ day.sun }}</span></div></sc-if>
               </div>
+              </div>
+              <sc-if value="{{ day.hasPhotos }}" hint-placeholder-val="{{ false }}"><div class="om-day-photos"><sc-for list="{{ day.photos }}" as="p" hint-placeholder-count="3"><img class="om-day-polaroid" src="{{ p.src }}" style="{{ p.style }}" alt=""></sc-for></div></sc-if>
             </div>
           </div>
 
@@ -845,7 +847,7 @@ class Component extends DCLogic {
       const tilts = [-4, 3, -2.5, 2];
       const photos = imgs.map((src, pi) => ({
         src,
-        style: "position:relative; transform:rotate(" + tilts[pi % tilts.length] + "deg); z-index:" + (10 - pi) + "; margin-left:" + (pi === 0 ? '0' : '-18px') + ";"
+        style: "position:relative; transform:rotate(" + tilts[pi % tilts.length] + "deg); z-index:" + (10 - pi) + "; margin-left:" + (pi === 0 ? '0' : '-22px') + ";"
       }));
       return {
         num: d.num, weekday: d.weekday, date: d.date, dateShort: d.dateShort,
