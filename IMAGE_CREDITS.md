@@ -14,3 +14,28 @@ WebP. Attribution per the image licenses:
 | `images/day7-oxbow-bend.webp` | Oxbow Bend / Mount Moran, Grand Teton | HaSt | CC BY-SA 4.0 | [Commons](https://commons.wikimedia.org/wiki/File:Grand_Teton_-_Oxbow_Bend_-_Mount_Moran_2.jpg) |
 | `images/day8-mormon-row.webp` | Moulton Barn, Mormon Row, Grand Teton | Viplav Valluri | CC BY-SA 4.0 | [Commons](https://commons.wikimedia.org/wiki/File:Moulton_Barn-Mormon_Row-Grand_Teton.jpg) |
 | `images/day9-gallatin-valley.webp` | Gallatin Valley, Montana | Tim Evanson | CC BY-SA 2.0 | [Commons](https://commons.wikimedia.org/wiki/File:Gallatin_valley_montana_-_2013-07-02.jpg) |
+
+## Day-header polaroids (additional photos)
+
+The desktop day headers show a cluster of small polaroid photos. These
+secondary images are all **public domain** (mostly NPS / federal works),
+sourced from Wikimedia Commons and converted to WebP (~520 px wide).
+
+| File | Subject | Author | License |
+|------|---------|--------|---------|
+| `images/day1-apgar-rocks.webp` | Colorful rocks, Lake McDonald | GlacierNPS | Public domain |
+| `images/day1-missouri-headwaters.webp` | Madison/Jefferson confluence | Mike Cline | Public domain |
+| `images/day2-trail-of-cedars.webp` | Trail of the Cedars canyon view | GlacierNPS | Public domain |
+| `images/day2-mcdonald-lodge.webp` | Lake McDonald Lodge beach | GlacierNPS | Public domain |
+| `images/day3-logan-pass.webp` | Hidden Lake Overlook, Logan Pass | GlacierNPS | Public domain |
+| `images/day3-wild-goose.webp` | Wild Goose Island, St. Mary Lake | Jon Sullivan | Public domain |
+| `images/day4-grinnell-lake.webp` | Grinnell Glacier from Lake Josephine | GlacierNPS | Public domain |
+| `images/day4-many-glacier-sunrise.webp` | Sunrise in Many Glacier | GlacierNPS | Public domain |
+| `images/day5-lamar-valley.webp` | Bison in Lamar Valley | Neal Herbert / Yellowstone NPS | Public domain |
+| `images/day5-lower-falls.webp` | Lower Falls, Grand Canyon of the Yellowstone | Yellowstone NPS | Public domain |
+| `images/day6-old-faithful.webp` | Old Faithful Geyser | Yellowstone NPS | Public domain |
+| `images/day6-morning-glory.webp` | Morning Glory Pool | Mike Goad | Public domain |
+| `images/day7-string-lake.webp` | String Lake, Grand Teton | S. Zenner | Public domain |
+| `images/day8-schwabacher.webp` | Teton Range from Schwabacher Landing | GrandTetonNPS | Public domain |
+| `images/day8-teton-range.webp` | Teton Range at sunrise | GrandTetonNPS | Public domain |
+| `images/day9-bozeman-valley.webp` | Gallatin Valley near Bozeman | USFWS Mountain-Prairie | Public domain |

@@ -27,10 +27,12 @@
   .om-scroll::-webkit-scrollbar-track { background: #E2D5B2; }
   .om-scroll::-webkit-scrollbar-thumb { background: #B7A879; border-radius: 0; }
   @keyframes om-rise { from { transform: translateY(6px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-  .om-day-photo { position: absolute; right: 28px; top: 50%; transform: translateY(-50%) rotate(2.5deg); width: 112px; height: 138px; object-fit: cover; border: 6px solid #F3E9D2; border-bottom-width: 22px; box-shadow: 0 6px 16px rgba(0,0,0,0.4); background: #F3E9D2; z-index: 1; }
-  @media (min-width: 681px) { .om-day-header .om-day-header-inner { padding-right: 172px !important; } }
+  .om-day-photos { position: absolute; right: 22px; top: 50%; transform: translateY(-50%); display: flex; align-items: center; z-index: 1; }
+  .om-day-polaroid { width: 88px; height: 88px; object-fit: cover; border: 5px solid #F3E9D2; border-bottom-width: 18px; box-shadow: 0 5px 14px rgba(0,0,0,0.4); background: #F3E9D2; transition: transform 0.14s ease; }
+  .om-day-polaroid:hover { transform: rotate(0deg) scale(1.06) !important; z-index: 20 !important; }
+  @media (min-width: 681px) { .om-day-header .om-day-header-inner { padding-right: 300px !important; } }
   @media (max-width: 680px) {
-    .om-day-photo { display: none !important; }
+    .om-day-photos { display: none !important; }
     .om-day-header { background-image: linear-gradient(100deg, rgba(26,42,32,0.94) 0%, rgba(26,42,32,0.82) 42%, rgba(26,42,32,0.5) 100%), var(--day-img) !important; background-size: cover !important; background-position: center !important; background-repeat: no-repeat !important; }
     .om-topbar { padding: 0 12px !important; gap: 8px !important; }
     .om-topbar-sub { display: none !important; }
@@ -287,7 +289,7 @@
           <!-- sticky day header -->
           <div class="om-day-header" style="{{ day.headerStyle }}">
             <sc-if value="{{ day.showMotif }}" hint-placeholder-val="{{ false }}"><div style="position:absolute; right:0; top:0; bottom:0; width:280px; opacity:0.16; color:#F3E9D2;">{{ day.motifArt }}</div></sc-if>
-            <sc-if value="{{ day.hasImage }}" hint-placeholder-val="{{ false }}"><img class="om-day-photo" src="{{ day.image }}" alt=""></sc-if>
+            <sc-if value="{{ day.hasPhotos }}" hint-placeholder-val="{{ false }}"><div class="om-day-photos"><sc-for list="{{ day.photos }}" as="p" hint-placeholder-count="3"><img class="om-day-polaroid" src="{{ p.src }}" style="{{ p.style }}" alt=""></sc-for></div></sc-if>
             <div class="om-day-header-inner" style="position:relative; padding:20px 30px 22px;">
               <div style="display:flex; align-items:baseline; gap:14px; flex-wrap:wrap;">
                 <span style="font-family:'Oswald',sans-serif; font-weight:700; font-size:13px; letter-spacing:2px; text-transform:uppercase; color:#D9982F;">Day {{ day.num }}</span>
@@ -633,7 +635,7 @@ class Component extends DCLogic {
       {
         num: 1, weekday: 'Saturday', date: 'August 8', dateShort: 'Aug 8', title: 'Fly In to Glacier',
         subtitle: 'Land in Bozeman, stock up, and make the long, scenic drive north to the edge of Glacier.',
-        region: 'transit', regionLabel: 'San Diego \u2192 Glacier', motif: 'route', image: './images/day1-lake-mcdonald.webp',
+        region: 'transit', regionLabel: 'San Diego \u2192 Glacier', motif: 'route', images: ['./images/day1-lake-mcdonald.webp', './images/day1-apgar-rocks.webp', './images/day1-missouri-headwaters.webp'],
         drive: '5h 15m / 312 mi', walk: '', sun: 'Rise 6:15 / Set 8:54',
         hotel: { tag: 'Tonight \u2014 Night 1 of 2', name: 'Mini Golden Inns', location: 'Hungry Horse, MT', confirmation: '73478801173025', cost: '$475', checkin: '4\u20139 PM', checkout: '11 AM' },
         stops: [
@@ -649,7 +651,7 @@ class Component extends DCLogic {
       {
         num: 2, weekday: 'Sunday', date: 'August 9', dateShort: 'Aug 9', title: 'Glacier West Side',
         subtitle: 'Old-growth cedars, turquoise gorges, and the gradual climb to Avalanche Lake \u2014 the headline hike.',
-        region: 'glacier', regionLabel: 'Glacier NP', motif: 'mountain', image: './images/day2-avalanche-lake.webp',
+        region: 'glacier', regionLabel: 'Glacier NP', motif: 'mountain', images: ['./images/day2-avalanche-lake.webp', './images/day2-trail-of-cedars.webp', './images/day2-mcdonald-lodge.webp'],
         drive: '~1.5h in park', walk: '~9 mi if you do it all', sun: 'Rise 6:17 / Set 8:52',
         wildlife: ['Mountain goat', 'Moose'],
         hotel: { tag: 'Tonight \u2014 Night 2 of 2', name: 'Mini Golden Inns', location: 'Hungry Horse, MT', confirmation: '73478801173025', cost: 'Incl.', checkin: '4\u20139 PM', checkout: '11 AM' },
@@ -666,7 +668,7 @@ class Component extends DCLogic {
       {
         num: 3, weekday: 'Monday', date: 'August 10', dateShort: 'Aug 10', title: 'Going-to-the-Sun Road',
         subtitle: 'Fifty miles of road carved into the mountainside, over the Continental Divide at Logan Pass.',
-        region: 'glacier', regionLabel: 'Going-to-the-Sun Road', motif: 'mountain', image: './images/day3-going-to-the-sun.webp',
+        region: 'glacier', regionLabel: 'Going-to-the-Sun Road', motif: 'mountain', images: ['./images/day3-going-to-the-sun.webp', './images/day3-logan-pass.webp', './images/day3-wild-goose.webp'],
         drive: '~2.5h / 50 mi', walk: '5\u20137 mi', sun: 'Rise 6:18 / Set 8:50',
         wildlife: ['Mountain goat', 'Moose'],
         hotel: { tag: 'Tonight', name: 'St. Mary Village', location: 'St. Mary, MT \u2014 east entrance', confirmation: '73478287602240', cost: '$409', checkin: '4 PM', checkout: '11 AM' },
@@ -689,7 +691,7 @@ class Component extends DCLogic {
       {
         num: 4, weekday: 'Tuesday', date: 'August 11', dateShort: 'Aug 11', title: 'Many Glacier + Drive South',
         subtitle: 'The most dramatic valley in Glacier, then the longest drive of the trip \u2014 south to Yellowstone\u2019s door.',
-        region: 'transit', regionLabel: 'Glacier \u2192 Yellowstone', motif: 'mountain', image: './images/day4-many-glacier.webp',
+        region: 'transit', regionLabel: 'Glacier \u2192 Yellowstone', motif: 'mountain', images: ['./images/day4-many-glacier.webp', './images/day4-grinnell-lake.webp', './images/day4-many-glacier-sunrise.webp'],
         drive: '~7.5h \u2014 longest day', walk: '3\u20135 mi', sun: 'Rise 6:17 / Set 8:37',
         wildlife: ['Moose'],
         hotel: { tag: 'Tonight', name: 'Yellowstone Basin Inn', location: 'Gardiner, MT \u2014 north gate', confirmation: 'BE-70789', cost: '$291', checkin: '4\u20139 PM', checkout: '10 AM', breakfast: true },
@@ -707,7 +709,7 @@ class Component extends DCLogic {
       {
         num: 5, weekday: 'Wednesday', date: 'August 12', dateShort: 'Aug 12', title: 'Yellowstone North & East',
         subtitle: 'Wildlife at dawn, otherworldly travertine terraces, and the Grand Canyon of the Yellowstone.',
-        region: 'yellowstone', regionLabel: 'Yellowstone NP', motif: 'geyser', image: './images/day5-mammoth.webp',
+        region: 'yellowstone', regionLabel: 'Yellowstone NP', motif: 'geyser', images: ['./images/day5-mammoth.webp', './images/day5-lamar-valley.webp', './images/day5-lower-falls.webp'],
         drive: '~5.5h in park', walk: '3\u20135 mi', sun: 'Rise 6:15 / Set 8:36',
         wildlife: ['Bison', 'Gray wolf', 'Grizzly bear', 'Pronghorn'],
         hotel: { tag: 'Tonight \u2014 Night 1 of 2', name: 'Yellowstone West Gate Hotel', location: 'West Yellowstone, MT', confirmation: '73478829989296', cost: '$588', checkin: '4 PM', checkout: '11 AM', breakfast: true },
@@ -724,7 +726,7 @@ class Component extends DCLogic {
       {
         num: 6, weekday: 'Thursday', date: 'August 13', dateShort: 'Aug 13', title: 'Yellowstone Geyser Loop',
         subtitle: 'The recovery day \u2014 geysers, rainbow hot springs, and bubbling mud, almost all on flat boardwalks.',
-        region: 'yellowstone', regionLabel: 'Yellowstone NP', motif: 'geyser', image: './images/day6-grand-prismatic.webp',
+        region: 'yellowstone', regionLabel: 'Yellowstone NP', motif: 'geyser', images: ['./images/day6-grand-prismatic.webp', './images/day6-old-faithful.webp', './images/day6-morning-glory.webp'],
         drive: '~3.5h in park', walk: '6\u20138 mi / mostly flat', sun: 'Rise 6:19 / Set 8:35',
         hotel: { tag: 'Tonight \u2014 Night 2 of 2', name: 'Yellowstone West Gate Hotel', location: 'West Yellowstone, MT', confirmation: '73478829989296', cost: 'Incl.', checkin: '4 PM', checkout: '11 AM', breakfast: true },
         stops: [
@@ -741,7 +743,7 @@ class Component extends DCLogic {
       {
         num: 7, weekday: 'Friday', date: 'August 14', dateShort: 'Aug 14', title: 'Yellowstone to Grand Teton',
         subtitle: 'Drive the empty dawn road south, then a full day in the drive-and-stop paradise of Grand Teton.',
-        region: 'teton', regionLabel: 'Yellowstone \u2192 Grand Teton', motif: 'teton', image: './images/day7-oxbow-bend.webp',
+        region: 'teton', regionLabel: 'Yellowstone \u2192 Grand Teton', motif: 'teton', images: ['./images/day7-oxbow-bend.webp', './images/day7-string-lake.webp'],
         drive: '~4h', walk: '3\u20135 mi', sun: 'Rise 6:21 / Set 8:36',
         wildlife: ['Moose', 'Elk', 'Bald eagle'],
         hotel: { tag: 'Tonight', name: 'Elk Country Inn', location: 'Jackson, WY', confirmation: '73478885538868', cost: '$534', checkin: '4 PM', checkout: '11 AM', breakfast: true },
@@ -761,7 +763,7 @@ class Component extends DCLogic {
       {
         num: 8, weekday: 'Saturday', date: 'August 15', dateShort: 'Aug 15', title: 'Teton Sunrise to Bozeman',
         subtitle: 'The Tetons at sunrise are the final act \u2014 then a scenic drive north through Gallatin Canyon.',
-        region: 'teton', regionLabel: 'Grand Teton \u2192 Bozeman', motif: 'teton', image: './images/day8-mormon-row.webp',
+        region: 'teton', regionLabel: 'Grand Teton \u2192 Bozeman', motif: 'teton', images: ['./images/day8-mormon-row.webp', './images/day8-schwabacher.webp', './images/day8-teton-range.webp'],
         drive: '~4.5h', walk: '3\u20134 mi', sun: 'Rise 6:19 / Set 8:35',
         hotel: { tag: 'Tonight', name: 'MountainView Lodge', location: 'Bozeman, MT', confirmation: '73478920208263', cost: '$269', checkin: '3 PM', checkout: '11 AM', breakfast: true },
         stops: [
@@ -779,7 +781,7 @@ class Component extends DCLogic {
       {
         num: 9, weekday: 'Sunday', date: 'August 16', dateShort: 'Aug 16', title: 'Fly Home',
         subtitle: 'No parks, no long drives, no dawn alarms \u2014 an easy morning and a nonstop flight home.',
-        region: 'home', regionLabel: 'Bozeman \u2192 San Diego', motif: 'route', image: './images/day9-gallatin-valley.webp',
+        region: 'home', regionLabel: 'Bozeman \u2192 San Diego', motif: 'route', images: ['./images/day9-gallatin-valley.webp', './images/day9-bozeman-valley.webp'],
         drive: '15 min to airport', walk: '', sun: 'Rise 6:18 / Set 8:34',
         stops: [
           { t: '8:30 AM', n: 'Story Mill Community Park', k: 'trail', s: 'One last easy walk \u2014 paved trails, wetlands, and Bridger Mountain views.', d: 'A 60-acre park right in Bozeman with boardwalks along Bozeman Creek. The Bridgers glow in morning light. Flat and peaceful, as far as you want.', walk: 'up to 1.5 mi / flat' },
@@ -838,6 +840,13 @@ class Component extends DCLogic {
       const navStyle = "cursor:pointer; display:block; width:100%; text-align:left; font-family:inherit; padding:11px 18px; border:none; border-left:4px solid " +
         (isActive ? regionColor : 'transparent') + '; background:' + (isActive ? '#FBF5E4' : 'transparent') + ';';
       const wildlife = (d.wildlife || []).map(name => ({ name, icon: this.icon(name) }));
+      const imgs = d.images || (d.image ? [d.image] : []);
+      const primaryImg = imgs[0] || '';
+      const tilts = [-4, 3, -2.5, 2];
+      const photos = imgs.map((src, pi) => ({
+        src,
+        style: "position:relative; transform:rotate(" + tilts[pi % tilts.length] + "deg); z-index:" + (10 - pi) + "; margin-left:" + (pi === 0 ? '0' : '-18px') + ";"
+      }));
       return {
         num: d.num, weekday: d.weekday, date: d.date, dateShort: d.dateShort,
         title: d.title, subtitle: d.subtitle,
@@ -845,10 +854,10 @@ class Component extends DCLogic {
         drive: d.drive, walk: d.walk, sun: d.sun,
         driveShort: d.drive, walkShort: d.walk || '',
         motifArt: this.motif(d.motif),
-        image: d.image || '',
-        hasImage: !!d.image,
-        showMotif: !d.image,
-        headerStyle: "position:sticky; top:0; z-index:10; background:#20392B; color:#F3E9D2; padding:0; overflow:hidden;" + (d.image ? " --day-img:url('" + d.image + "');" : ""),
+        photos,
+        hasPhotos: photos.length > 0,
+        showMotif: !primaryImg,
+        headerStyle: "position:sticky; top:0; z-index:10; background:#20392B; color:#F3E9D2; padding:0; overflow:hidden;" + (primaryImg ? " --day-img:url('" + primaryImg + "');" : ""),
         hotel: d.hotel || null,
         wildlife, hasWildlife: wildlife.length > 0,
         stops,
