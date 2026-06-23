@@ -221,7 +221,7 @@
       <h2 style="font-family:'Oswald',sans-serif; font-weight:600; font-size:32px; text-transform:uppercase; letter-spacing:0.5px; margin:4px 0 22px; color:#20392B;">Lodging &amp; confirmations</h2>
       <div class="om-grid-3" style="display:grid; grid-template-columns:repeat(3,1fr); gap:16px;">
         <sc-for list="{{ hotels }}" as="hotel" hint-placeholder-count="6">
-          <div style="background:#FBF5E4; border:1px solid #C9B98A; border-left:4px solid #BC4B2A;">
+          <div style="background:#FBF5E4; border:1px solid #C9B98A; border-left:4px solid #BC4B2A; display:flex; flex-direction:column;">
 
             <!-- header — click to expand/collapse -->
             <div onClick="{{ hotel.onToggle }}" style="cursor:pointer; padding:16px 18px;">
@@ -235,35 +235,37 @@
 
             <!-- expanded detail -->
             <sc-if value="{{ hotel.isOpen }}" hint-placeholder-val="{{ false }}">
-              <div style="padding:14px 18px 16px; border-top:1px dashed #C9B98A; margin:0 18px; animation:om-rise 0.18s ease;">
+              <div style="flex:1; display:flex; flex-direction:column; border-top:1px dashed #C9B98A; margin:0 18px; animation:om-rise 0.18s ease;">
 
-                <sc-if value="{{ hotel.breakfast }}" hint-placeholder-val="{{ false }}">
-                  <span style="display:inline-block; font-family:'Oswald',sans-serif; font-size:9px; letter-spacing:1px; text-transform:uppercase; color:#3C6E47; background:#E3E8DF; border:1px solid #B6CDB9; padding:2px 8px; margin-bottom:12px;">Breakfast included</span>
-                </sc-if>
+                <div style="flex:1; padding:14px 0 12px;">
+                  <sc-if value="{{ hotel.breakfast }}" hint-placeholder-val="{{ false }}">
+                    <span style="display:inline-block; font-family:'Oswald',sans-serif; font-size:9px; letter-spacing:1px; text-transform:uppercase; color:#3C6E47; background:#E3E8DF; border:1px solid #B6CDB9; padding:2px 8px; margin-bottom:12px;">Breakfast included</span>
+                  </sc-if>
 
-                <div style="display:flex; gap:26px; flex-wrap:wrap;">
-                  <div>
-                    <div style="font-family:'Oswald',sans-serif; font-size:9px; letter-spacing:1px; text-transform:uppercase; color:#9A8B62;">Check-in</div>
-                    <div style="font-family:'Oswald',sans-serif; font-weight:600; font-size:15px; color:#3C6E47; margin-top:2px;">{{ hotel.checkin }}</div>
+                  <div style="display:flex; gap:26px; flex-wrap:wrap;">
+                    <div>
+                      <div style="font-family:'Oswald',sans-serif; font-size:9px; letter-spacing:1px; text-transform:uppercase; color:#9A8B62;">Check-in</div>
+                      <div style="font-family:'Oswald',sans-serif; font-weight:600; font-size:15px; color:#3C6E47; margin-top:2px;">{{ hotel.checkin }}</div>
+                    </div>
+                    <div>
+                      <div style="font-family:'Oswald',sans-serif; font-size:9px; letter-spacing:1px; text-transform:uppercase; color:#9A8B62;">Check-out</div>
+                      <div style="font-family:'Oswald',sans-serif; font-weight:600; font-size:15px; color:#BC4B2A; margin-top:2px;">{{ hotel.checkout }}</div>
+                    </div>
                   </div>
-                  <div>
-                    <div style="font-family:'Oswald',sans-serif; font-size:9px; letter-spacing:1px; text-transform:uppercase; color:#9A8B62;">Check-out</div>
-                    <div style="font-family:'Oswald',sans-serif; font-weight:600; font-size:15px; color:#BC4B2A; margin-top:2px;">{{ hotel.checkout }}</div>
+
+                  <div style="margin-top:12px;">
+                    <div style="font-family:'Oswald',sans-serif; font-size:9px; letter-spacing:1px; text-transform:uppercase; color:#9A8B62;">Confirmation</div>
+                    <div style="font-family:'Oswald',sans-serif; font-size:12px; color:#3D3422; letter-spacing:0.5px; margin-top:2px;">{{ hotel.confirmation }}</div>
                   </div>
+
+                  <div style="font-family:'Spectral',serif; font-size:12px; color:#5A4F36; margin-top:12px;">{{ hotel.address }}</div>
                 </div>
 
-                <div style="margin-top:12px;">
-                  <div style="font-family:'Oswald',sans-serif; font-size:9px; letter-spacing:1px; text-transform:uppercase; color:#9A8B62;">Confirmation</div>
-                  <div style="font-family:'Oswald',sans-serif; font-size:12px; color:#3D3422; letter-spacing:0.5px; margin-top:2px;">{{ hotel.confirmation }}</div>
-                </div>
-
-                <div style="font-family:'Spectral',serif; font-size:12px; color:#5A4F36; margin-top:12px;">{{ hotel.address }}</div>
-
-                <div style="margin-top:12px; margin-left:-18px; margin-right:-18px; border-top:1px dashed #C9B98A;"></div>
+                <div style="margin-left:-18px; margin-right:-18px; border-top:1px dashed #C9B98A;"></div>
 
                 <!-- price links — visible when allPricesOpen -->
                 <sc-if value="{{ allPricesOpen }}" hint-placeholder-val="{{ false }}">
-                  <div style="margin-top:12px; animation:om-rise 0.15s ease;">
+                  <div style="padding:12px 0 16px; animation:om-rise 0.15s ease;">
                     <div style="font-family:'Spectral',serif; font-size:11px; font-style:italic; color:#8A7550; margin-bottom:8px;">Booked at {{ hotel.cost }}</div>
                     <div style="display:flex; gap:6px;">
                       <a href="{{ hotel.website }}" target="_blank" rel="noopener" style="flex:1; text-align:center; font-family:'Oswald',sans-serif; font-size:10px; letter-spacing:0.5px; text-transform:uppercase; color:#3C6E47; border:1px solid #B6CDB9; padding:4px 6px; text-decoration:none;">Hotel site ↗</a>
