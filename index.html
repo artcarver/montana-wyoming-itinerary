@@ -260,7 +260,7 @@
                 <div style="font-family:'Spectral',serif; font-size:12px; color:#5A4F36; margin-top:10px;">{{ hotel.address }}</div>
 
                 <!-- price-check: clickable dashed divider -->
-                <div onClick="{{ hotel.onPriceToggle }}" style="cursor:pointer; margin-top:12px; display:flex; align-items:center; gap:0; user-select:none;">
+                <div onClick="{{ hotel.onPriceToggle }}" style="cursor:pointer; margin-top:12px; display:flex; align-items:center; gap:0; user-select:none; padding:8px 0; margin-bottom:-8px;">
                   <div style="flex:1; border-top:1px dashed #D8C58F;"></div>
                   <sc-if value="{{ hotel.priceOpen }}" hint-placeholder-val="{{ false }}">
                     <span style="font-family:'Spectral',serif; font-size:11px; font-style:italic; color:#8A7550; padding:0 10px; white-space:nowrap;">Booked at {{ hotel.cost }}</span>
