@@ -278,8 +278,11 @@
         </sc-for>
       </div>
 
-      <div style="text-align:center; margin-top:18px;">
-        <button onClick="{{ toggleAllPrices }}" style="cursor:pointer; background:none; border:none; font-family:'Spectral',serif; font-size:12px; font-style:italic; color:#B0976A; padding:6px 14px; letter-spacing:0.3px;" style-hover="color:#8A7550;">{{ allPricesOpen ? '↑ hide prices' : '↓ check current prices' }}</button>
+      <div style="display:flex; justify-content:flex-end; margin-top:8px;">
+        <button onClick="{{ toggleAllPrices }}" style="cursor:pointer; background:none; border:none; font-family:'Spectral',serif; font-size:12px; font-style:italic; color:#B0976A; padding:4px 0; letter-spacing:0.3px;" style-hover="color:#8A7550;">
+          <sc-if value="{{ allPricesOpen }}" hint-placeholder-val="{{ false }}">↑ hide prices</sc-if>
+          <sc-if value="{{ allPricesOpen }}" hint-placeholder-val="{{ true }}">↓ check current prices</sc-if>
+        </button>
       </div>
 
       <div style="text-align:center; margin-top:36px;">
