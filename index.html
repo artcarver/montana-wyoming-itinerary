@@ -588,7 +588,11 @@ class Component extends DCLogic {
   }
   isPriceOpen(i) { return !!this.state.priceOpen[i]; }
   toggleAllPrices() {
-    this.setState(s => ({ allPricesOpen: !s.allPricesOpen }));
+    this.setState(s => {
+      const opening = !s.allPricesOpen;
+      const hotelOpen = opening ? { 0:true,1:true,2:true,3:true,4:true,5:true } : {};
+      return { allPricesOpen: opening, hotelOpen };
+    });
   }
 
   // ---- motif art (svg react elements) ----
