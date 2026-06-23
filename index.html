@@ -489,7 +489,7 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1200,&quot;height&quot;:820},&quot;defaultView&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;overview&quot;,&quot;itinerary&quot;],&quot;default&quot;:&quot;overview&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;expandByDefault&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;}}">
 class Component extends DCLogic {
-  state = { view: null, activeDay: 0, open: {}, hotelOpen: {}, priceOpen: {}, allPricesOpen: false };
+  state = { view: null, activeDay: 0, open: {}, hotelOpen: {}, allPricesOpen: false };
 
   componentDidMount() {
     this.ensureWired();
@@ -587,10 +587,6 @@ class Component extends DCLogic {
     this.setState(s => ({ hotelOpen: { ...s.hotelOpen, [i]: !s.hotelOpen[i] } }));
   }
   isHotelOpen(i) { return !!this.state.hotelOpen[i]; }
-  togglePrice(i) {
-    this.setState(s => ({ priceOpen: { ...s.priceOpen, [i]: !s.priceOpen[i] } }));
-  }
-  isPriceOpen(i) { return !!this.state.priceOpen[i]; }
   toggleAllPrices() {
     this.setState(s => {
       const opening = !s.allPricesOpen;
@@ -900,7 +896,8 @@ class Component extends DCLogic {
         hasImage: !!d.image,
         showMotif: !d.image,
         headerStyle: "position:sticky; top:0; z-index:10; background:#20392B; color:#F3E9D2; padding:0; overflow:hidden;" + (d.image ? " --day-img:url('" + d.image + "');" : ""),
-        hotel: d.hotel ? { ...d.hotel, priceOpen: this.isPriceOpen(di), onPriceToggle: () => this.togglePrice(di) } : null,        wildlife, hasWildlife: wildlife.length > 0,
+        hotel: d.hotel ? { ...d.hotel } : null,
+        wildlife, hasWildlife: wildlife.length > 0,
         stops,
         navStyle,
         idx: di,
@@ -919,9 +916,7 @@ class Component extends DCLogic {
       ...ht,
       isOpen: this.isHotelOpen(i),
       caret: this.isHotelOpen(i) ? '\u2212' : '+',
-      onToggle: () => this.toggleHotel(i),
-      priceOpen: this.isPriceOpen(i),
-      onPriceToggle: () => this.togglePrice(i)
+      onToggle: () => this.toggleHotel(i)
     }));
 
     const routePins = [
