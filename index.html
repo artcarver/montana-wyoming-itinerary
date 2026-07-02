@@ -78,7 +78,7 @@
       </div>
       <div style="line-height:1;">
         <div class="om-topbar-title" style="font-family:'Oswald',sans-serif; font-weight:600; letter-spacing:2.5px; color:#F3E9D2; font-size:15px; text-transform:uppercase;">Montana &amp; Wyoming</div>
-        <div class="om-topbar-sub" style="font-family:'Oswald',sans-serif; font-weight:300; letter-spacing:3.5px; color:#9CB3A0; font-size:10px; text-transform:uppercase; margin-top:2px;">National Parks &middot; Aug 8&ndash;15 2026</div>
+        <div class="om-topbar-sub" style="font-family:'Oswald',sans-serif; font-weight:300; letter-spacing:3.5px; color:#9CB3A0; font-size:10px; text-transform:uppercase; margin-top:2px;">{{ tripSub }}</div>
       </div>
     </div>
     <div class="om-tabgroup" style="display:flex; gap:4px; background:#1A2E22; padding:4px; border:1px solid #2E4D3A;">
@@ -136,6 +136,18 @@
     </div>
 
     <div class="om-section-pad" style="max-width:1080px; margin:0 auto; padding:54px 40px 80px;">
+
+      <!-- LIVE: photos banner (appears once the trip starts) -->
+      <sc-if value="{{ tripStarted }}" hint-placeholder-val="{{ false }}">
+      <a href="{{ photosUrl }}" target="_blank" rel="noopener" style="display:flex; align-items:center; gap:16px; text-decoration:none; background:#FBF5E4; border:1px solid #C9B98A; border-left:4px solid #BC4B2A; padding:16px 20px; margin-bottom:8px;" style-hover="background:#FFFCF1;">
+        <span style="flex:none; width:40px; height:40px; display:flex; align-items:center; justify-content:center; background:#F6E2D8; border:1px solid #E3B7A4; font-size:20px;">📷</span>
+        <div style="flex:1;">
+          <div style="font-family:'Oswald',sans-serif; font-weight:600; font-size:16px; text-transform:uppercase; letter-spacing:0.5px; color:#20392B;">{{ photosTitle }}</div>
+          <div style="font-family:'Spectral',serif; font-size:13px; color:#5A4F36; margin-top:2px;">{{ photosSub }}</div>
+        </div>
+        <span style="font-family:'Oswald',sans-serif; font-size:22px; color:#BC4B2A; flex:none;">&rarr;</span>
+      </a>
+      </sc-if>
 
       <!-- THREE PARKS -->
       <div style="font-family:'Oswald',sans-serif; text-transform:uppercase; letter-spacing:3px; font-size:13px; color:#BC4B2A; font-weight:600; margin-top:56px;">The Parks</div>
@@ -206,6 +218,7 @@
               <span style="font-family:'Oswald',sans-serif; font-weight:700; letter-spacing:1px; font-size:12px; text-transform:uppercase; color:{{ day.regionColor }};">Day {{ day.num }}</span>
               <span style="font-family:'Oswald',sans-serif; font-size:11px; letter-spacing:1px; text-transform:uppercase; color:#8A7C58;">{{ day.dateShort }}</span>
             </div>
+            <sc-if value="{{ day.isCurrent }}" hint-placeholder-val="{{ false }}"><div style="font-family:'Oswald',sans-serif; font-weight:600; font-size:10px; letter-spacing:1px; text-transform:uppercase; color:#F3E9D2; background:#BC4B2A; padding:3px 8px; align-self:flex-start;">&#9673; You are here</div></sc-if>
             <div style="font-family:'Oswald',sans-serif; font-weight:600; font-size:18px; line-height:1.1; text-transform:uppercase; color:#20392B;">{{ day.title }}</div>
             <div style="font-family:'Spectral',serif; font-size:13px; line-height:1.45; color:#5A4F36; flex:1;">{{ day.subtitle }}</div>
             <div style="display:flex; gap:7px; flex-wrap:wrap;">
@@ -309,6 +322,7 @@
             <span style="font-family:'Oswald',sans-serif; font-size:10px; letter-spacing:1px; text-transform:uppercase; color:#9A8B62;">{{ day.dateShort }}</span>
           </div>
           <div style="font-family:'Oswald',sans-serif; font-weight:500; font-size:14px; line-height:1.15; text-transform:uppercase; color:#20392B; margin-top:4px;">{{ day.title }}</div>
+          <sc-if value="{{ day.isCurrent }}" hint-placeholder-val="{{ false }}"><div style="font-family:'Oswald',sans-serif; font-weight:600; font-size:9px; letter-spacing:1px; text-transform:uppercase; color:#BC4B2A; margin-top:5px;">&#9673; You are here today</div></sc-if>
         </button>
       </sc-for>
       <div style="padding:18px; border-top:1px dashed #C9B98A; margin-top:6px;">
@@ -318,6 +332,16 @@
 
     <!-- MAIN SCROLL -->
     <div class="om-scroll" id="om-main" style="flex:1; overflow-y:auto; background:#F3E9D2;">
+      <sc-if value="{{ tripStarted }}" hint-placeholder-val="{{ false }}">
+      <a href="{{ photosUrl }}" target="_blank" rel="noopener" style="display:flex; align-items:center; gap:16px; text-decoration:none; background:#FBF5E4; border-bottom:2px solid #E0D2AC; border-left:4px solid #BC4B2A; padding:16px 30px;" style-hover="background:#FFFCF1;">
+        <span style="flex:none; width:40px; height:40px; display:flex; align-items:center; justify-content:center; background:#F6E2D8; border:1px solid #E3B7A4; font-size:20px;">📷</span>
+        <div style="flex:1;">
+          <div style="font-family:'Oswald',sans-serif; font-weight:600; font-size:16px; text-transform:uppercase; letter-spacing:0.5px; color:#20392B;">{{ photosTitle }}</div>
+          <div style="font-family:'Spectral',serif; font-size:13px; color:#5A4F36; margin-top:2px;">{{ photosSub }}</div>
+        </div>
+        <span style="font-family:'Oswald',sans-serif; font-size:22px; color:#BC4B2A; flex:none;">&rarr;</span>
+      </a>
+      </sc-if>
       <sc-for list="{{ days }}" as="day" hint-placeholder-count="9">
         <div id="om-day-{{ day.idx }}" style="border-bottom:2px solid #E0D2AC;">
           <!-- sticky day header -->
@@ -329,6 +353,7 @@
                 <span style="font-family:'Oswald',sans-serif; font-weight:700; font-size:13px; letter-spacing:2px; text-transform:uppercase; color:#D9982F;">Day {{ day.num }}</span>
                 <span style="font-family:'Oswald',sans-serif; font-size:12px; letter-spacing:1.5px; text-transform:uppercase; color:#9CB3A0;">{{ day.weekday }}, {{ day.date }}</span>
                 <span style="font-family:'Oswald',sans-serif; font-size:10px; letter-spacing:1.5px; text-transform:uppercase; color:#20392B; background:{{ day.regionColor }}; padding:3px 9px;">{{ day.regionLabel }}</span>
+                <sc-if value="{{ day.isCurrent }}" hint-placeholder-val="{{ false }}"><span style="font-family:'Oswald',sans-serif; font-weight:600; font-size:10px; letter-spacing:1.5px; text-transform:uppercase; color:#20392B; background:#D9982F; padding:3px 9px;">&#9673; Today</span></sc-if>
               </div>
               <h2 class="om-day-h2" style="font-family:'Oswald',sans-serif; font-weight:600; font-size:30px; text-transform:uppercase; letter-spacing:0.5px; margin:8px 0 0; line-height:1; color:#F3E9D2;">{{ day.title }}</h2>
               <p style="font-family:'Spectral',serif; font-size:15px; color:#D7E0D2; margin:8px 0 0; max-width:600px;">{{ day.subtitle }}</p>
@@ -842,10 +867,34 @@ class Component extends DCLogic {
     glacier: '#3E7B7E', transit: '#C98A2E', yellowstone: '#BC4B2A', teton: '#3C6E47', home: '#5E7E8B'
   };
 
+  // Shared photo album link — swap in the real shared-album URL when you have it.
+  PHOTOS_URL = 'https://photos.google.com/';
+
+  // Where are we in the trip? Computed in Mountain Time (the trip's own time zone),
+  // so "today" is correct no matter what time zone the viewer is in.
+  tripInfo() {
+    const total = this.rawDays().length;
+    const START = '2026-08-08';
+    const toUTC = (s) => { const p = s.split('-').map(Number); return Date.UTC(p[0], p[1] - 1, p[2]); };
+    const todayStr = new Intl.DateTimeFormat('en-CA', { timeZone: 'America/Denver', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date());
+    const idx = Math.round((toUTC(todayStr) - toUTC(START)) / 86400000);
+    if (idx < 0) return { phase: 'before', daysUntil: -idx, currentIdx: null, total };
+    if (idx >= total) return { phase: 'after', daysUntil: 0, currentIdx: null, total };
+    return { phase: 'during', daysUntil: 0, currentIdx: idx, total };
+  }
+
   renderVals() {
     const view = this.effView();
     const isOverview = view === 'overview';
     const active = this.state.activeDay;
+
+    const trip = this.tripInfo();
+    const DATES = 'Aug 8–15 2026';
+    let tripSub;
+    if (trip.phase === 'before') tripSub = (trip.daysUntil === 1 ? '1 day to go' : trip.daysUntil + ' days to go') + ' · ' + DATES;
+    else if (trip.phase === 'after') tripSub = 'Trip complete · ' + DATES;
+    else tripSub = 'Day ' + (trip.currentIdx + 1) + ' of ' + trip.total + ' · ' + this.rawDays()[trip.currentIdx].regionLabel;
+    const tripStarted = trip.phase !== 'before';
 
     const tabBase = "cursor:pointer; font-family:'Oswald',sans-serif; font-weight:500; letter-spacing:1.5px; text-transform:uppercase; font-size:12px; border:none; padding:8px 16px;";
     const ovBtnStyle = tabBase + (isOverview ? 'background:#D9982F; color:#20392B;' : 'background:transparent; color:#9CB3A0;');
@@ -896,6 +945,7 @@ class Component extends DCLogic {
         stops,
         navStyle,
         idx: di,
+        isCurrent: di === trip.currentIdx,
         onNav: () => this.scrollToDay(di),
         onOpen: () => this.openFromOverview(di)
       };
@@ -927,6 +977,10 @@ class Component extends DCLogic {
       ovBtnStyle, itBtnStyle,
       showOverview: this.showOverview, showItinerary: this.showItinerary,
       days, hotels, routePins,
+      tripSub, tripStarted,
+      photosUrl: this.PHOTOS_URL,
+      photosTitle: 'Photos from Montana',
+      photosSub: 'See what Gwen & Christina are up to',
       allPricesOpen: this.state.allPricesOpen,
       priceLabel: this.state.allPricesOpen ? '↑ hide prices' : '↓ check current prices',
       toggleAllPrices: () => this.toggleAllPrices()
