@@ -13,7 +13,6 @@ WebP. Attribution per the image licenses:
 | `images/day6-grand-prismatic.webp` | Grand Prismatic Spring (aerial) | Carsten Steger | CC BY-SA 4.0 | [Commons](https://commons.wikimedia.org/wiki/File:Aerial_image_of_Grand_Prismatic_Spring_(view_from_the_south).jpg) |
 | `images/day7-oxbow-bend.webp` | Oxbow Bend / Mount Moran, Grand Teton | HaSt | CC BY-SA 4.0 | [Commons](https://commons.wikimedia.org/wiki/File:Grand_Teton_-_Oxbow_Bend_-_Mount_Moran_2.jpg) |
 | `images/day8-mormon-row.webp` | Moulton Barn, Mormon Row, Grand Teton | Viplav Valluri | CC BY-SA 4.0 | [Commons](https://commons.wikimedia.org/wiki/File:Moulton_Barn-Mormon_Row-Grand_Teton.jpg) |
-| `images/day9-gallatin-valley.webp` | Gallatin Valley, Montana | Tim Evanson | CC BY-SA 2.0 | [Commons](https://commons.wikimedia.org/wiki/File:Gallatin_valley_montana_-_2013-07-02.jpg) |
 
 ## Day-header polaroids (additional photos)
 
@@ -38,4 +37,3 @@ sourced from Wikimedia Commons and converted to WebP (~520 px wide).
 | `images/day7-string-lake.webp` | String Lake, Grand Teton | S. Zenner | Public domain |
 | `images/day8-schwabacher.webp` | Teton Range from Schwabacher Landing | GrandTetonNPS | Public domain |
 | `images/day8-teton-range.webp` | Teton Range at sunrise | GrandTetonNPS | Public domain |
-| `images/day9-bozeman-valley.webp` | Gallatin Valley near Bozeman | USFWS Mountain-Prairie | Public domain |
