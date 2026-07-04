@@ -154,14 +154,14 @@
       <h2 style="font-family:'Oswald',sans-serif; font-weight:600; font-size:32px; text-transform:uppercase; letter-spacing:0.5px; margin:4px 0 22px; color:#20392B;">Three landscapes, three characters</h2>
       <div class="om-grid-3" style="display:grid; grid-template-columns:repeat(3,1fr); gap:20px;">
         <!-- Glacier -->
-        <a href="https://www.nps.gov/glac/index.htm" target="_blank" rel="noopener" style="display:block; text-decoration:none; background:#FBF5E4; border:2px solid #20392B; transition:border-color 0.15s, transform 0.15s;" style-hover="border-color:#3E7B7E; transform:translateY(-3px);">
-          <div style="height:150px; position:relative; overflow:hidden; border-bottom:8px solid #3E7B7E;">
+        <a href="https://www.nps.gov/glac/index.htm" target="_blank" rel="noopener" style="display:block; text-decoration:none; background:#FBF5E4; border:2px solid #20392B; transition:border-color 0.15s, transform 0.15s;" style-hover="border-color:#33698C; transform:translateY(-3px);">
+          <div style="height:150px; position:relative; overflow:hidden; border-bottom:8px solid #33698C;">
             <img src="./images/day4-many-glacier.webp" alt="Sunrise at Swiftcurrent Lake, Many Glacier" style="width:100%; height:100%; object-fit:cover; object-position:center; display:block; transition:transform 0.4s ease;" style-hover="transform:scale(1.05);">
-            <div style="position:absolute; inset:0; background:#3E7B7E; opacity:0.22; pointer-events:none;"></div>
+            <div style="position:absolute; inset:0; background:#33698C; opacity:0.22; pointer-events:none;"></div>
           </div>
           <div style="padding:16px 18px 20px;">
             <div style="font-family:'Oswald',sans-serif; font-weight:700; font-size:21px; text-transform:uppercase; color:#20392B;">Glacier</div>
-            <div style="font-family:'Oswald',sans-serif; letter-spacing:2px; font-size:10px; text-transform:uppercase; color:#3E7B7E; margin-top:2px;">Days 1&ndash;4 &middot; Montana</div>
+            <div style="font-family:'Oswald',sans-serif; letter-spacing:2px; font-size:10px; text-transform:uppercase; color:#33698C; margin-top:2px;">Days 1&ndash;4 &middot; Montana</div>
             <p style="font-family:'Spectral',serif; font-size:14px; line-height:1.5; color:#3D3422; margin:12px 0 0;">Going-to-the-Sun Road, Avalanche Lake, the Many Glacier valley, and the iconic Wild Goose Island.</p>
           </div>
         </a>
@@ -178,14 +178,14 @@
           </div>
         </a>
         <!-- Grand Teton -->
-        <a href="https://www.nps.gov/grte/index.htm" target="_blank" rel="noopener" style="display:block; text-decoration:none; background:#FBF5E4; border:2px solid #20392B; transition:border-color 0.15s, transform 0.15s;" style-hover="border-color:#3C6E47; transform:translateY(-3px);">
-          <div style="height:150px; position:relative; overflow:hidden; border-bottom:8px solid #3C6E47;">
+        <a href="https://www.nps.gov/grte/index.htm" target="_blank" rel="noopener" style="display:block; text-decoration:none; background:#FBF5E4; border:2px solid #20392B; transition:border-color 0.15s, transform 0.15s;" style-hover="border-color:#3F7A44; transform:translateY(-3px);">
+          <div style="height:150px; position:relative; overflow:hidden; border-bottom:8px solid #3F7A44;">
             <img src="./images/day7-oxbow-bend.webp" alt="Oxbow Bend and Mount Moran, Grand Teton" style="width:100%; height:100%; object-fit:cover; object-position:center; display:block; transition:transform 0.4s ease;" style-hover="transform:scale(1.05);">
-            <div style="position:absolute; inset:0; background:#3C6E47; opacity:0.22; pointer-events:none;"></div>
+            <div style="position:absolute; inset:0; background:#3F7A44; opacity:0.22; pointer-events:none;"></div>
           </div>
           <div style="padding:16px 18px 20px;">
             <div style="font-family:'Oswald',sans-serif; font-weight:700; font-size:21px; text-transform:uppercase; color:#20392B;">Grand Teton</div>
-            <div style="font-family:'Oswald',sans-serif; letter-spacing:2px; font-size:10px; text-transform:uppercase; color:#3C6E47; margin-top:2px;">Days 7&ndash;8 &middot; Wyoming</div>
+            <div style="font-family:'Oswald',sans-serif; letter-spacing:2px; font-size:10px; text-transform:uppercase; color:#3F7A44; margin-top:2px;">Days 7&ndash;8 &middot; Wyoming</div>
             <p style="font-family:'Spectral',serif; font-size:14px; line-height:1.5; color:#3D3422; margin:12px 0 0;">Jenny Lake, Oxbow Bend, Mormon Row barns, and sunrise reflections at Schwabacher Landing.</p>
           </div>
         </a>
@@ -689,7 +689,7 @@ class Component extends DCLogic {
       {
         num: 1, weekday: 'Saturday', date: 'August 8', dateShort: 'Aug 8', title: 'Fly In to Glacier',
         subtitle: 'Land in Bozeman, stock up, and make the long, scenic drive north to the edge of Glacier.',
-        region: 'transit', regionLabel: 'Los Angeles \u2192 Glacier', motif: 'route', images: ['./images/day1-lake-mcdonald.webp', './images/day1-apgar-rocks.webp', './images/day1-missouri-headwaters.webp'],
+        region: 'glacier', regionLabel: 'Los Angeles \u2192 Glacier', motif: 'route', images: ['./images/day1-lake-mcdonald.webp', './images/day1-apgar-rocks.webp', './images/day1-missouri-headwaters.webp'],
         drive: '5h 15m / 312 mi', walk: '', sun: 'Rise 6:15 / Set 8:54',
         hotel: { tag: 'Tonight \u2014 Night 1 of 2', name: 'Mini Golden Inns', location: 'Hungry Horse, MT', confirmation: '73478801173025', cost: '$475', checkin: '4\u20139 PM', checkout: '11 AM', address: '8955 Hwy 2 E, Hungry Horse, MT 59919' },        stops: [
           { t: '6:00 AM', n: 'Los Angeles (LAX)', k: 'travel', s: 'Check in and clear security for a nonstop Delta flight to Bozeman.', d: 'Nonstop this year \u2014 DL3947 departs 8:00 AM and lands Bozeman 11:40 AM (2h 40m). You gain an hour crossing into Mountain Time. Confirmation GSDBVY.' },
@@ -745,7 +745,7 @@ class Component extends DCLogic {
       {
         num: 4, weekday: 'Tuesday', date: 'August 11', dateShort: 'Aug 11', title: 'Many Glacier + Drive South',
         subtitle: 'The most dramatic valley in Glacier, then the longest drive of the trip \u2014 south to Yellowstone\u2019s door.',
-        region: 'transit', regionLabel: 'Glacier \u2192 Yellowstone', motif: 'mountain', images: ['./images/day4-many-glacier.webp', './images/day4-grinnell-lake.webp', './images/day4-many-glacier-sunrise.webp'],
+        region: 'yellowstone', regionLabel: 'Glacier \u2192 Yellowstone', motif: 'mountain', images: ['./images/day4-many-glacier.webp', './images/day4-grinnell-lake.webp', './images/day4-many-glacier-sunrise.webp'],
         drive: '~7.5h \u2014 longest day', walk: '3\u20135 mi', sun: 'Rise 6:17 / Set 8:37',
         wildlife: ['Moose'],
         hotel: { tag: 'Tonight', name: 'Yellowstone Basin Inn', location: 'Gardiner, MT \u2014 north gate', confirmation: 'BE-70789', cost: '$291', checkin: '4\u20139 PM', checkout: '10 AM', breakfast: true, address: '4 Maiden Basin Dr, Gardiner, MT 59030' },        stops: [
@@ -847,7 +847,7 @@ class Component extends DCLogic {
     night: { label: '★ Night Sky', color: '#2C2875' }
   };
   REGIONS = {
-    glacier: '#3E7B7E', transit: '#C98A2E', yellowstone: '#BC4B2A', teton: '#3C6E47', home: '#5E7E8B'
+    glacier: '#33698C', transit: '#C98A2E', yellowstone: '#BC4B2A', teton: '#3F7A44', home: '#5E7E8B'
   };
 
   // Shared photo album link — swap in the real shared-album URL when you have it.
@@ -948,10 +948,10 @@ class Component extends DCLogic {
     }));
 
     const routePins = [
-      { label: 'Glacier', sub: 'Days 1\u20134', x: '50%', y: '12%', color: '#3E7B7E' },
+      { label: 'Glacier', sub: 'Days 1\u20134', x: '50%', y: '12%', color: '#33698C' },
       { label: 'Bozeman', sub: 'Fly in', x: '62%', y: '38%', color: '#9A6B2E' },
       { label: 'Yellowstone', sub: 'Days 4\u20137', x: '56%', y: '60%', color: '#BC4B2A' },
-      { label: 'Grand Teton', sub: 'Days 7\u20138 \u00b7 Fly out', x: '64%', y: '80%', color: '#3C6E47' },
+      { label: 'Grand Teton', sub: 'Days 7\u20138 \u00b7 Fly out', x: '64%', y: '80%', color: '#3F7A44' },
       { label: 'Los Angeles', sub: 'Start / Home', x: '12%', y: '86%', color: '#5E7E8B' }
     ];
 
