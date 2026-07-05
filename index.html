@@ -46,9 +46,10 @@
     .om-hero-accent { display: block !important; }
     .om-hero-p { font-size: 16px !important; max-width: 100% !important; color: #C9D6C9 !important; margin-left: auto !important; margin-right: auto !important; }
     .om-hero-badge { letter-spacing: 2px !important; font-size: 11px !important; padding: 6px 12px !important; }
-    .om-hero-stats { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 22px 12px !important; justify-items: center !important; max-width: 320px !important; margin: 26px auto 0 !important; }
-    .om-hero-stats > div > div:first-child { color: #D9982F !important; }
-    .om-hero-stats > div > div:last-child { color: #9CB3A0 !important; }
+    .om-hero-stats { display: flex !important; flex-wrap: nowrap !important; justify-content: center !important; gap: 12px !important; max-width: 360px !important; margin: 26px auto 0 !important; }
+    .om-hero-stats > div { flex: 1 1 0 !important; min-width: 0 !important; }
+    .om-hero-stats > div > div:first-child { color: #D9982F !important; font-size: 30px !important; }
+    .om-hero-stats > div > div:last-child { color: #9CB3A0 !important; letter-spacing: 1px !important; font-size: 10px !important; }
     .om-section-pad { padding: 36px 18px 56px !important; }
     .om-grid-3 { grid-template-columns: 1fr !important; }
     .om-itinerary { flex-direction: column !important; height: auto !important; min-height: calc(100vh - 62px); }
@@ -130,7 +131,6 @@
         <div class="om-hero-stats" style="display:flex; flex-wrap:wrap; gap:30px; margin-top:24px;">
           <div><div style="font-family:'Oswald',sans-serif; font-weight:700; font-size:40px; color:#E6A53A; line-height:1;">8</div><div style="font-family:'Oswald',sans-serif; letter-spacing:2px; font-size:11px; text-transform:uppercase; color:#9CB3A0; margin-top:3px;">Days</div></div>
           <div><div style="font-family:'Oswald',sans-serif; font-weight:700; font-size:40px; color:#E6A53A; line-height:1;">3</div><div style="font-family:'Oswald',sans-serif; letter-spacing:2px; font-size:11px; text-transform:uppercase; color:#9CB3A0; margin-top:3px;">National Parks</div></div>
-          <div><div style="font-family:'Oswald',sans-serif; font-weight:700; font-size:40px; color:#E6A53A; line-height:1;">7</div><div style="font-family:'Oswald',sans-serif; letter-spacing:2px; font-size:11px; text-transform:uppercase; color:#9CB3A0; margin-top:3px;">Nights</div></div>
           <div><div style="font-family:'Oswald',sans-serif; font-weight:700; font-size:40px; color:#E6A53A; line-height:1;">~1,200</div><div style="font-family:'Oswald',sans-serif; letter-spacing:2px; font-size:11px; text-transform:uppercase; color:#9CB3A0; margin-top:3px;">Miles Driven</div></div>
         </div>
       </div>
