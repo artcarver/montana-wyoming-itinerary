@@ -45,7 +45,8 @@
     .om-h1 { font-size: 46px !important; color: #F3E9D2 !important; text-shadow: none !important; }
     .om-hero-accent { display: block !important; }
     .om-hero-p { font-size: 16px !important; max-width: 100% !important; color: #C9D6C9 !important; margin-left: auto !important; margin-right: auto !important; }
-    .om-hero-stats { justify-content: center !important; gap: 26px !important; margin-top: 26px !important; }
+    .om-hero-badge { letter-spacing: 2px !important; font-size: 11px !important; padding: 6px 12px !important; }
+    .om-hero-stats { display: grid !important; grid-template-columns: 1fr 1fr !important; gap: 22px 12px !important; justify-items: center !important; max-width: 320px !important; margin: 26px auto 0 !important; }
     .om-hero-stats > div > div:first-child { color: #D9982F !important; }
     .om-hero-stats > div > div:last-child { color: #9CB3A0 !important; }
     .om-section-pad { padding: 36px 18px 56px !important; }
@@ -122,7 +123,7 @@
       </svg>
       <div class="om-hero-scrim" style="position:absolute; inset:0; pointer-events:none; background:linear-gradient(103deg, #1B3124 0%, #1B3124 46%, rgba(27,49,36,0.78) 68%, rgba(27,49,36,0.28) 100%);"></div>
       <div class="om-hero-inner" style="position:relative; max-width:1080px; margin:0 auto; padding:40px 40px 52px;">
-        <div style="display:inline-block; font-family:'Oswald',sans-serif; letter-spacing:4px; font-size:13px; font-weight:500; text-transform:uppercase; color:#20392B; background:#D9982F; padding:6px 14px;">An 8-Day Road Trip &middot; Aug 8&ndash;15, 2026</div>
+        <div class="om-hero-badge" style="display:inline-block; font-family:'Oswald',sans-serif; letter-spacing:4px; font-size:13px; font-weight:500; text-transform:uppercase; color:#20392B; background:#D9982F; padding:6px 14px;">An 8-Day Road Trip &middot; <span style="white-space:nowrap;">Aug 8&ndash;15, 2026</span></div>
         <h1 class="om-h1" style="font-family:'Oswald',sans-serif; font-weight:700; font-size:64px; line-height:0.9; letter-spacing:1.5px; text-transform:uppercase; margin:14px 0 0; color:#F3E9D2; text-shadow:2px 3px 0 rgba(0,0,0,0.22);">Montana<br>&amp; Wyoming</h1>
         <div class="om-hero-accent" style="display:block; width:96px; height:5px; background:#D9982F; margin:16px 0 0;"></div>
         <p class="om-hero-p" style="font-family:'Spectral',serif; font-size:19px; max-width:540px; margin:16px 0 0; color:#DCE4D6; font-weight:400;">Glacier, Yellowstone &amp; Grand Teton, across Montana and Wyoming.</p>
