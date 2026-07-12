@@ -37,3 +37,18 @@ sourced from Wikimedia Commons and converted to WebP (~520 px wide).
 | `images/day7-string-lake.webp` | String Lake, Grand Teton | S. Zenner | Public domain |
 | `images/day8-schwabacher.webp` | Teton Range from Schwabacher Landing | GrandTetonNPS | Public domain |
 | `images/day8-teton-range.webp` | Teton Range at sunrise | GrandTetonNPS | Public domain |
+
+## Wildlife photos (Overview)
+
+Sourced from Wikimedia Commons and served at ~680 px. Attribution per license:
+
+| File | Subject | Author | License | Source |
+|------|---------|--------|---------|--------|
+| `images/wild-bison.jpg` | Bison, Yellowstone | Frank Schulenburg | CC BY-SA 4.0 | [Commons](https://commons.wikimedia.org/wiki/File:Bison_bull_headshot.jpg) |
+| `images/wild-grizzly.jpg` | Grizzly bear, Yellowstone | NPS / Jim Peaco | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:Grizzly_bear_Yellowstone_National_Park_May_2017_(cropped).jpg) |
+| `images/wild-wolf.jpg` | Gray wolf, Yellowstone | NPS | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:Wolves_at_Yellowstone_National_Park_(a17c146d-fb4c-49d4-8c5c-b1a78b9ca27a).jpg) |
+| `images/wild-moose.jpg` | Moose, Grand Teton | Tony Hisgett | CC BY 2.0 | [Commons](https://commons.wikimedia.org/wiki/File:Moose_in_Grand_Teton_National_Park_3_(8007698498).jpg) |
+| `images/wild-elk.jpg` | North American elk (velvet bulls) | James St. John | CC BY 2.0 | [Commons](https://commons.wikimedia.org/wiki/File:Cervus_canadensis_(North_American_elk)_6_(8291416034).jpg) |
+| `images/wild-goat.jpg` | Mountain goat at Hidden Lake, Glacier | Robert M. Russell | CC BY-SA 4.0 | [Commons](https://commons.wikimedia.org/wiki/File:Mountain_Goat_at_Hidden_Lake.jpg) |
+| `images/wild-pronghorn.jpg` | Pronghorn, Yellowstone | Thomas Wolf (www.foto-tw.de) | CC BY-SA 3.0 | [Commons](https://commons.wikimedia.org/wiki/File:Pronghorn_Yellowstone.jpg) |
+| `images/wild-eagle.jpg` | Bald eagle | U.S. Fish and Wildlife Service | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:Bald_eagle_(54409822105).jpg) |
