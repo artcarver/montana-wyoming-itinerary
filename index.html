@@ -267,9 +267,9 @@
             <sc-if value="{{ day.isCurrent }}" hint-placeholder-val="{{ false }}"><div style="font-family:'Oswald',sans-serif; font-weight:600; font-size:10px; letter-spacing:1px; text-transform:uppercase; color:#F3E9D2; background:#BC4B2A; padding:3px 8px; align-self:flex-start;">&#9673; You are here</div></sc-if>
             <div style="font-family:'Oswald',sans-serif; font-weight:600; font-size:18px; line-height:1.1; text-transform:uppercase; color:#20392B;">{{ day.title }}</div>
             <div style="font-family:'Spectral',serif; font-size:13px; line-height:1.45; color:#5A4F36; flex:1;">{{ day.subtitle }}</div>
-            <div style="display:flex; gap:7px; flex-wrap:wrap;">
-              <span style="font-family:'Oswald',sans-serif; font-size:10px; letter-spacing:0.5px; text-transform:uppercase; color:#9A6B2E; border:1px solid #D8C58F; padding:2px 7px;">{{ day.driveShort }}</span>
-              <sc-if value="{{ day.walkShort }}" hint-placeholder-val="{{ true }}"><span style="font-family:'Oswald',sans-serif; font-size:10px; letter-spacing:0.5px; text-transform:uppercase; color:#3C6E47; border:1px solid #B6CDB9; padding:2px 7px;">{{ day.walkShort }}</span></sc-if>
+            <div style="display:flex; align-items:center; justify-content:space-between; gap:10px; padding-top:11px; border-top:1px solid #E6D8B2;">
+              <span style="font-family:'Oswald',sans-serif; font-weight:600; font-size:10px; letter-spacing:1px; text-transform:uppercase; color:{{ day.regionColor }};">{{ day.regionLabel }}</span>
+              <span style="font-family:'Oswald',sans-serif; font-weight:600; font-size:10px; letter-spacing:1px; text-transform:uppercase; color:#9A6B2E; white-space:nowrap; flex:none;">View day &rarr;</span>
             </div>
           </button>
         </sc-for>
