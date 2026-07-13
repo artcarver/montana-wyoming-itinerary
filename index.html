@@ -219,80 +219,36 @@
       <h2 style="font-family:'Oswald',sans-serif; font-weight:600; font-size:32px; text-transform:uppercase; letter-spacing:0.5px; margin:4px 0 6px; color:#20392B;">What you’ll see, and where</h2>
       <p style="font-family:'Spectral',serif; font-size:14px; line-height:1.5; color:#5A4F36; max-width:640px; margin:0 0 22px;">Two of the best wildlife regions in the country. Most of these you’ll spot from the road or a short walk &mdash; bring binoculars, and look at first light.</p>
       <div class="om-grid-4" style="display:grid; grid-template-columns:repeat(4,1fr); gap:16px;">
-
-        <div style="background:#FBF5E4; border:1px solid #C9B98A; overflow:hidden; display:flex; flex-direction:column;">
-          <div style="height:118px; overflow:hidden; border-bottom:3px solid #BC4B2A;"><img src="./images/wild-bison.jpg" alt="Bison" loading="lazy" style="width:100%; height:100%; object-fit:cover; object-position:center 60%; display:block;"></div>
-          <div style="padding:11px 13px 14px;">
-            <div style="font-family:'Oswald',sans-serif; font-weight:600; font-size:15px; text-transform:uppercase; color:#20392B; line-height:1.1;">Bison</div>
-            <div style="font-family:'Oswald',sans-serif; font-size:9px; letter-spacing:1px; text-transform:uppercase; color:#BC4B2A; margin-top:3px;">Yellowstone &middot; Days 5&ndash;6</div>
-            <div style="font-family:'Spectral',serif; font-size:12.5px; line-height:1.45; color:#5A4F36; margin-top:6px;">You&rsquo;ll see them everywhere &mdash; herds often block the road. Stay in the car; they charge if crowded.</div>
+        <sc-for list="{{ wildlife }}" as="animal" hint-placeholder-count="8">
+          <div onClick="{{ animal.onOpen }}" style="cursor:pointer; background:#FBF5E4; border:1px solid #C9B98A; overflow:hidden; display:flex; flex-direction:column; transition:transform 0.12s;" style-hover="transform:translateY(-3px);">
+            <div style="height:118px; overflow:hidden; border-bottom:3px solid #BC4B2A;"><img src="{{ animal.img }}" alt="{{ animal.name }}" loading="lazy" style="width:100%; height:100%; object-fit:cover; object-position:{{ animal.pos }}; display:block;"></div>
+            <div style="padding:11px 13px 14px;">
+              <div style="font-family:'Oswald',sans-serif; font-weight:600; font-size:15px; text-transform:uppercase; color:#20392B; line-height:1.1;">{{ animal.name }}</div>
+              <div style="font-family:'Oswald',sans-serif; font-size:9px; letter-spacing:1px; text-transform:uppercase; color:#BC4B2A; margin-top:3px;">{{ animal.where }}</div>
+              <div style="font-family:'Spectral',serif; font-size:12.5px; line-height:1.45; color:#5A4F36; margin-top:6px;">{{ animal.short }}</div>
+            </div>
           </div>
-        </div>
-
-        <div style="background:#FBF5E4; border:1px solid #C9B98A; overflow:hidden; display:flex; flex-direction:column;">
-          <div style="height:118px; overflow:hidden; border-bottom:3px solid #BC4B2A;"><img src="./images/wild-grizzly.jpg" alt="Grizzly bear" loading="lazy" style="width:100%; height:100%; object-fit:cover; object-position:center; display:block;"></div>
-          <div style="padding:11px 13px 14px;">
-            <div style="font-family:'Oswald',sans-serif; font-weight:600; font-size:15px; text-transform:uppercase; color:#20392B; line-height:1.1;">Grizzly Bear</div>
-            <div style="font-family:'Oswald',sans-serif; font-size:9px; letter-spacing:1px; text-transform:uppercase; color:#BC4B2A; margin-top:3px;">Yellowstone &middot; Day 5, dawn</div>
-            <div style="font-family:'Spectral',serif; font-size:12.5px; line-height:1.45; color:#5A4F36; margin-top:6px;">Best odds on the early Lamar stop &mdash; look for pulled-over scopes. Carry bear spray on every hike.</div>
-          </div>
-        </div>
-
-        <div style="background:#FBF5E4; border:1px solid #C9B98A; overflow:hidden; display:flex; flex-direction:column;">
-          <div style="height:118px; overflow:hidden; border-bottom:3px solid #BC4B2A;"><img src="./images/wild-wolf.jpg" alt="Gray wolf" loading="lazy" style="width:100%; height:100%; object-fit:cover; object-position:center; display:block;"></div>
-          <div style="padding:11px 13px 14px;">
-            <div style="font-family:'Oswald',sans-serif; font-weight:600; font-size:15px; text-transform:uppercase; color:#20392B; line-height:1.1;">Gray Wolf</div>
-            <div style="font-family:'Oswald',sans-serif; font-size:9px; letter-spacing:1px; text-transform:uppercase; color:#BC4B2A; margin-top:3px;">Yellowstone &middot; Day 5, Lamar</div>
-            <div style="font-family:'Spectral',serif; font-size:12.5px; line-height:1.45; color:#5A4F36; margin-top:6px;">Be in Lamar by 6 AM and scan the ridgelines. Ask the scope crowd what they&rsquo;re watching.</div>
-          </div>
-        </div>
-
-        <div style="background:#FBF5E4; border:1px solid #C9B98A; overflow:hidden; display:flex; flex-direction:column;">
-          <div style="height:118px; overflow:hidden; border-bottom:3px solid #BC4B2A;"><img src="./images/wild-moose.jpg" alt="Moose" loading="lazy" style="width:100%; height:100%; object-fit:cover; object-position:38% 50%; display:block;"></div>
-          <div style="padding:11px 13px 14px;">
-            <div style="font-family:'Oswald',sans-serif; font-weight:600; font-size:15px; text-transform:uppercase; color:#20392B; line-height:1.1;">Moose</div>
-            <div style="font-family:'Oswald',sans-serif; font-size:9px; letter-spacing:1px; text-transform:uppercase; color:#BC4B2A; margin-top:3px;">Glacier Day 4 &middot; Teton Day 7</div>
-            <div style="font-family:'Spectral',serif; font-size:12.5px; line-height:1.45; color:#5A4F36; margin-top:6px;">Your best shot: Fishercap Lake at 8 AM (Day 4). Also Oxbow Bend and Willow Flats at dawn.</div>
-          </div>
-        </div>
-
-        <div style="background:#FBF5E4; border:1px solid #C9B98A; overflow:hidden; display:flex; flex-direction:column;">
-          <div style="height:118px; overflow:hidden; border-bottom:3px solid #BC4B2A;"><img src="./images/wild-elk.jpg" alt="Elk" loading="lazy" style="width:100%; height:100%; object-fit:cover; object-position:center 42%; display:block;"></div>
-          <div style="padding:11px 13px 14px;">
-            <div style="font-family:'Oswald',sans-serif; font-weight:600; font-size:15px; text-transform:uppercase; color:#20392B; line-height:1.1;">Elk</div>
-            <div style="font-family:'Oswald',sans-serif; font-size:9px; letter-spacing:1px; text-transform:uppercase; color:#BC4B2A; margin-top:3px;">Yellowstone Day 5 &middot; Jackson</div>
-            <div style="font-family:'Spectral',serif; font-size:12.5px; line-height:1.45; color:#5A4F36; margin-top:6px;">On the Mammoth Hot Springs lawns, and grazing around Jackson at dusk. Give bulls a wide berth.</div>
-          </div>
-        </div>
-
-        <div style="background:#FBF5E4; border:1px solid #C9B98A; overflow:hidden; display:flex; flex-direction:column;">
-          <div style="height:118px; overflow:hidden; border-bottom:3px solid #BC4B2A;"><img src="./images/wild-goat.jpg" alt="Mountain goat" loading="lazy" style="width:100%; height:100%; object-fit:cover; object-position:center 74%; display:block;"></div>
-          <div style="padding:11px 13px 14px;">
-            <div style="font-family:'Oswald',sans-serif; font-weight:600; font-size:15px; text-transform:uppercase; color:#20392B; line-height:1.1;">Mountain Goat</div>
-            <div style="font-family:'Oswald',sans-serif; font-size:9px; letter-spacing:1px; text-transform:uppercase; color:#BC4B2A; margin-top:3px;">Glacier &middot; Day 3, Logan Pass</div>
-            <div style="font-family:'Spectral',serif; font-size:12.5px; line-height:1.45; color:#5A4F36; margin-top:6px;">Right along the Hidden Lake Overlook trail &mdash; often a few feet away. Don&rsquo;t feed them.</div>
-          </div>
-        </div>
-
-        <div style="background:#FBF5E4; border:1px solid #C9B98A; overflow:hidden; display:flex; flex-direction:column;">
-          <div style="height:118px; overflow:hidden; border-bottom:3px solid #BC4B2A;"><img src="./images/wild-pronghorn.jpg" alt="Pronghorn" loading="lazy" style="width:100%; height:100%; object-fit:cover; object-position:center; display:block;"></div>
-          <div style="padding:11px 13px 14px;">
-            <div style="font-family:'Oswald',sans-serif; font-weight:600; font-size:15px; text-transform:uppercase; color:#20392B; line-height:1.1;">Pronghorn</div>
-            <div style="font-family:'Oswald',sans-serif; font-size:9px; letter-spacing:1px; text-transform:uppercase; color:#BC4B2A; margin-top:3px;">Yellowstone &middot; Day 5, north range</div>
-            <div style="font-family:'Spectral',serif; font-size:12.5px; line-height:1.45; color:#5A4F36; margin-top:6px;">In the sagebrush between Gardiner and Lamar. The fastest land animal in North America.</div>
-          </div>
-        </div>
-
-        <div style="background:#FBF5E4; border:1px solid #C9B98A; overflow:hidden; display:flex; flex-direction:column;">
-          <div style="height:118px; overflow:hidden; border-bottom:3px solid #BC4B2A;"><img src="./images/wild-eagle.jpg" alt="Bald eagle" loading="lazy" style="width:100%; height:100%; object-fit:cover; object-position:32% 45%; display:block;"></div>
-          <div style="padding:11px 13px 14px;">
-            <div style="font-family:'Oswald',sans-serif; font-weight:600; font-size:15px; text-transform:uppercase; color:#20392B; line-height:1.1;">Bald Eagle</div>
-            <div style="font-family:'Oswald',sans-serif; font-size:9px; letter-spacing:1px; text-transform:uppercase; color:#BC4B2A; margin-top:3px;">Grand Teton &middot; Day 7, Snake River</div>
-            <div style="font-family:'Spectral',serif; font-size:12.5px; line-height:1.45; color:#5A4F36; margin-top:6px;">Watch the cottonwoods from the 5 PM float &mdash; ospreys too, and moose on the banks.</div>
-          </div>
-        </div>
-
+        </sc-for>
       </div>
+
+      <!-- WILDLIFE MODAL -->
+      <sc-if value="{{ hasActiveAnimal }}" hint-placeholder-val="{{ false }}">
+      <div style="position:fixed; inset:0; z-index:200; display:flex; align-items:center; justify-content:center; padding:24px;">
+        <div onClick="{{ closeAnimal }}" style="position:absolute; inset:0; background:rgba(20,40,25,0.55); backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px);"></div>
+        <div style="position:relative; z-index:1; background:#FBF5E4; border:2px solid #20392B; width:100%; max-width:520px; max-height:88vh; overflow:auto; box-shadow:0 24px 70px rgba(0,0,0,0.45);">
+          <div style="position:relative; height:240px; overflow:hidden; border-bottom:4px solid #BC4B2A;">
+            <img src="{{ activeAnimal.img }}" alt="{{ activeAnimal.name }}" style="width:100%; height:100%; object-fit:cover; object-position:{{ activeAnimal.pos }}; display:block;">
+            <button onClick="{{ closeAnimal }}" aria-label="Close" style="cursor:pointer; position:absolute; top:12px; right:12px; width:34px; height:34px; border:none; background:rgba(20,40,25,0.6); color:#F3E9D2; font-size:20px; line-height:1;">&times;</button>
+          </div>
+          <div style="padding:22px 26px 28px;">
+            <div style="font-family:'Oswald',sans-serif; font-size:9px; letter-spacing:1.5px; text-transform:uppercase; color:#BC4B2A; font-weight:600;">{{ activeAnimal.where }}</div>
+            <div style="font-family:'Oswald',sans-serif; font-weight:600; font-size:26px; text-transform:uppercase; letter-spacing:0.5px; color:#20392B; margin-top:4px; line-height:1;">{{ activeAnimal.name }}</div>
+            <div style="width:56px; height:4px; background:#D9982F; margin:12px 0 14px;"></div>
+            <p style="font-family:'Spectral',serif; font-size:15px; line-height:1.6; color:#4A4029; margin:0;">{{ activeAnimal.long }}</p>
+          </div>
+        </div>
+      </div>
+      </sc-if>
 
       <!-- DAY CARDS -->
       <div style="font-family:'Oswald',sans-serif; text-transform:uppercase; letter-spacing:3px; font-size:13px; color:#BC4B2A; font-weight:600; margin-top:56px;">Day by Day</div>
@@ -600,7 +556,7 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1200,&quot;height&quot;:820},&quot;defaultView&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;overview&quot;,&quot;itinerary&quot;],&quot;default&quot;:&quot;overview&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;expandByDefault&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;}}">
 class Component extends DCLogic {
-  state = { view: null, activeDay: 0, open: {}, hotelOpen: {}, allPricesOpen: false };
+  state = { view: null, activeDay: 0, open: {}, hotelOpen: {}, allPricesOpen: false, activeAnimal: null };
 
   componentDidMount() {
     this.ensureWired();
@@ -698,6 +654,8 @@ class Component extends DCLogic {
     this.setState(s => ({ hotelOpen: { ...s.hotelOpen, [i]: !s.hotelOpen[i] } }));
   }
   isHotelOpen(i) { return !!this.state.hotelOpen[i]; }
+  openAnimal(i) { this.setState({ activeAnimal: i }); }
+  closeAnimal() { this.setState({ activeAnimal: null }); }
   toggleAllPrices() {
     this.setState(s => {
       const opening = !s.allPricesOpen;
@@ -1058,11 +1016,42 @@ class Component extends DCLogic {
       { label: 'Los Angeles', sub: 'Start / Home', x: '12%', y: '86%', color: '#5E7E8B' }
     ];
 
+    const wildlife = [
+      { name: 'Bison', img: './images/wild-bison.jpg', pos: 'center 60%', where: 'Yellowstone · Days 5–6',
+        short: 'You’ll see them everywhere — herds often block the road. Stay in the car; they charge if crowded.',
+        long: 'The biggest land animal in North America — up to 2,000 lbs — and you’ll see hundreds. Lamar Valley (Day 5, at dawn) and Hayden Valley (Day 5, afternoon) hold the largest herds, and they often walk right down the road. They look docile but are fast and unpredictable (35 mph), so sit tight in the car during a “bison jam.” Mid-August is peak rut, so the bulls are especially worked up.' },
+      { name: 'Grizzly Bear', img: './images/wild-grizzly.jpg', pos: 'center', where: 'Yellowstone · Day 5, dawn',
+        short: 'Best odds on the early Lamar stop — look for pulled-over scopes. Carry bear spray on every hike.',
+        long: 'Yellowstone’s northern range is one of the best places in the lower 48 to see a grizzly. Your window is the early Lamar Valley stop on Day 5 — scan the meadows and hillsides at first light, and watch for a cluster of parked cars and spotting scopes (a “bear jam”). Keep 100 yards away, and carry bear spray — buy it in-park — on every hike, especially Avalanche Lake and Hidden Lake.' },
+      { name: 'Gray Wolf', img: './images/wild-wolf.jpg', pos: 'center', where: 'Yellowstone · Day 5, Lamar',
+        short: 'Be in Lamar by 6 AM and scan the ridgelines. Ask the scope crowd what they’re watching.',
+        long: 'Reintroduced in 1995, Yellowstone’s wolves are most reliably seen in Lamar Valley at dawn. Be in the valley by 6 AM on Day 5, find the wolf-watchers with scopes, and glass the far ridgelines and treelines — sightings are usually distant, so binoculars (or a borrowed scope) make it. Early-August mornings are cold, so bring a jacket.' },
+      { name: 'Moose', img: './images/wild-moose.jpg', pos: '38% 50%', where: 'Glacier Day 4 · Teton Day 7',
+        short: 'Your best shot: Fishercap Lake at 8 AM (Day 4). Also Oxbow Bend and Willow Flats at dawn.',
+        long: 'Your single best shot is Fishercap Lake in Many Glacier at about 8 AM on Day 4 — a short, flat walk to a marshy lake where moose feed in the early morning. In Grand Teton, try Oxbow Bend and the Willow Flats overlook by Jackson Lake Lodge (Day 7) at dawn or dusk. Moose are huge and territorial — give them a wide berth, especially cows with calves.' },
+      { name: 'Elk', img: './images/wild-elk.jpg', pos: 'center 42%', where: 'Yellowstone Day 5 · Jackson',
+        short: 'On the Mammoth Hot Springs lawns, and grazing around Jackson at dusk. Give bulls a wide berth.',
+        long: 'Herds lounge right on the manicured lawns at Mammoth Hot Springs (Day 5), and you’ll see them around Jackson and the National Elk Refuge (Days 7–8). By late August the bulls are in velvet and the rut is beginning — listen for bugling at dusk. Keep your distance; cows are protective and bulls turn aggressive in the rut.' },
+      { name: 'Mountain Goat', img: './images/wild-goat.jpg', pos: 'center 74%', where: 'Glacier · Day 3, Logan Pass',
+        short: 'Right along the Hidden Lake Overlook trail — often a few feet away. Don’t feed them.',
+        long: 'Glacier is the mountain-goat capital, and the Hidden Lake Overlook trail from Logan Pass (Day 3) is the spot — goats graze the meadows and cliffs, often just feet from the boardwalk. They’re habituated but wild, so don’t approach or feed them (they crave salt and will lick sweat off packs). Bighorn sheep work the same slopes.' },
+      { name: 'Pronghorn', img: './images/wild-pronghorn.jpg', pos: 'center', where: 'Yellowstone · Day 5, north range',
+        short: 'In the sagebrush between Gardiner and Lamar. The fastest land animal in North America.',
+        long: 'Look to the open sagebrush flats of Yellowstone’s northern range, between Gardiner and Lamar (Day 5). Pronghorn are the fastest land animal in North America (about 60 mph) — an adaptation to outrun long-extinct American cheetahs. They’re skittish, so watch from the car or from a distance.' },
+      { name: 'Bald Eagle', img: './images/wild-eagle.jpg', pos: '32% 45%', where: 'Grand Teton · Day 7, Snake River',
+        short: 'Watch the cottonwoods from the 5 PM float — ospreys too, and moose on the banks.',
+        long: 'The Snake River scenic float on Day 7 (the 5 PM trip) is your best chance — watch the tall cottonwoods along the banks for perched adults, plus ospreys diving for trout. You may also spot eagles at Oxbow Bend and along Jackson Lake. The late-afternoon light on the float is the best of the day for wildlife and photos.' }
+    ].map((a, i) => ({ ...a, onOpen: () => this.openAnimal(i) }));
+    const _ai = this.state.activeAnimal;
+    const activeAnimalObj = (_ai != null && wildlife[_ai]) ? wildlife[_ai] : null;
+
     return {
       isOverview, isItinerary: !isOverview,
       ovBtnStyle, itBtnStyle,
       showOverview: this.showOverview, showItinerary: this.showItinerary,
       days, hotels, routePins,
+      wildlife, activeAnimal: activeAnimalObj, hasActiveAnimal: !!activeAnimalObj,
+      closeAnimal: () => this.closeAnimal(),
       tripSub, tripStarted,
       photosUrl: this.PHOTOS_URL,
       photosTitle: 'Photos from Montana',
