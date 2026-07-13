@@ -308,6 +308,7 @@
               </div>
               <div style="font-family:'Spectral',serif; font-size:13px; color:#5A4F36; margin-top:12px;">{{ item.vehicleLine }}</div>
               <div style="font-family:'Oswald',sans-serif; font-size:10.5px; letter-spacing:0.3px; text-transform:uppercase; color:#8A7C58; margin-top:4px;">{{ item.costLine }}</div>
+              <a href="{{ item.manageUrl }}" target="_blank" rel="noopener" style="display:inline-block; align-self:flex-start; font-family:'Oswald',sans-serif; font-weight:700; font-size:10.5px; letter-spacing:0.5px; text-transform:uppercase; color:{{ item.color }}; text-decoration:none; border-bottom:1px solid {{ item.lineTint }}; margin-top:14px;">Manage reservation ↗</a>
             </sc-if>
             <sc-if value="{{ !item.isCar }}" hint-placeholder-val="{{ true }}">
             <div style="position:relative; padding-left:20px;">
@@ -323,7 +324,7 @@
                 </sc-if>
                 <sc-if value="{{ row.isConnector }}" hint-placeholder-val="{{ false }}">
                   <div style="position:relative; padding:5px 0 12px 4px; border-left:2px solid {{ item.lineTint }}; margin-left:-14.5px; padding-left:14.5px;">
-                    <div style="font-family:'Oswald',sans-serif; font-size:10.5px; letter-spacing:0.3px; text-transform:uppercase; color:#8A7C58;">{{ row.sub }} &middot; {{ row.duration }}</div>
+                    <div style="font-family:'Oswald',sans-serif; font-size:10.5px; letter-spacing:0.3px; text-transform:uppercase; color:#8A7C58;"><a href="{{ row.trackUrl }}" target="_blank" rel="noopener" style="color:{{ item.color }}; text-decoration:none; border-bottom:1px solid {{ item.lineTint }};">{{ row.flightNum }} ↗</a> &middot; {{ row.aircraft }} &middot; {{ row.duration }}</div>
                   </div>
                 </sc-if>
                 <sc-if value="{{ row.isLayover }}" hint-placeholder-val="{{ false }}">
@@ -334,15 +335,6 @@
               </sc-for>
             </div>
             </sc-if>
-
-            <div style="margin-top:auto; display:flex; align-items:center; justify-content:space-between; gap:10px; flex-wrap:wrap; padding-top:9px; border-top:1px dashed #D8C89A;">
-              <span style="font-family:'Oswald',sans-serif; font-size:9.5px; letter-spacing:1px; text-transform:uppercase; color:#9A8B6A; white-space:nowrap; flex:none;">Conf. {{ item.confirmation }}</span>
-              <span style="display:flex; gap:10px; flex:none;">
-                <sc-for list="{{ item.actions }}" as="act" hint-placeholder-count="1">
-                  <a href="{{ act.url }}" target="_blank" rel="noopener" style="font-family:'Oswald',sans-serif; font-weight:700; font-size:10px; letter-spacing:0.5px; text-transform:uppercase; color:{{ item.color }}; text-decoration:none; white-space:nowrap;">{{ act.label }}</a>
-                </sc-for>
-              </span>
-            </div>
           </div>
         </sc-for>
       </div>
@@ -824,19 +816,12 @@ class Component extends DCLogic {
     return [
       {
         key: 'outbound', kind: 'flight', label: 'Outbound', color: '#33698C', date: 'Sat, Aug 8',
-        confirmation: 'GSDBVY',
-        actions: [{ label: 'Track DL3947 ↗', url: 'https://www.flightaware.com/live/flight/DAL3947' }],
         segments: [
           { flightNum: 'DL3947', aircraft: 'Embraer 175', from: 'LAX', fromCity: 'Los Angeles, CA (LAX)', to: 'BZN', toCity: 'Bozeman/Big Sky, MT (BZN)', depart: '8:00 AM', arrive: '11:40 AM', duration: '2h 40m · Nonstop' }
         ]
       },
       {
         key: 'return', kind: 'flight', label: 'Return', color: '#3F7A44', date: 'Sat, Aug 15',
-        confirmation: 'GSDBVY',
-        actions: [
-          { label: 'Track DL417 ↗', url: 'https://www.flightaware.com/live/flight/DAL417' },
-          { label: 'Track DL339 ↗', url: 'https://www.flightaware.com/live/flight/DAL339' }
-        ],
         layover: '1h 39m layover',
         segments: [
           { flightNum: 'DL417', aircraft: 'Airbus A319', from: 'JAC', fromCity: 'Jackson Hole, WY (JAC)', to: 'SLC', toCity: 'Salt Lake City, UT (SLC)', depart: '6:01 PM', arrive: '7:11 PM', duration: '1h 10m' },
@@ -845,8 +830,7 @@ class Component extends DCLogic {
       },
       {
         key: 'rental', kind: 'car', label: 'Rental Car', color: '#9A6B2E', date: 'Aug 8–15',
-        confirmation: '397407760',
-        actions: [{ label: 'Manage ↗', url: 'https://www.enterprise.com/en/account.html#/reservation' }],
+        manageUrl: 'https://www.enterprise.com/en/account.html#/reservation',
         pickup: { code: 'BZN', time: 'Aug 8, 12 PM' },
         dropoff: { code: 'JAC', time: 'Aug 15, 3 PM' },
         vehicleLine: 'Enterprise · Toyota Corolla or similar',
@@ -860,7 +844,7 @@ class Component extends DCLogic {
     const rows = [];
     segments.forEach((seg, i) => {
       rows.push({ isStop: true, time: seg.depart, code: seg.from, place: seg.fromCity });
-      rows.push({ isConnector: true, sub: seg.flightNum + ' · ' + seg.aircraft, duration: seg.duration });
+      rows.push({ isConnector: true, flightNum: seg.flightNum, aircraft: seg.aircraft, duration: seg.duration, trackUrl: 'https://www.flightaware.com/live/flight/DAL' + seg.flightNum.replace(/[^0-9]/g, '') });
       rows.push({ isStop: true, time: seg.arrive, code: seg.to, place: seg.toCity });
       if (i < segments.length - 1) rows.push({ isLayover: true, text: layoverText || '' });
     });
