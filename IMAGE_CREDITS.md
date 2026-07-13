@@ -45,8 +45,8 @@ Sourced from Wikimedia Commons and served at ~680 px. Attribution per license:
 | File | Subject | Author | License | Source |
 |------|---------|--------|---------|--------|
 | `images/wild-bison.jpg` | Bison, Yellowstone | Frank Schulenburg | CC BY-SA 4.0 | [Commons](https://commons.wikimedia.org/wiki/File:Bison_bull_headshot.jpg) |
-| `images/wild-grizzly.jpg` | Grizzly bear, Yellowstone | NPS / Jim Peaco | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:Grizzly_bear_Yellowstone_National_Park_May_2017_(cropped).jpg) |
-| `images/wild-wolf.jpg` | Gray wolf, Yellowstone | NPS | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:Wolves_at_Yellowstone_National_Park_(a17c146d-fb4c-49d4-8c5c-b1a78b9ca27a).jpg) |
+| `images/wild-grizzly.jpg` | Grizzly bear, Yellowstone | Terry Tollefsbol / USFWS | Public domain | [Commons](https://commons.wikimedia.org/wiki/File:Grizzly_Bear_Yellowstone.jpg) |
+| `images/wild-wolf.jpg` | Gray wolf | Gregory Smith | CC BY-SA 2.0 | [Commons](https://commons.wikimedia.org/wiki/File:Gray_Wolf_-_Canis_lupus_(51545668593).jpg) |
 | `images/wild-moose.jpg` | Moose, Grand Teton | Tony Hisgett | CC BY 2.0 | [Commons](https://commons.wikimedia.org/wiki/File:Moose_in_Grand_Teton_National_Park_3_(8007698498).jpg) |
 | `images/wild-elk.jpg` | North American elk (velvet bulls) | James St. John | CC BY 2.0 | [Commons](https://commons.wikimedia.org/wiki/File:Cervus_canadensis_(North_American_elk)_6_(8291416034).jpg) |
 | `images/wild-goat.jpg` | Mountain goat at Hidden Lake, Glacier | Robert M. Russell | CC BY-SA 4.0 | [Commons](https://commons.wikimedia.org/wiki/File:Mountain_Goat_at_Hidden_Lake.jpg) |
