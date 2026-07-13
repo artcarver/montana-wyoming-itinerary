@@ -266,17 +266,14 @@
             </div>
             <sc-if value="{{ day.isCurrent }}" hint-placeholder-val="{{ false }}"><div style="font-family:'Oswald',sans-serif; font-weight:600; font-size:10px; letter-spacing:1px; text-transform:uppercase; color:#F3E9D2; background:#BC4B2A; padding:3px 8px; align-self:flex-start;">&#9673; You are here</div></sc-if>
             <div style="font-family:'Oswald',sans-serif; font-weight:600; font-size:18px; line-height:1.1; text-transform:uppercase; color:#20392B;">{{ day.title }}</div>
-            <div style="font-family:'Spectral',serif; font-size:13px; line-height:1.45; color:#5A4F36; flex:1;">{{ day.subtitle }}</div>
-            <div style="padding-top:11px; border-top:1px solid #E6D8B2; display:flex; flex-direction:column; gap:6px;">
-              <div style="display:flex; align-items:baseline; gap:8px;">
-                <span style="font-family:'Oswald',sans-serif; font-weight:600; font-size:9px; letter-spacing:1px; text-transform:uppercase; color:{{ day.regionColor }}; flex:none; width:52px;">Don't miss</span>
-                <span style="font-family:'Spectral',serif; font-size:13px; line-height:1.3; color:#3D3422;">{{ day.highlight }}</span>
-              </div>
-              <div style="display:flex; align-items:baseline; gap:8px;">
-                <span style="font-family:'Oswald',sans-serif; font-weight:600; font-size:9px; letter-spacing:1px; text-transform:uppercase; color:#9A8B6A; flex:none; width:52px;">Tonight</span>
-                <span style="font-family:'Spectral',serif; font-size:13px; line-height:1.3; color:#5A4F36;">{{ day.lodgeTown }}</span>
-              </div>
-            </div>
+            <ul style="list-style:none; margin:2px 0 0; padding:0; display:flex; flex-direction:column; gap:7px; flex:1;">
+              <sc-for list="{{ day.bullets }}" as="b" hint-placeholder-count="4">
+                <li style="display:flex; align-items:baseline; gap:9px; font-family:'Spectral',serif; font-size:13px; line-height:1.35; color:#4A4029;">
+                  <span style="flex:none; width:5px; height:5px; margin-top:6px; border-radius:50%; background:{{ day.regionColor }};"></span>
+                  <span>{{ b }}</span>
+                </li>
+              </sc-for>
+            </ul>
           </button>
         </sc-for>
       </div>
@@ -954,10 +951,15 @@ class Component extends DCLogic {
     const ovBtnStyle = tabBase + (isOverview ? 'background:#D9982F; color:#20392B;' : 'background:transparent; color:#9CB3A0;');
     const itBtnStyle = tabBase + (!isOverview ? 'background:#D9982F; color:#20392B;' : 'background:transparent; color:#9CB3A0;');
 
-    const HIGHLIGHTS = {
-      1: 'Lake McDonald at sunset', 2: 'Avalanche Lake hike', 3: 'Logan Pass + Many Glacier boat',
-      4: 'Sunrise at Many Glacier', 5: 'Lamar Valley wildlife at dawn', 6: 'Grand Prismatic + Old Faithful',
-      7: 'Jenny Lake + the Snake River float', 8: 'Teton sunrise, then the tram'
+    const BULLETS = {
+      1: ['Fly LAX to Bozeman, then drive north to Glacier', 'Madison Buffalo Jump & Missouri Headwaters', 'Sunset on Lake McDonald at Apgar', 'Aurora watch under dark northern skies'],
+      2: ['Trail of the Cedars boardwalk', 'Avalanche Lake — the headline hike', 'Apgar Village & lakeshore', 'Second night for an aurora chance'],
+      3: ['Logan Pass & Hidden Lake Overlook', 'Highline Trail cliff traverse', 'Wild Goose Island photo stop', 'Evening boat tour at Many Glacier'],
+      4: ['Fishercap Lake at dawn (moose country)', 'Swiftcurrent Lake morning stroll', 'The long drive down the Rocky Mountain Front', 'Arrive Gardiner & the Roosevelt Arch'],
+      5: ['Lamar Valley wildlife at dawn', 'Mammoth travertine terraces', 'Norris Geyser Basin', 'Grand Canyon of the Yellowstone'],
+      6: ['Grand Prismatic & the Fairy Falls overlook', 'Old Faithful eruption', 'Upper Geyser Basin boardwalks', 'West Thumb on Yellowstone Lake'],
+      7: ['West Thumb geysers at sunrise', 'Oxbow Bend & Jackson Lake Lodge', 'Jenny Lake boat to Hidden Falls', 'Sunset float on the Snake River'],
+      8: ['Stars into sunrise at Schwabacher', 'Mormon Row’s Moulton Barn at dawn', 'Taggart Lake loop', 'Aerial tram to 10,450 ft, then fly home']
     };
     const days = this.rawDays().map((d, di) => {
       const regionColor = this.REGIONS[d.region];
@@ -992,8 +994,7 @@ class Component extends DCLogic {
         num: d.num, weekday: d.weekday, date: d.date, dateShort: d.dateShort,
         title: d.title, subtitle: d.subtitle,
         regionColor, regionLabel: d.regionLabel,
-        highlight: HIGHLIGHTS[d.num] || '',
-        lodgeTown: d.hotel ? d.hotel.location.split(' — ')[0] : 'Fly home',
+        bullets: BULLETS[d.num] || [],
         drive: d.drive, walk: d.walk, sun: d.sun,
         driveShort: d.drive, walkShort: d.walk || '',
         motifArt: this.motif(d.motif),
