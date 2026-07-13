@@ -244,7 +244,11 @@
             <div style="font-family:'Oswald',sans-serif; font-size:9px; letter-spacing:1.5px; text-transform:uppercase; color:#BC4B2A; font-weight:600;">{{ activeAnimal.where }}</div>
             <div style="font-family:'Oswald',sans-serif; font-weight:600; font-size:26px; text-transform:uppercase; letter-spacing:0.5px; color:#20392B; margin-top:4px; line-height:1;">{{ activeAnimal.name }}</div>
             <div style="width:56px; height:4px; background:#D9982F; margin:12px 0 14px;"></div>
-            <p style="font-family:'Spectral',serif; font-size:15px; line-height:1.6; color:#4A4029; margin:0;">{{ activeAnimal.long }}</p>
+            <ul style="list-style:none; margin:0; padding:0;">
+              <sc-for list="{{ activeAnimal.bullets }}" as="b" hint-placeholder-count="5">
+                <li style="font-family:'Spectral',serif; font-size:14.5px; line-height:1.5; color:#4A4029; padding-left:18px; position:relative; margin-bottom:9px;"><span style="position:absolute; left:0; top:1px; color:#BC4B2A; font-weight:700;">&bull;</span>{{ b.t }}</li>
+              </sc-for>
+            </ul>
           </div>
         </div>
       </div>
@@ -1019,28 +1023,28 @@ class Component extends DCLogic {
     const wildlife = [
       { name: 'Bison', img: './images/wild-bison.jpg', pos: 'center 60%', where: 'Yellowstone · Days 5–6',
         short: 'You’ll see them everywhere — herds often block the road. Stay in the car; they charge if crowded.',
-        long: 'The biggest land animal in North America — up to 2,000 lbs — and you’ll see hundreds. Lamar Valley (Day 5, at dawn) and Hayden Valley (Day 5, afternoon) hold the largest herds, and they often walk right down the road. They look docile but are fast and unpredictable (35 mph), so sit tight in the car during a “bison jam.” Mid-August is peak rut, so the bulls are especially worked up.' },
+        bullets: [ { t: 'Lamar Valley at dawn on Day 5 (Aug 12) — the biggest herds, right along the road.' }, { t: 'Also Hayden Valley that afternoon, and around Madison and Firehole on Day 6 (Aug 13).' }, { t: 'Expect “bison jams” — wait in the car and never get out to photograph one.' }, { t: 'Fast and unpredictable (35 mph), and mid-August is the rut, so bulls are agitated.' }, { t: 'North America’s largest land animal — bulls reach 2,000 lbs.' } ] },
       { name: 'Grizzly Bear', img: './images/wild-grizzly.jpg', pos: 'center', where: 'Yellowstone · Day 5, dawn',
         short: 'Best odds on the early Lamar stop — look for pulled-over scopes. Carry bear spray on every hike.',
-        long: 'Yellowstone’s northern range is one of the best places in the lower 48 to see a grizzly. Your window is the early Lamar Valley stop on Day 5 — scan the meadows and hillsides at first light, and watch for a cluster of parked cars and spotting scopes (a “bear jam”). Keep 100 yards away, and carry bear spray — buy it in-park — on every hike, especially Avalanche Lake and Hidden Lake.' },
+        bullets: [ { t: 'Best window: the early Lamar Valley stop, ~6 AM on Day 5 (Aug 12).' }, { t: 'Scan meadows and hillsides at first light; look for a “bear jam” of cars and scopes.' }, { t: 'Also possible in Hayden Valley and over Dunraven Pass.' }, { t: 'Keep 100 yards away — always.' }, { t: 'Carry bear spray (buy it in-park) on every hike, especially Avalanche Lake (Day 2) and Hidden Lake (Day 3).' } ] },
       { name: 'Gray Wolf', img: './images/wild-wolf.jpg', pos: 'center', where: 'Yellowstone · Day 5, Lamar',
         short: 'Be in Lamar by 6 AM and scan the ridgelines. Ask the scope crowd what they’re watching.',
-        long: 'Reintroduced in 1995, Yellowstone’s wolves are most reliably seen in Lamar Valley at dawn. Be in the valley by 6 AM on Day 5, find the wolf-watchers with scopes, and glass the far ridgelines and treelines — sightings are usually distant, so binoculars (or a borrowed scope) make it. Early-August mornings are cold, so bring a jacket.' },
+        bullets: [ { t: 'Lamar Valley at dawn — be in the valley by 6 AM on Day 5 (Aug 12).' }, { t: 'Find the wolf-watchers with big scopes and ask what they’re seeing.' }, { t: 'Glass the far ridgelines and treelines — sightings are usually distant.' }, { t: 'Binoculars are a must; a borrowed or guided scope makes the difference.' }, { t: 'Reintroduced in 1995. Early-August mornings run ~40°F, so bring a jacket.' } ] },
       { name: 'Moose', img: './images/wild-moose.jpg', pos: '38% 50%', where: 'Glacier Day 4 · Teton Day 7',
         short: 'Your best shot: Fishercap Lake at 8 AM (Day 4). Also Oxbow Bend and Willow Flats at dawn.',
-        long: 'Your single best shot is Fishercap Lake in Many Glacier at about 8 AM on Day 4 — a short, flat walk to a marshy lake where moose feed in the early morning. In Grand Teton, try Oxbow Bend and the Willow Flats overlook by Jackson Lake Lodge (Day 7) at dawn or dusk. Moose are huge and territorial — give them a wide berth, especially cows with calves.' },
+        bullets: [ { t: 'Best shot: Fishercap Lake, Many Glacier, ~8 AM on Day 4 (Aug 11) — a short flat walk.' }, { t: 'In Grand Teton: Oxbow Bend and Willow Flats (by Jackson Lake Lodge) at dawn or dusk, Day 7 (Aug 14).' }, { t: 'Possible again along the Snake River float that evening.' }, { t: 'Huge and territorial — give them a wide berth, especially cows with calves.' }, { t: 'The largest member of the deer family; bulls can top 1,000 lbs.' } ] },
       { name: 'Elk', img: './images/wild-elk.jpg', pos: 'center 42%', where: 'Yellowstone Day 5 · Jackson',
         short: 'On the Mammoth Hot Springs lawns, and grazing around Jackson at dusk. Give bulls a wide berth.',
-        long: 'Herds lounge right on the manicured lawns at Mammoth Hot Springs (Day 5), and you’ll see them around Jackson and the National Elk Refuge (Days 7–8). By late August the bulls are in velvet and the rut is beginning — listen for bugling at dusk. Keep your distance; cows are protective and bulls turn aggressive in the rut.' },
+        bullets: [ { t: 'On the manicured Mammoth Hot Springs lawns on Day 5 (Aug 12) — nearly guaranteed.' }, { t: 'Around Jackson and the National Elk Refuge on Days 7–8 (Aug 14–15).' }, { t: 'By late August bulls are in velvet and the rut is starting — listen for bugling at dusk.' }, { t: 'Keep your distance: cows are protective and rutting bulls turn aggressive.' } ] },
       { name: 'Mountain Goat', img: './images/wild-goat.jpg', pos: 'center 74%', where: 'Glacier · Day 3, Logan Pass',
         short: 'Right along the Hidden Lake Overlook trail — often a few feet away. Don’t feed them.',
-        long: 'Glacier is the mountain-goat capital, and the Hidden Lake Overlook trail from Logan Pass (Day 3) is the spot — goats graze the meadows and cliffs, often just feet from the boardwalk. They’re habituated but wild, so don’t approach or feed them (they crave salt and will lick sweat off packs). Bighorn sheep work the same slopes.' },
+        bullets: [ { t: 'The Hidden Lake Overlook trail from Logan Pass on Day 3 (Aug 10) — the single best spot.' }, { t: 'Goats graze the cliffs and meadows, often just feet from the boardwalk.' }, { t: 'Go early: Logan Pass parking fills by ~9 AM (and is capped at 3 hours in 2026).' }, { t: 'Don’t approach or feed them — they crave salt and will lick sweat off packs and poles.' }, { t: 'Watch for bighorn sheep on the same slopes.' } ] },
       { name: 'Pronghorn', img: './images/wild-pronghorn.jpg', pos: 'center', where: 'Yellowstone · Day 5, north range',
         short: 'In the sagebrush between Gardiner and Lamar. The fastest land animal in North America.',
-        long: 'Look to the open sagebrush flats of Yellowstone’s northern range, between Gardiner and Lamar (Day 5). Pronghorn are the fastest land animal in North America (about 60 mph) — an adaptation to outrun long-extinct American cheetahs. They’re skittish, so watch from the car or from a distance.' },
+        bullets: [ { t: 'Open sagebrush flats between Gardiner and Lamar on Day 5 (Aug 12).' }, { t: 'Often right along US-89 and the Lamar road — watch from the car.' }, { t: 'The fastest land animal in North America (~60 mph).' }, { t: 'That speed evolved to outrun the now-extinct American cheetah.' }, { t: 'Skittish — glass them from a distance.' } ] },
       { name: 'Bald Eagle', img: './images/wild-eagle.jpg', pos: '32% 45%', where: 'Grand Teton · Day 7, Snake River',
         short: 'Watch the cottonwoods from the 5 PM float — ospreys too, and moose on the banks.',
-        long: 'The Snake River scenic float on Day 7 (the 5 PM trip) is your best chance — watch the tall cottonwoods along the banks for perched adults, plus ospreys diving for trout. You may also spot eagles at Oxbow Bend and along Jackson Lake. The late-afternoon light on the float is the best of the day for wildlife and photos.' }
+        bullets: [ { t: 'The 5 PM Snake River scenic float on Day 7 (Aug 14) is your best chance.' }, { t: 'Watch the tall cottonwoods along the banks for perched adults.' }, { t: 'Ospreys dive for trout along the same stretch.' }, { t: 'Also check Oxbow Bend and Jackson Lake earlier in the day.' }, { t: 'Late-afternoon float light is the best of the day for wildlife and photos.' } ] }
     ].map((a, i) => ({ ...a, onOpen: () => this.openAnimal(i) }));
     const _ai = this.state.activeAnimal;
     const activeAnimalObj = (_ai != null && wildlife[_ai]) ? wildlife[_ai] : null;
