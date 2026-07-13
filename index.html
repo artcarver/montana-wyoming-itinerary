@@ -56,6 +56,7 @@
     .om-section-pad { padding: 36px 18px 56px !important; }
     .om-grid-3 { grid-template-columns: 1fr !important; }
     .om-days-grid { grid-auto-rows: auto !important; }
+    .om-flights-grid { grid-template-columns: 1fr !important; }
     .om-grid-4 { grid-template-columns: 1fr 1fr !important; }
     .om-itinerary { flex-direction: column !important; height: auto !important; min-height: calc(100vh - 62px); }
     .om-sidebar { display: none !important; }
@@ -277,6 +278,97 @@
             </ul>
           </button>
         </sc-for>
+      </div>
+
+      <!-- GETTING THERE -->
+      <div style="font-family:'Oswald',sans-serif; text-transform:uppercase; letter-spacing:3px; font-size:13px; color:#BC4B2A; font-weight:600; margin-top:56px;">Getting There</div>
+      <h2 style="font-family:'Oswald',sans-serif; font-weight:600; font-size:32px; text-transform:uppercase; letter-spacing:0.5px; margin:4px 0 6px; color:#20392B;">Flights &amp; rental car</h2>
+      <div style="font-family:'Spectral',serif; font-size:14px; color:#5A4F36; margin:0 0 22px;">Delta, confirmation <strong>GSDBVY</strong> &middot; open-jaw into Bozeman, out of Jackson &middot; 2 passengers, booked.</div>
+
+      <div class="om-flights-grid" style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+        <!-- OUTBOUND -->
+        <div style="background:#FBF5E4; border:1px solid #C9B98A; border-top:5px solid #33698C; padding:18px 22px 20px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+            <span style="font-family:'Oswald',sans-serif; font-weight:700; font-size:11px; letter-spacing:1.5px; text-transform:uppercase; color:#33698C;">&#9992; Outbound</span>
+            <span style="font-family:'Oswald',sans-serif; font-size:11px; letter-spacing:1px; text-transform:uppercase; color:#8A7C58;">Sat, Aug 8</span>
+          </div>
+          <div style="display:flex; align-items:flex-start; gap:12px;">
+            <div style="flex:none;">
+              <div style="font-family:'Oswald',sans-serif; font-weight:700; font-size:28px; line-height:1; color:#20392B;">LAX</div>
+              <div style="font-family:'Oswald',sans-serif; font-weight:600; font-size:15px; color:#3D3422; margin-top:5px;">8:00 AM</div>
+              <div style="font-family:'Spectral',serif; font-size:12px; color:#7A6B50; margin-top:1px;">Los Angeles</div>
+            </div>
+            <div style="flex:1; min-width:80px; display:flex; flex-direction:column; align-items:center; gap:6px; padding-top:5px;">
+              <div style="font-family:'Oswald',sans-serif; font-size:10px; letter-spacing:1.5px; text-transform:uppercase; color:#9A6B2E; text-align:center;">Nonstop &middot; 2h 40m</div>
+              <div style="width:100%; display:flex; align-items:center;">
+                <span style="width:7px; height:7px; border-radius:50%; background:#33698C; flex:none;"></span>
+                <span style="flex:1; height:2px; background:#33698C; opacity:0.35;"></span>
+                <span style="font-size:13px; color:#33698C; padding:0 4px; flex:none;">&#9992;</span>
+                <span style="flex:1; height:2px; background:#33698C; opacity:0.35;"></span>
+                <span style="width:7px; height:7px; border-radius:50%; background:#33698C; flex:none;"></span>
+              </div>
+              <div style="font-family:'Oswald',sans-serif; font-size:10px; letter-spacing:1px; text-transform:uppercase; color:#8A7C58; text-align:center;">DL3947 &middot; Embraer 175</div>
+            </div>
+            <div style="flex:none; text-align:right;">
+              <div style="font-family:'Oswald',sans-serif; font-weight:700; font-size:28px; line-height:1; color:#20392B;">BZN</div>
+              <div style="font-family:'Oswald',sans-serif; font-weight:600; font-size:15px; color:#3D3422; margin-top:5px;">11:40 AM</div>
+              <div style="font-family:'Spectral',serif; font-size:12px; color:#7A6B50; margin-top:1px;">Bozeman</div>
+            </div>
+          </div>
+        </div>
+        <!-- RETURN -->
+        <div style="background:#FBF5E4; border:1px solid #C9B98A; border-top:5px solid #3F7A44; padding:18px 22px 20px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:16px;">
+            <span style="font-family:'Oswald',sans-serif; font-weight:700; font-size:11px; letter-spacing:1.5px; text-transform:uppercase; color:#3F7A44;">&#9992; Home</span>
+            <span style="font-family:'Oswald',sans-serif; font-size:11px; letter-spacing:1px; text-transform:uppercase; color:#8A7C58;">Sat, Aug 15</span>
+          </div>
+          <div style="display:flex; align-items:flex-start; gap:12px;">
+            <div style="flex:none;">
+              <div style="font-family:'Oswald',sans-serif; font-weight:700; font-size:28px; line-height:1; color:#20392B;">JAC</div>
+              <div style="font-family:'Oswald',sans-serif; font-weight:600; font-size:15px; color:#3D3422; margin-top:5px;">6:01 PM</div>
+              <div style="font-family:'Spectral',serif; font-size:12px; color:#7A6B50; margin-top:1px;">Jackson Hole</div>
+            </div>
+            <div style="flex:1; min-width:80px; display:flex; flex-direction:column; align-items:center; gap:6px; padding-top:5px;">
+              <div style="font-family:'Oswald',sans-serif; font-size:10px; letter-spacing:1.5px; text-transform:uppercase; color:#9A6B2E; text-align:center;">via SLC &middot; 4h 47m</div>
+              <div style="width:100%; display:flex; align-items:center;">
+                <span style="width:7px; height:7px; border-radius:50%; background:#3F7A44; flex:none;"></span>
+                <span style="flex:1; height:2px; background:#3F7A44; opacity:0.35;"></span>
+                <span style="font-size:13px; color:#3F7A44; padding:0 3px; flex:none;">&#9992;</span>
+                <span style="flex:1; height:2px; background:#3F7A44; opacity:0.35;"></span>
+                <span style="width:6px; height:6px; border-radius:50%; background:#FBF5E4; border:2px solid #3F7A44; flex:none;"></span>
+                <span style="flex:1; height:2px; background:#3F7A44; opacity:0.35;"></span>
+                <span style="width:7px; height:7px; border-radius:50%; background:#3F7A44; flex:none;"></span>
+              </div>
+              <div style="font-family:'Oswald',sans-serif; font-size:10px; letter-spacing:1px; text-transform:uppercase; color:#8A7C58; text-align:center;">DL417 &middot; DL339 &middot; 1h 39m stop</div>
+            </div>
+            <div style="flex:none; text-align:right;">
+              <div style="font-family:'Oswald',sans-serif; font-weight:700; font-size:28px; line-height:1; color:#20392B;">BUR</div>
+              <div style="font-family:'Oswald',sans-serif; font-weight:600; font-size:15px; color:#3D3422; margin-top:5px;">9:48 PM</div>
+              <div style="font-family:'Spectral',serif; font-size:12px; color:#7A6B50; margin-top:1px;">Burbank</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RENTAL CAR -->
+      <div style="background:#FBF5E4; border:1px solid #C9B98A; border-left:5px solid #9A6B2E; padding:16px 22px; margin-top:16px; display:flex; align-items:center; gap:18px; flex-wrap:wrap;">
+        <div style="display:flex; align-items:center; gap:13px; flex:1; min-width:240px;">
+          <span style="font-size:26px; line-height:1; flex:none;">&#128663;</span>
+          <div>
+            <div style="font-family:'Oswald',sans-serif; font-weight:700; font-size:14px; letter-spacing:0.5px; text-transform:uppercase; color:#20392B;">Rental Car &middot; Enterprise</div>
+            <div style="font-family:'Spectral',serif; font-size:13px; color:#5A4F36; margin-top:2px;">Toyota Corolla or similar (automatic) &middot; pick up <strong>Bozeman (BZN)</strong> Aug 8, 12 PM &rarr; drop <strong>Jackson (JAC)</strong> Aug 15 &middot; one-way.</div>
+          </div>
+        </div>
+        <div style="display:flex; gap:22px; flex:none;">
+          <div>
+            <div style="font-family:'Oswald',sans-serif; font-size:9px; letter-spacing:1.5px; text-transform:uppercase; color:#9A8B6A;">Confirmation</div>
+            <div style="font-family:'Oswald',sans-serif; font-weight:600; font-size:14px; color:#3D3422; margin-top:2px;">397407760</div>
+          </div>
+          <div>
+            <div style="font-family:'Oswald',sans-serif; font-size:9px; letter-spacing:1.5px; text-transform:uppercase; color:#9A8B6A;">Est. total</div>
+            <div style="font-family:'Oswald',sans-serif; font-weight:600; font-size:14px; color:#3D3422; margin-top:2px;">$563</div>
+          </div>
+        </div>
       </div>
 
       <!-- HOTELS -->
