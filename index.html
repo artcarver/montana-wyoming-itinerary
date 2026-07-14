@@ -311,29 +311,22 @@
               <a href="{{ item.manageUrl }}" target="_blank" rel="noopener" style="display:inline-block; align-self:flex-start; font-family:'Oswald',sans-serif; font-weight:700; font-size:10.5px; letter-spacing:0.5px; text-transform:uppercase; color:{{ item.color }}; text-decoration:none; border-bottom:1px solid {{ item.lineTint }}; margin-top:14px;">Manage reservation ↗</a>
             </sc-if>
             <sc-if value="{{ !item.isCar }}" hint-placeholder-val="{{ true }}">
-            <div style="position:relative; padding-left:20px;">
-              <sc-for list="{{ item.rows }}" as="row" hint-placeholder-count="4">
-                <sc-if value="{{ row.isStop }}" hint-placeholder-val="{{ true }}">
-                  <div style="position:relative; padding-bottom:2px;">
-                    <div style="position:absolute; left:-20px; top:6px; width:11px; height:11px; border-radius:50%; background:#F3E9D2; border:2.5px solid {{ item.color }};"></div>
-                    <div style="display:flex; align-items:baseline; gap:10px;">
-                      <span style="font-family:'Oswald',sans-serif; font-weight:700; font-size:22px; color:{{ item.color }};">{{ row.code }}</span>
-                      <span style="font-family:'Oswald',sans-serif; font-weight:600; font-size:14px; color:#3D3422;">{{ row.time }}</span>
-                    </div>
-                  </div>
-                </sc-if>
-                <sc-if value="{{ row.isConnector }}" hint-placeholder-val="{{ false }}">
-                  <div style="position:relative; padding:5px 0 12px 4px; border-left:2px solid {{ item.lineTint }}; margin-left:-14.5px; padding-left:14.5px;">
-                    <div style="font-family:'Oswald',sans-serif; font-size:10.5px; letter-spacing:0.3px; text-transform:uppercase; color:#8A7C58;"><a href="{{ row.trackUrl }}" target="_blank" rel="noopener" style="color:{{ item.color }}; text-decoration:none; border-bottom:1px solid {{ item.lineTint }};">{{ row.flightNum }} ↗</a> &middot; {{ row.aircraft }} &middot; {{ row.duration }}</div>
-                  </div>
-                </sc-if>
-                <sc-if value="{{ row.isLayover }}" hint-placeholder-val="{{ false }}">
-                  <div style="position:relative; padding:5px 0 12px 4px; border-left:2px dashed {{ item.lineTint }}; margin-left:-14.5px; padding-left:14.5px;">
-                    <div style="font-family:'Spectral',serif; font-size:11.5px; font-style:italic; color:#8A7550;">{{ row.text }}</div>
-                  </div>
-                </sc-if>
-              </sc-for>
-            </div>
+              <div style="display:flex; align-items:center; gap:9px; flex-wrap:wrap;">
+                <sc-for list="{{ item.routeParts }}" as="rp" hint-placeholder-count="3">
+                  <sc-if value="{{ rp.arrow }}" hint-placeholder-val="{{ false }}"><span style="font-family:'Oswald',sans-serif; font-size:18px; color:{{ item.color }};">&rarr;</span></sc-if>
+                  <span style="{{ rp.codeStyle }}">{{ rp.code }}</span>
+                </sc-for>
+              </div>
+              <sc-if value="{{ item.hasLayover }}" hint-placeholder-val="{{ false }}">
+                <div style="font-family:'Spectral',serif; font-size:12px; font-style:italic; color:#8A7550; margin-top:-6px;">{{ item.layoverLine }}</div>
+              </sc-if>
+              <div style="font-family:'Oswald',sans-serif; font-weight:600; font-size:16px; color:#3D3422;">{{ item.depart }} <span style="color:#9A8B6A;">&rarr;</span> {{ item.arrive }}</div>
+              <div style="font-family:'Oswald',sans-serif; font-size:11px; letter-spacing:0.3px; text-transform:uppercase; color:#8A7C58;">{{ item.detail }}</div>
+              <div style="display:flex; gap:16px; flex-wrap:wrap; margin-top:2px;">
+                <sc-for list="{{ item.tracks }}" as="t" hint-placeholder-count="1">
+                  <a href="{{ t.url }}" target="_blank" rel="noopener" style="font-family:'Oswald',sans-serif; font-weight:700; font-size:11px; letter-spacing:0.5px; text-transform:uppercase; color:{{ item.color }}; text-decoration:none; border-bottom:2px solid {{ item.lineTint }}; padding-bottom:1px;">{{ t.label }}</a>
+                </sc-for>
+              </div>
             </sc-if>
           </div>
         </sc-for>
@@ -815,13 +808,13 @@ class Component extends DCLogic {
   rawTravelItems() {
     return [
       {
-        key: 'outbound', kind: 'flight', label: 'Outbound', color: '#33698C', date: 'Sat, Aug 8',
+        key: 'outbound', kind: 'flight', label: 'Outbound', color: '#33698C', date: 'Sat, Aug 8', totalDuration: '2h 40m',
         segments: [
           { flightNum: 'DL3947', aircraft: 'Embraer 175', from: 'LAX', fromCity: 'Los Angeles, CA (LAX)', to: 'BZN', toCity: 'Bozeman/Big Sky, MT (BZN)', depart: '8:00 AM', arrive: '11:40 AM', duration: '2h 40m · Nonstop' }
         ]
       },
       {
-        key: 'return', kind: 'flight', label: 'Return', color: '#3F7A44', date: 'Sat, Aug 15',
+        key: 'return', kind: 'flight', label: 'Return', color: '#3F7A44', date: 'Sat, Aug 15', totalDuration: '4h 47m',
         layover: '1h 39m layover',
         segments: [
           { flightNum: 'DL417', aircraft: 'Airbus A319', from: 'JAC', fromCity: 'Jackson Hole, WY (JAC)', to: 'SLC', toCity: 'Salt Lake City, UT (SLC)', depart: '6:01 PM', arrive: '7:11 PM', duration: '1h 10m' },
@@ -1137,13 +1130,27 @@ class Component extends DCLogic {
       onToggle: () => this.toggleHotel(i)
     }));
 
-    const travelItems = this.rawTravelItems().map(it => ({
-      ...it,
-      iconSvg: this.travelIcon(it.kind),
-      lineTint: it.color + '55',
-      isCar: it.kind === 'car',
-      rows: this.buildTimeline(it.segments || [], it.layover)
-    }));
+    const travelItems = this.rawTravelItems().map(it => {
+      const base = { ...it, iconSvg: this.travelIcon(it.kind), lineTint: it.color + '55', isCar: it.kind === 'car' };
+      if (it.kind === 'car') return base;
+      const segs = it.segments;
+      const codes = [segs[0].from].concat(segs.map(s => s.to));
+      const routeParts = codes.map((c, i) => ({
+        code: c,
+        arrow: i > 0,
+        codeStyle: "font-family:'Oswald',sans-serif; font-weight:700; line-height:1; " +
+          ((i > 0 && i < codes.length - 1) ? 'font-size:19px; color:#9A8B6A;' : 'font-size:28px; color:#20392B;')
+      }));
+      const stops = codes.slice(1, -1);
+      const shortAircraft = [...new Set(segs.map(s => s.aircraft.replace('Airbus ', '').replace('-100', '')))].join(' → ');
+      const detail = 'Delta · ' + it.totalDuration + ' · ' + shortAircraft + (stops.length ? '' : ' · Nonstop');
+      const layoverLine = (it.layover && stops.length) ? (it.layover.replace(/\s*layover\s*/i, '') + ' layover in ' + stops.join(', ')) : '';
+      const tracks = segs.map(s => ({
+        label: 'Track ' + s.flightNum + ' ↗',
+        url: 'https://www.flightaware.com/live/flight/DAL' + s.flightNum.replace(/[^0-9]/g, '')
+      }));
+      return { ...base, routeParts, depart: segs[0].depart, arrive: segs[segs.length - 1].arrive, layoverLine, hasLayover: !!layoverLine, detail, tracks };
+    });
 
     const routePins = [
       { label: 'Glacier', sub: 'Days 1\u20134', x: '50%', y: '12%', color: '#33698C' },
