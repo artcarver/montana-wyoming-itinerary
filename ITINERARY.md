@@ -14,7 +14,7 @@
 - **Aug 15:** Jackson (JAC) → Salt Lake City (DL417, 6:01–7:11 PM) → Burbank (BUR) (DL339, 8:50–9:48 PM)
 - Non-refundable. Includes a carry-on; checked bags $45 each (planning carry-on only).
 
-### Rental Car — BOOKED (Enterprise · confirmation 397407760 · ~$563.39)
+### Rental Car — BOOKED (Enterprise · confirmation 397937217 · ~$502.74)
 - Pick up **Bozeman (BZN) Sat Aug 8, 12:00 PM**, drop off **Jackson (JAC) Sat Aug 15** — one-way.
 - Toyota Corolla or similar, automatic.
 - ⚠️ Return time is currently noon Aug 15 — **extend to ~4:00 PM** (the last day uses the car until mid-afternoon).
