@@ -28,8 +28,8 @@
   - 4 Maiden Basin Dr, Gardiner, MT 59030 · check-in 4–9 PM / checkout 10 AM
 - **Aug 12–13 · 2 nights:** Yellowstone West Gate — West Yellowstone, MT — conf `73478829989296` — $588 · breakfast included
   - 638 Madison Ave, West Yellowstone, MT 59758 · check-in 4 PM / checkout 11 AM
-- **Aug 14 · 1 night:** Elk Country Inn — Jackson, WY — conf `73478885538868` — $534 · breakfast included
-  - 480 W Pearl Ave, Jackson, WY 83001 · check-in 4 PM / checkout 11 AM
+- **Aug 14 · 1 night:** Antler Inn — Jackson, WY — conf `73498280187487` — $395
+  - 43 W. Pearl Ave, Jackson, WY 83001 · check-in 3 PM / checkout 11 AM
 - No hotel Aug 15 (fly home that evening).
 - ⚠️ An earlier **MountainView Lodge, Bozeman (Aug 15)** booking must be **cancelled** — no longer part of the trip.
 
@@ -287,7 +287,7 @@
 
 **Drive:** ~4h · **On foot:** 3–5 mi · **Sun:** Rise 6:21 / Set 8:36
 **Wildlife:** Moose, Elk, Bald eagle
-**🏨 Tonight:** Elk Country Inn — Jackson, WY · conf `73478885538868` · $534 · check-in 4 PM / checkout 11 AM · breakfast included
+**🏨 Tonight:** Antler Inn — Jackson, WY · conf `73498280187487` · $395 · check-in 3 PM / checkout 11 AM
 
 - **6:45 AM — West Thumb at Sunrise** _[Geothermal]_  _(▸ 1h 45m from West Yellowstone)_
   You saw it yesterday — at dawn it’s a different place entirely.
@@ -318,7 +318,7 @@
   No rapids, just a guided scenic float — eagles, ospreys, moose, and elk are common, and late-day light is the best of the day. ~2–2.5 hrs on the water, off the river ~7:15 PM. The 5 PM is the last departure; book ahead at 307-733-2871.
 - **7:45 PM — Jackson Town Square** _[Town]_
   Elk-antler arches at every corner — the best dinner scene of the trip.
-  Antlers shed at the nearby National Elk Refuge. Check into Elk Country Inn (walkable from the square), then dinner: Hatch tacos, Liberty Burgers, Thai Me Up, or Snake River Brewing. You’ll catch Schwabacher and Mormon Row at dawn tomorrow.
+  Antlers shed at the nearby National Elk Refuge. Check into the Antler Inn (walkable from the square), then dinner: Hatch tacos, Liberty Burgers, Thai Me Up, or Snake River Brewing. You’ll catch Schwabacher and Mormon Row at dawn tomorrow.
 - **10:00 PM — Night Sky — Milky Way over the Tetons** _[Night Sky]_
   Teton County became a Dark Sky Community in April 2026 — the first county in the US to earn that designation.
   Drive ten minutes north to Antelope Flats / Mormon Row and face northwest toward the peaks — Jackson’s light dome is behind you to the south. The T.A. Moulton Barn (the one you’re visiting at dawn tomorrow) is one of the most photographed astrophotography compositions in the country: Milky Way arching over the barn with the Tetons behind it. Bortle 2 out here. The Perseids are still active through mid-August, so watch for meteors. Set an alarm for 5:30 AM — Schwabacher is 20 minutes away and the sequence starts before first light.
@@ -343,7 +343,7 @@
   A second look at the bend, when the river is glassiest. 5–10 min, then a real breakfast at Signal Mountain Lodge or Dornan’s.
 - **8:00 AM — Breakfast + Check Out** _[Food]_
   A real sit-down breakfast in Jackson before the last day begins.
-  Persephone Bakery, Cowboy Coffee, or a full plate at The Bunnery. Check out of Elk Country Inn (11 AM checkout) and load the car — everything from here points toward the airport.
+  Persephone Bakery, Cowboy Coffee, or a full plate at The Bunnery. Check out of the Antler Inn (11 AM checkout) and load the car — everything from here points toward the airport.
 - **9:00 AM — Taggart Lake** _[Trail]_  _(▲ 3.8 mi loop / gentle)_
   A moderate loop to a glacier-carved lake right at the foot of the Tetons.
   A 3.8-mile loop from the Taggart Lake trailhead just south of Moose — rolling through sage and lodgepole to a lake with the peaks rising straight out of the far shore. The one classic Teton hike you haven’t done yet, and a gentler payoff than Jenny Lake. 2–2.5 hrs.
