@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Illustrated hero skyline, previously the desktop hero background in index.html.
+     Extracted and kept here for reference; not referenced by the app. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 470" preserveAspectRatio="xMidYMax slice" width="1200" height="470">
+  <rect x="0" y="0" width="1200" height="470" fill="#F5D9AE"></rect>
+  <rect x="0" y="0" width="1200" height="118" fill="#D79A88"></rect>
+  <rect x="0" y="118" width="1200" height="86" fill="#EBB489"></rect>
+  <defs>
+    <radialGradient id="om-sunglow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FBDC92" stop-opacity="0.95"></stop>
+      <stop offset="38%" stop-color="#F4B86A" stop-opacity="0.5"></stop>
+      <stop offset="100%" stop-color="#F4B86A" stop-opacity="0"></stop>
+    </radialGradient>
+  </defs>
+  <circle cx="1024" cy="292" r="220" fill="url(#om-sunglow)"></circle>
+  <circle cx="1024" cy="292" r="68" fill="#F4B043"></circle>
+  <polygon points="540,470 800,200 1060,470" fill="#6E9EA4"></polygon>
+  <polygon points="980,470 1200,262 1200,470" fill="#5E9197"></polygon>
+  <polygon points="680,470 900,166 1120,470" fill="#33698C"></polygon>
+  <polygon points="820,470 1060,330 1200,430 1200,470" fill="#3F7A44"></polygon>
+  <polygon points="1040,470 1200,360 1200,470" fill="#2D5137"></polygon>
+  <polygon points="0,470 1200,470 1200,412 0,452" fill="#20392B"></polygon>
+  <g fill="#20392B">
+    <polygon points="828,430 850,372 872,430"></polygon>
+    <polygon points="869,428 895,356 921,428"></polygon>
+    <polygon points="918,427 938,375 958,427"></polygon>
+    <polygon points="1035,423 1055,369 1075,423"></polygon>
+    <polygon points="1073,421 1098,353 1123,421"></polygon>
+    <polygon points="1121,420 1140,370 1159,420"></polygon>
+  </g>
+</svg>

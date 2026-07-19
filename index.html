@@ -88,64 +88,38 @@
   <!-- ===== OVERVIEW ===== -->
   <sc-if value="{{ isOverview }}" hint-placeholder-val="{{ true }}">
   <div>
-    <!-- HERO -->
-    <div class="om-hero" style="position:relative; overflow:hidden; background:#EBDFBF; border-bottom:3px solid #20392B;">
-      <svg class="om-hero-svg" viewBox="0 0 1200 470" preserveAspectRatio="xMidYMax slice" style="position:absolute; inset:0; width:100%; height:100%; display:block;">
-        <rect x="0" y="0" width="1200" height="470" fill="#F5D9AE"></rect>
-        <rect x="0" y="0" width="1200" height="118" fill="#D79A88"></rect>
-        <rect x="0" y="118" width="1200" height="86" fill="#EBB489"></rect>
-        <defs>
-          <radialGradient id="om-sunglow" cx="50%" cy="50%" r="50%">
-            <stop offset="0%" stop-color="#FBDC92" stop-opacity="0.95"></stop>
-            <stop offset="38%" stop-color="#F4B86A" stop-opacity="0.5"></stop>
-            <stop offset="100%" stop-color="#F4B86A" stop-opacity="0"></stop>
-          </radialGradient>
-        </defs>
-        <circle cx="1024" cy="292" r="220" fill="url(#om-sunglow)"></circle>
-        <circle cx="1024" cy="292" r="68" fill="#F4B043"></circle>
-        <polygon points="540,470 800,200 1060,470" fill="#6E9EA4"></polygon>
-        <polygon points="980,470 1200,262 1200,470" fill="#5E9197"></polygon>
-        <polygon points="680,470 900,166 1120,470" fill="#33698C"></polygon>
-        <polygon points="820,470 1060,330 1200,430 1200,470" fill="#3F7A44"></polygon>
-        <polygon points="1040,470 1200,360 1200,470" fill="#2D5137"></polygon>
-        <polygon points="0,470 1200,470 1200,412 0,452" fill="#20392B"></polygon>
-        <g fill="#20392B">
-          <polygon points="828,430 850,372 872,430"></polygon>
-          <polygon points="869,428 895,356 921,428"></polygon>
-          <polygon points="918,427 938,375 958,427"></polygon>
-          <polygon points="1035,423 1055,369 1075,423"></polygon>
-          <polygon points="1073,421 1098,353 1123,421"></polygon>
-          <polygon points="1121,420 1140,370 1159,420"></polygon>
-        </g>
-      </svg>
-      <div class="om-hero-scrim" style="position:absolute; inset:0; pointer-events:none; background:linear-gradient(103deg, #1B3124 0%, #1B3124 45%, rgba(27,49,36,0.8) 66%, rgba(27,49,36,0.24) 100%);"></div>
-      <div class="om-hero-frame" style="position:absolute; inset:16px; border:1px solid rgba(243,233,210,0.30); pointer-events:none;"></div>
-      <div class="om-hero-frame" style="position:absolute; inset:21px; border:1px solid rgba(243,233,210,0.14); pointer-events:none;"></div>
-      <div class="om-hero-inner" style="position:relative; max-width:1080px; margin:0 auto; padding:48px 44px 52px;">
-        <div class="om-hero-eyebrow" style="display:flex; align-items:center; gap:14px;">
-          <span style="width:36px; height:2px; background:#D9982F; flex:none;"></span>
-          <span style="font-family:'Oswald',sans-serif; font-weight:500; letter-spacing:3.5px; font-size:13px; text-transform:uppercase; color:#EAD9AE;">A National Parks Road Trip &middot; <span style="white-space:nowrap;">Aug 8&ndash;15, 2026</span></span>
+    <!-- HERO (desktop) — compact band on solid green; illustrated skyline lives in hero-skyline.svg -->
+    <div class="om-hero" style="position:relative; overflow:hidden; background:#20392B; border-bottom:3px solid #BC4B2A;">
+      <div class="om-hero-frame" style="position:absolute; inset:14px; border:1px solid rgba(243,233,210,0.28); pointer-events:none;"></div>
+      <div class="om-hero-frame" style="position:absolute; inset:19px; border:1px solid rgba(243,233,210,0.12); pointer-events:none;"></div>
+      <div class="om-hero-inner" style="position:relative; max-width:1080px; margin:0 auto; padding:34px 44px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:28px 48px;">
+        <div style="flex:1 1 460px; min-width:0;">
+          <div class="om-hero-eyebrow" style="display:flex; align-items:center; gap:14px;">
+            <span style="width:36px; height:2px; background:#D9982F; flex:none;"></span>
+            <span style="font-family:'Oswald',sans-serif; font-weight:500; letter-spacing:3.5px; font-size:12px; text-transform:uppercase; color:#EAD9AE;">A National Parks Road Trip &middot; <span style="white-space:nowrap;">Aug 8&ndash;15, 2026</span></span>
+          </div>
+          <h1 class="om-h1" style="font-family:'Oswald',sans-serif; font-weight:700; font-size:52px; line-height:0.92; letter-spacing:1px; text-transform:uppercase; margin:12px 0 0; color:#F3E9D2;">Montana <span style="color:#D9982F;">&amp;</span> Wyoming</h1>
+          <div class="om-hero-route" style="display:flex; align-items:center; flex-wrap:wrap; gap:8px; margin-top:16px; font-family:'Oswald',sans-serif; text-transform:uppercase;">
+            <span class="om-route-end" style="font-size:9.5px; letter-spacing:1.5px; color:#20392B; background:#D9982F; padding:3px 8px; font-weight:600; white-space:nowrap;">Fly in</span>
+            <span class="om-route-end" style="font-size:13px; letter-spacing:1.5px; color:#F3E9D2; font-weight:500;">Bozeman</span>
+            <span class="om-route-end" style="color:#D9982F; font-size:13px;">&rarr;</span>
+            <span style="font-size:13px; letter-spacing:1.5px; color:#EAD9AE; font-weight:600;">Glacier</span>
+            <span style="color:#D9982F; font-size:13px;">&rarr;</span>
+            <span style="font-size:13px; letter-spacing:1.5px; color:#EAD9AE; font-weight:600;">Yellowstone</span>
+            <span style="color:#D9982F; font-size:13px;">&rarr;</span>
+            <span style="font-size:13px; letter-spacing:1.5px; color:#EAD9AE; font-weight:600;">Grand Teton</span>
+            <span class="om-route-end" style="color:#D9982F; font-size:13px;">&rarr;</span>
+            <span class="om-route-end" style="font-size:13px; letter-spacing:1.5px; color:#F3E9D2; font-weight:500;">Jackson</span>
+            <span class="om-route-end" style="font-size:9.5px; letter-spacing:1.5px; color:#20392B; background:#D9982F; padding:3px 8px; font-weight:600; white-space:nowrap;">Fly out</span>
+          </div>
         </div>
-        <h1 class="om-h1" style="font-family:'Oswald',sans-serif; font-weight:700; font-size:76px; line-height:0.86; letter-spacing:1px; text-transform:uppercase; margin:18px 0 0; color:#F3E9D2; text-shadow:2px 3px 0 rgba(0,0,0,0.24);">Montana<br><span style="color:#D9982F;">&amp;</span> Wyoming</h1>
-        <div class="om-hero-accent" style="display:block; width:112px; height:5px; background:#D9982F; margin:22px 0 0;"></div>
-        <p class="om-hero-p" style="font-family:'Spectral',serif; font-size:19px; line-height:1.5; max-width:560px; margin:20px 0 0; color:#DCE4D6; font-weight:400;">Glacier to Yellowstone to Grand Teton. Eight days through the Northern Rockies, from the switchbacks of Going-to-the-Sun Road to the geyser basins and the Tetons at first light.</p>
-        <div class="om-hero-route" style="display:flex; align-items:center; flex-wrap:wrap; gap:9px; margin-top:26px; font-family:'Oswald',sans-serif; text-transform:uppercase;">
-          <span class="om-route-end" style="font-size:10px; letter-spacing:1.5px; color:#20392B; background:#D9982F; padding:3px 9px; font-weight:600; white-space:nowrap;">Fly in</span>
-          <span class="om-route-end" style="font-size:14px; letter-spacing:1.5px; color:#F3E9D2; font-weight:500;">Bozeman</span>
-          <span class="om-route-end" style="color:#D9982F; font-size:14px;">&rarr;</span>
-          <span style="font-size:14px; letter-spacing:1.5px; color:#EAD9AE; font-weight:600;">Glacier</span>
-          <span style="color:#D9982F; font-size:14px;">&rarr;</span>
-          <span style="font-size:14px; letter-spacing:1.5px; color:#EAD9AE; font-weight:600;">Yellowstone</span>
-          <span style="color:#D9982F; font-size:14px;">&rarr;</span>
-          <span style="font-size:14px; letter-spacing:1.5px; color:#EAD9AE; font-weight:600;">Grand Teton</span>
-          <span class="om-route-end" style="color:#D9982F; font-size:14px;">&rarr;</span>
-          <span class="om-route-end" style="font-size:14px; letter-spacing:1.5px; color:#F3E9D2; font-weight:500;">Jackson</span>
-          <span class="om-route-end" style="font-size:10px; letter-spacing:1.5px; color:#20392B; background:#D9982F; padding:3px 9px; font-weight:600; white-space:nowrap;">Fly out</span>
-        </div>
-        <div class="om-hero-stats" style="display:flex; flex-wrap:wrap; gap:54px; margin-top:30px; text-align:center;">
-          <div><div style="font-family:'Oswald',sans-serif; font-weight:700; font-size:42px; color:#D9982F; line-height:1;">8</div><div style="font-family:'Oswald',sans-serif; letter-spacing:2px; font-size:11px; text-transform:uppercase; color:#9CB3A0; margin-top:4px;">Days, 7 Nights</div></div>
-          <div><div style="font-family:'Oswald',sans-serif; font-weight:700; font-size:42px; color:#D9982F; line-height:1;">3</div><div style="font-family:'Oswald',sans-serif; letter-spacing:2px; font-size:11px; text-transform:uppercase; color:#9CB3A0; margin-top:4px;">National Parks</div></div>
-          <div><div style="font-family:'Oswald',sans-serif; font-weight:700; font-size:42px; color:#D9982F; line-height:1;">~1,200</div><div style="font-family:'Oswald',sans-serif; letter-spacing:2px; font-size:11px; text-transform:uppercase; color:#9CB3A0; margin-top:4px;">Miles Driven</div></div>
+        <div class="om-hero-stats" style="flex:0 0 auto; display:grid; grid-template-columns:auto auto; column-gap:16px; row-gap:12px; align-items:center;">
+          <div style="font-family:'Oswald',sans-serif; font-weight:700; font-size:34px; color:#D9982F; line-height:1; text-align:right;">8</div>
+          <div style="font-family:'Oswald',sans-serif; letter-spacing:2px; font-size:11px; text-transform:uppercase; color:#9CB3A0;">Days, 7 Nights</div>
+          <div style="font-family:'Oswald',sans-serif; font-weight:700; font-size:34px; color:#D9982F; line-height:1; text-align:right;">3</div>
+          <div style="font-family:'Oswald',sans-serif; letter-spacing:2px; font-size:11px; text-transform:uppercase; color:#9CB3A0;">National Parks</div>
+          <div style="font-family:'Oswald',sans-serif; font-weight:700; font-size:34px; color:#D9982F; line-height:1; text-align:right;">~1,200</div>
+          <div style="font-family:'Oswald',sans-serif; letter-spacing:2px; font-size:11px; text-transform:uppercase; color:#9CB3A0;">Miles Driven</div>
         </div>
       </div>
     </div>
