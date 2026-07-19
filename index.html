@@ -113,13 +113,12 @@
             <span class="om-route-end" style="font-size:9.5px; letter-spacing:1.5px; color:#20392B; background:#D9982F; padding:3px 8px; font-weight:600; white-space:nowrap;">Fly out</span>
           </div>
         </div>
-        <div class="om-hero-stats" style="flex:0 0 auto; display:grid; grid-template-columns:auto auto; column-gap:16px; row-gap:12px; align-items:center;">
-          <div style="font-family:'Oswald',sans-serif; font-weight:700; font-size:34px; color:#D9982F; line-height:1; text-align:right;">8</div>
-          <div style="font-family:'Oswald',sans-serif; letter-spacing:2px; font-size:11px; text-transform:uppercase; color:#9CB3A0;">Days, 7 Nights</div>
-          <div style="font-family:'Oswald',sans-serif; font-weight:700; font-size:34px; color:#D9982F; line-height:1; text-align:right;">3</div>
-          <div style="font-family:'Oswald',sans-serif; letter-spacing:2px; font-size:11px; text-transform:uppercase; color:#9CB3A0;">National Parks</div>
-          <div style="font-family:'Oswald',sans-serif; font-weight:700; font-size:34px; color:#D9982F; line-height:1; text-align:right;">~1,200</div>
-          <div style="font-family:'Oswald',sans-serif; letter-spacing:2px; font-size:11px; text-transform:uppercase; color:#9CB3A0;">Miles Driven</div>
+        <div class="om-hero-stats" style="flex:0 0 auto; display:flex; align-items:center; gap:16px;">
+          <div style="font-family:'Oswald',sans-serif; font-weight:700; font-size:58px; color:#D9982F; line-height:0.85;">{{ cdNum }}</div>
+          <div style="line-height:1.25;">
+            <div style="font-family:'Oswald',sans-serif; font-weight:600; letter-spacing:2px; font-size:14px; text-transform:uppercase; color:#F3E9D2;">{{ cdTop }}</div>
+            <div style="font-family:'Oswald',sans-serif; font-weight:500; letter-spacing:2px; font-size:14px; text-transform:uppercase; color:#9CB3A0;">{{ cdBot }}</div>
+          </div>
         </div>
       </div>
     </div>
@@ -1048,6 +1047,16 @@ class Component extends DCLogic {
       heroContext = 'Glacier · Yellowstone · Grand Teton';
     }
 
+    // Desktop hero countdown (replaces the static stat block).
+    let cdNum, cdTop, cdBot;
+    if (trip.phase === 'before') {
+      cdNum = String(trip.daysUntil); cdTop = trip.daysUntil === 1 ? 'Day' : 'Days'; cdBot = 'to go';
+    } else if (trip.phase === 'during') {
+      cdNum = (trip.currentIdx + 1) + '/' + trip.total; cdTop = 'Days'; cdBot = 'in';
+    } else {
+      cdNum = trip.total + '/' + trip.total; cdTop = 'Trip'; cdBot = 'complete';
+    }
+
     const tabBase = "cursor:pointer; font-family:'Oswald',sans-serif; font-weight:500; letter-spacing:1.5px; text-transform:uppercase; font-size:12px; border:none; padding:8px 16px;";
     const ovBtnStyle = tabBase + (isOverview ? 'background:#D9982F; color:#20392B;' : 'background:transparent; color:#9CB3A0;');
     const itBtnStyle = tabBase + (!isOverview ? 'background:#D9982F; color:#20392B;' : 'background:transparent; color:#9CB3A0;');
@@ -1195,6 +1204,7 @@ class Component extends DCLogic {
       closeAnimal: () => this.closeAnimal(),
       tripSub, tripStarted,
       heroImg, heroRibbon, heroRibbonBg, heroRibbonColor, heroContext,
+      cdNum, cdTop, cdBot,
       photosUrl: this.PHOTOS_URL,
       photosTitle: 'Photos from Montana',
       photosSub: 'See what Gwen & Christina are up to',
