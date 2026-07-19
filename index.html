@@ -112,12 +112,13 @@
             <span class="om-route-end" style="font-size:9.5px; letter-spacing:1.5px; color:#20392B; background:#D9982F; padding:3px 8px; font-weight:600; white-space:nowrap;">Fly out</span>
           </div>
         </div>
-        <div class="om-hero-stats" style="flex:0 0 auto; display:flex; align-items:center; gap:16px;">
-          <div style="font-family:'Oswald',sans-serif; font-weight:700; font-size:58px; color:#D9982F; line-height:0.85;">{{ cdNum }}</div>
-          <div style="line-height:1.25;">
-            <div style="font-family:'Oswald',sans-serif; font-weight:600; letter-spacing:2px; font-size:14px; text-transform:uppercase; color:#F3E9D2;">{{ cdTop }}</div>
-            <div style="font-family:'Oswald',sans-serif; font-weight:500; letter-spacing:2px; font-size:14px; text-transform:uppercase; color:#9CB3A0;">{{ cdBot }}</div>
+        <div class="om-hero-stats" style="flex:0 0 auto; display:flex; flex-direction:column; align-items:center; gap:11px;">
+          <div style="position:relative; width:108px; height:108px; flex:none; display:flex; align-items:center; justify-content:center;">
+            <div style="position:absolute; inset:0; border:2px dashed rgba(243,233,210,0.42); border-radius:50%;"></div>
+            <div style="position:absolute; inset:7px; border:1px solid rgba(243,233,210,0.55); border-radius:50%; background:radial-gradient(circle, rgba(217,152,47,0.18), rgba(217,152,47,0) 72%);"></div>
+            <div style="font-family:'Oswald',sans-serif; font-weight:700; font-size:44px; color:#D9982F; line-height:1; letter-spacing:-1px;">{{ cdNum }}</div>
           </div>
+          <div style="font-family:'Oswald',sans-serif; font-weight:600; letter-spacing:3px; font-size:11px; text-transform:uppercase; color:#EAD9AE; text-align:center;">{{ cdTop }} {{ cdBot }}</div>
         </div>
       </div>
     </div>
