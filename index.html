@@ -42,6 +42,7 @@
     .om-topbar-btn { padding: 13px 14px !important; font-size: 11px !important; letter-spacing: 0.5px !important; white-space: nowrap !important; }
     .om-hero { display: none !important; }
     .om-hero-m { display: flex !important; }
+    .om-photos-emoji { display: none !important; }
     .om-section-pad { padding: 36px 18px 56px !important; }
     .om-grid-3 { grid-template-columns: 1fr !important; }
     .om-days-grid { grid-auto-rows: auto !important; }
@@ -139,7 +140,7 @@
       <!-- LIVE: photos banner (appears once the trip starts) -->
       <sc-if value="{{ tripStarted }}" hint-placeholder-val="{{ false }}">
       <a href="{{ photosUrl }}" target="_blank" rel="noopener" style="display:flex; align-items:center; gap:16px; text-decoration:none; background:#FBF5E4; border:1px solid #C9B98A; border-left:4px solid #BC4B2A; padding:16px 20px; margin-bottom:8px;" style-hover="background:#FFFCF1;">
-        <span style="flex:none; width:40px; height:40px; display:flex; align-items:center; justify-content:center; background:#F6E2D8; border:1px solid #E3B7A4; font-size:20px;">📷</span>
+        <span class="om-photos-emoji" style="flex:none; width:40px; height:40px; display:flex; align-items:center; justify-content:center; background:#F6E2D8; border:1px solid #E3B7A4; font-size:20px;">📷</span>
         <div style="flex:1;">
           <div style="font-family:'Oswald',sans-serif; font-weight:600; font-size:16px; text-transform:uppercase; letter-spacing:0.5px; color:#20392B;">{{ photosTitle }}</div>
           <div style="font-family:'Spectral',serif; font-size:13px; color:#5A4F36; margin-top:2px;">{{ photosSub }}</div>
@@ -430,7 +431,7 @@
     <div class="om-scroll" id="om-main" style="flex:1; overflow-y:auto; background:#F3E9D2;">
       <sc-if value="{{ tripStarted }}" hint-placeholder-val="{{ false }}">
       <a href="{{ photosUrl }}" target="_blank" rel="noopener" style="display:flex; align-items:center; gap:16px; text-decoration:none; background:#FBF5E4; border-bottom:2px solid #E0D2AC; border-left:4px solid #BC4B2A; padding:16px 30px;" style-hover="background:#FFFCF1;">
-        <span style="flex:none; width:40px; height:40px; display:flex; align-items:center; justify-content:center; background:#F6E2D8; border:1px solid #E3B7A4; font-size:20px;">📷</span>
+        <span class="om-photos-emoji" style="flex:none; width:40px; height:40px; display:flex; align-items:center; justify-content:center; background:#F6E2D8; border:1px solid #E3B7A4; font-size:20px;">📷</span>
         <div style="flex:1;">
           <div style="font-family:'Oswald',sans-serif; font-weight:600; font-size:16px; text-transform:uppercase; letter-spacing:0.5px; color:#20392B;">{{ photosTitle }}</div>
           <div style="font-family:'Spectral',serif; font-size:13px; color:#5A4F36; margin-top:2px;">{{ photosSub }}</div>
