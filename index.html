@@ -302,7 +302,7 @@
               </div>
               <div style="font-family:'Spectral',serif; font-size:13px; color:#5A4F36; margin-top:12px;">{{ item.vehicleLine }}</div>
               <div style="font-family:'Oswald',sans-serif; font-size:10.5px; letter-spacing:0.3px; text-transform:uppercase; color:#8A7C58; margin-top:4px;">{{ item.costLine }}</div>
-              <a href="{{ item.manageUrl }}" target="_blank" rel="noopener" style="display:inline-block; align-self:flex-start; font-family:'Oswald',sans-serif; font-weight:700; font-size:10.5px; letter-spacing:0.5px; text-transform:uppercase; color:{{ item.color }}; text-decoration:none; border-bottom:1px solid {{ item.lineTint }}; margin-top:14px;">Manage reservation ↗</a>
+              <a href="{{ item.manageUrl }}" target="_blank" rel="noopener" style="display:inline-block; align-self:flex-start; font-family:'Oswald',sans-serif; font-weight:700; font-size:10.5px; letter-spacing:0.5px; text-transform:uppercase; color:{{ item.color }}; text-decoration:none; border-bottom:1px solid {{ item.lineTint }}; margin-top:14px;">Manage reservation ↗&#xFE0E;</a>
             </sc-if>
             <sc-if value="{{ !item.isCar }}" hint-placeholder-val="{{ true }}">
               <div style="display:flex; align-items:center; gap:9px; flex-wrap:wrap;">
@@ -378,9 +378,9 @@
                   <div style="padding:12px 0 16px; animation:om-rise 0.15s ease;">
                     <div style="font-family:'Spectral',serif; font-size:11px; font-style:italic; color:#8A7550; margin-bottom:8px;">Booked at {{ hotel.cost }}</div>
                     <div style="display:flex; gap:6px;">
-                      <a href="{{ hotel.website }}" target="_blank" rel="noopener" style="flex:1; text-align:center; font-family:'Oswald',sans-serif; font-size:10px; letter-spacing:0.5px; text-transform:uppercase; color:#3C6E47; border:1px solid #B6CDB9; padding:4px 6px; text-decoration:none;">Hotel site ↗</a>
-                      <a href="{{ hotel.expediaHotelUrl }}" target="_blank" rel="noopener" style="flex:1; text-align:center; font-family:'Oswald',sans-serif; font-size:10px; letter-spacing:0.5px; text-transform:uppercase; color:#9A6B2E; border:1px solid #D8C58F; padding:4px 6px; text-decoration:none;">Expedia ↗</a>
-                      <a href="{{ hotel.expediaUrl }}" target="_blank" rel="noopener" style="flex:1; text-align:center; font-family:'Oswald',sans-serif; font-size:10px; letter-spacing:0.5px; text-transform:uppercase; color:#7A6B50; border:1px solid #C9B98A; padding:4px 6px; text-decoration:none;">Compare ↗</a>
+                      <a href="{{ hotel.website }}" target="_blank" rel="noopener" style="flex:1; text-align:center; font-family:'Oswald',sans-serif; font-size:10px; letter-spacing:0.5px; text-transform:uppercase; color:#3C6E47; border:1px solid #B6CDB9; padding:4px 6px; text-decoration:none;">Hotel site ↗&#xFE0E;</a>
+                      <a href="{{ hotel.expediaHotelUrl }}" target="_blank" rel="noopener" style="flex:1; text-align:center; font-family:'Oswald',sans-serif; font-size:10px; letter-spacing:0.5px; text-transform:uppercase; color:#9A6B2E; border:1px solid #D8C58F; padding:4px 6px; text-decoration:none;">Expedia ↗&#xFE0E;</a>
+                      <a href="{{ hotel.expediaUrl }}" target="_blank" rel="noopener" style="flex:1; text-align:center; font-family:'Oswald',sans-serif; font-size:10px; letter-spacing:0.5px; text-transform:uppercase; color:#7A6B50; border:1px solid #C9B98A; padding:4px 6px; text-decoration:none;">Compare ↗&#xFE0E;</a>
                     </div>
                   </div>
                 </sc-if>
@@ -1172,7 +1172,7 @@ class Component extends DCLogic {
       const detail = 'Delta · ' + it.totalDuration + ' · ' + shortAircraft + (stops.length ? '' : ' · Nonstop');
       const layoverLine = (it.layover && stops.length) ? (it.layover.replace(/\s*layover\s*/i, '') + ' layover in ' + stops.join(', ')) : '';
       const tracks = segs.map(s => ({
-        label: 'Track ' + s.flightNum + ' ↗',
+        label: 'Track ' + s.flightNum + ' ↗︎',
         url: 'https://www.flightaware.com/live/flight/DAL' + s.flightNum.replace(/[^0-9]/g, '')
       }));
       return { ...base, routeParts, depart: segs[0].depart, arrive: segs[segs.length - 1].arrive, layoverLine, hasLayover: !!layoverLine, detail, tracks };
