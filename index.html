@@ -29,33 +29,20 @@
   @keyframes om-rise { from { transform: translateY(6px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
   .om-day-photos { display: flex; align-items: center; justify-content: center; flex: 1 1 auto; z-index: 1; }
   .om-day-polaroid { width: 104px; height: 116px; object-fit: cover; border: 7px solid #F3E9D2; border-bottom-width: 30px; box-shadow: 0 8px 18px rgba(0,0,0,0.45); background: #F3E9D2; }
-  .om-h1-a { display: block; }
-  .om-h1-amp { color: #D9982F; }
+  .om-tb-short { display: none; }
   @media (min-width: 681px) { .om-day-header-inner { display: flex !important; align-items: center; gap: 30px; } .om-day-text { flex: 0 1 auto; min-width: 0; } }
   @media (max-width: 680px) {
     .om-day-photos { display: none !important; }
     .om-day-header { background-image: linear-gradient(100deg, rgba(26,42,32,0.94) 0%, rgba(26,42,32,0.82) 42%, rgba(26,42,32,0.5) 100%), var(--day-img) !important; background-size: cover !important; background-position: center !important; background-repeat: no-repeat !important; }
-    .om-topbar { padding: 0 12px !important; gap: 8px !important; }
+    .om-topbar { padding: 0 14px !important; gap: 8px !important; }
     .om-topbar-sub { display: none !important; }
-    .om-topbar-title { font-size: 13px !important; letter-spacing: 1.5px !important; }
+    .om-tb-full { display: none !important; }
+    .om-tb-short { display: inline !important; }
+    .om-topbar-title { font-size: 13px !important; letter-spacing: 1px !important; }
     .om-tabgroup { flex: none !important; padding: 3px !important; gap: 3px !important; }
-    .om-topbar-btn { padding: 7px 8px !important; font-size: 10px !important; letter-spacing: 0.5px !important; white-space: nowrap !important; }
-    .om-hero { background: #20392B !important; border-bottom-color: #BC4B2A !important; }
-    .om-hero-svg { display: none !important; }
-    .om-hero-scrim { display: none !important; }
-    .om-hero-inner { padding: 36px 20px 40px !important; text-align: center !important; }
-    .om-h1 { font-size: 46px !important; color: #F3E9D2 !important; text-shadow: none !important; }
-    .om-h1-amp, .om-h1-b { display: block !important; }
-    .om-hero-accent { display: block !important; margin-left: auto !important; margin-right: auto !important; }
-    .om-hero-p { font-size: 16px !important; max-width: 100% !important; color: #C9D6C9 !important; margin-left: auto !important; margin-right: auto !important; }
-    .om-hero-eyebrow { justify-content: center !important; }
-    .om-hero-eyebrow > span:last-child { letter-spacing: 2px !important; font-size: 11px !important; }
-    .om-hero-route { justify-content: center !important; }
-    .om-route-end { display: none !important; }
-    .om-hero-stats { display: flex !important; flex-wrap: nowrap !important; justify-content: center !important; gap: 12px !important; max-width: 360px !important; margin: 26px auto 0 !important; }
-    .om-hero-stats > div { flex: 1 1 0 !important; min-width: 0 !important; }
-    .om-hero-stats > div > div:first-child { color: #D9982F !important; font-size: 30px !important; }
-    .om-hero-stats > div > div:last-child { color: #9CB3A0 !important; letter-spacing: 1px !important; font-size: 10px !important; }
+    .om-topbar-btn { padding: 13px 14px !important; font-size: 11px !important; letter-spacing: 0.5px !important; white-space: nowrap !important; }
+    .om-hero { display: none !important; }
+    .om-hero-m { display: flex !important; }
     .om-section-pad { padding: 36px 18px 56px !important; }
     .om-grid-3 { grid-template-columns: 1fr !important; }
     .om-days-grid { grid-auto-rows: auto !important; }
@@ -88,7 +75,7 @@
         </svg>
       </div>
       <div style="line-height:1;">
-        <div class="om-topbar-title" style="font-family:'Oswald',sans-serif; font-weight:600; letter-spacing:2.5px; color:#F3E9D2; font-size:15px; text-transform:uppercase;">Montana &amp; Wyoming</div>
+        <div class="om-topbar-title" style="font-family:'Oswald',sans-serif; font-weight:600; letter-spacing:2.5px; color:#F3E9D2; font-size:15px; text-transform:uppercase; white-space:nowrap;"><span class="om-tb-full">Montana &amp; Wyoming</span><span class="om-tb-short">MT &amp; WY</span></div>
         <div class="om-topbar-sub" style="font-family:'Oswald',sans-serif; font-weight:300; letter-spacing:3.5px; color:#9CB3A0; font-size:10px; text-transform:uppercase; margin-top:2px;">{{ tripSub }}</div>
       </div>
     </div>
@@ -139,7 +126,7 @@
           <span style="width:36px; height:2px; background:#D9982F; flex:none;"></span>
           <span style="font-family:'Oswald',sans-serif; font-weight:500; letter-spacing:3.5px; font-size:13px; text-transform:uppercase; color:#EAD9AE;">A National Parks Road Trip &middot; <span style="white-space:nowrap;">Aug 8&ndash;15, 2026</span></span>
         </div>
-        <h1 class="om-h1" style="font-family:'Oswald',sans-serif; font-weight:700; font-size:76px; line-height:0.86; letter-spacing:1px; text-transform:uppercase; margin:18px 0 0; color:#F3E9D2; text-shadow:2px 3px 0 rgba(0,0,0,0.24);"><span class="om-h1-a">Montana</span><span class="om-h1-amp"> &amp; </span><span class="om-h1-b">Wyoming</span></h1>
+        <h1 class="om-h1" style="font-family:'Oswald',sans-serif; font-weight:700; font-size:76px; line-height:0.86; letter-spacing:1px; text-transform:uppercase; margin:18px 0 0; color:#F3E9D2; text-shadow:2px 3px 0 rgba(0,0,0,0.24);">Montana<br><span style="color:#D9982F;">&amp;</span> Wyoming</h1>
         <div class="om-hero-accent" style="display:block; width:112px; height:5px; background:#D9982F; margin:22px 0 0;"></div>
         <p class="om-hero-p" style="font-family:'Spectral',serif; font-size:19px; line-height:1.5; max-width:560px; margin:20px 0 0; color:#DCE4D6; font-weight:400;">Glacier to Yellowstone to Grand Teton. Eight days through the Northern Rockies, from the switchbacks of Going-to-the-Sun Road to the geyser basins and the Tetons at first light.</p>
         <div class="om-hero-route" style="display:flex; align-items:center; flex-wrap:wrap; gap:9px; margin-top:26px; font-family:'Oswald',sans-serif; text-transform:uppercase;">
@@ -160,6 +147,19 @@
           <div><div style="font-family:'Oswald',sans-serif; font-weight:700; font-size:42px; color:#D9982F; line-height:1;">3</div><div style="font-family:'Oswald',sans-serif; letter-spacing:2px; font-size:11px; text-transform:uppercase; color:#9CB3A0; margin-top:4px;">National Parks</div></div>
           <div><div style="font-family:'Oswald',sans-serif; font-weight:700; font-size:42px; color:#D9982F; line-height:1;">~1,200</div><div style="font-family:'Oswald',sans-serif; letter-spacing:2px; font-size:11px; text-transform:uppercase; color:#9CB3A0; margin-top:4px;">Miles Driven</div></div>
         </div>
+      </div>
+    </div>
+
+    <!-- MOBILE HERO (photo + corner ribbon) — hidden on desktop, shown ≤680px -->
+    <div class="om-hero-m" style="display:none; position:relative; overflow:hidden; min-height:300px; flex-direction:column; justify-content:flex-end; background:#20392B; border-bottom:3px solid #BC4B2A;">
+      <img src="{{ heroImg }}" alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center;">
+      <div style="position:absolute; inset:0; background:linear-gradient(0deg, #1B3124 8%, rgba(27,49,36,0.72) 46%, rgba(27,49,36,0.12) 80%); pointer-events:none;"></div>
+      <div style="position:absolute; top:19px; left:-38px; z-index:2; width:170px; transform:rotate(-45deg); text-align:center; padding:5px 0; box-shadow:0 3px 8px rgba(0,0,0,0.3); background:{{ heroRibbonBg }};">
+        <span style="font-family:'Oswald',sans-serif; font-weight:700; font-size:10.5px; letter-spacing:1px; text-transform:uppercase; color:{{ heroRibbonColor }};">{{ heroRibbon }}</span>
+      </div>
+      <div style="position:relative; z-index:1; padding:22px 22px 26px;">
+        <h1 style="font-family:'Oswald',sans-serif; font-weight:700; font-size:40px; line-height:0.9; letter-spacing:0.5px; text-transform:uppercase; margin:0; color:#F3E9D2; text-shadow:0 2px 12px rgba(0,0,0,0.4);">Montana <span style="color:#D9982F;">&amp;</span> Wyoming</h1>
+        <div style="font-family:'Oswald',sans-serif; font-weight:500; letter-spacing:1.5px; font-size:11px; text-transform:uppercase; color:#DCE4D6; margin-top:9px; text-shadow:0 1px 6px rgba(0,0,0,0.5);">{{ heroContext }}</div>
       </div>
     </div>
 
@@ -1054,6 +1054,26 @@ class Component extends DCLogic {
     else tripSub = 'Day ' + (trip.currentIdx + 1) + ' of ' + trip.total + ' · ' + this.rawDays()[trip.currentIdx].regionLabel;
     const tripStarted = trip.phase !== 'before';
 
+    // Mobile hero (4B): photo rotates daily before the trip, then matches the current day.
+    const heroPool = this.rawDays().map(d => (d.images && d.images[0]) || d.image).filter(Boolean);
+    let heroImg, heroRibbon, heroRibbonBg, heroRibbonColor, heroContext;
+    if (trip.phase === 'before') {
+      heroImg = heroPool[trip.daysUntil % heroPool.length];
+      heroRibbon = trip.daysUntil === 1 ? '1 day to go' : trip.daysUntil + ' days to go';
+      heroRibbonBg = '#D9982F'; heroRibbonColor = '#20392B';
+      heroContext = 'Glacier · Yellowstone · Grand Teton';
+    } else if (trip.phase === 'during') {
+      heroImg = heroPool[trip.currentIdx];
+      heroRibbon = 'Day ' + (trip.currentIdx + 1) + ' of ' + trip.total;
+      heroRibbonBg = '#BC4B2A'; heroRibbonColor = '#F3E9D2';
+      heroContext = 'Today · ' + this.rawDays()[trip.currentIdx].regionLabel;
+    } else {
+      heroImg = heroPool[heroPool.length - 1];
+      heroRibbon = 'Trip complete';
+      heroRibbonBg = '#3F7A44'; heroRibbonColor = '#F3E9D2';
+      heroContext = 'Glacier · Yellowstone · Grand Teton';
+    }
+
     const tabBase = "cursor:pointer; font-family:'Oswald',sans-serif; font-weight:500; letter-spacing:1.5px; text-transform:uppercase; font-size:12px; border:none; padding:8px 16px;";
     const ovBtnStyle = tabBase + (isOverview ? 'background:#D9982F; color:#20392B;' : 'background:transparent; color:#9CB3A0;');
     const itBtnStyle = tabBase + (!isOverview ? 'background:#D9982F; color:#20392B;' : 'background:transparent; color:#9CB3A0;');
@@ -1200,6 +1220,7 @@ class Component extends DCLogic {
       wildlife, activeAnimal: activeAnimalObj, hasActiveAnimal: !!activeAnimalObj,
       closeAnimal: () => this.closeAnimal(),
       tripSub, tripStarted,
+      heroImg, heroRibbon, heroRibbonBg, heroRibbonColor, heroContext,
       photosUrl: this.PHOTOS_URL,
       photosTitle: 'Photos from Montana',
       photosSub: 'See what Gwen & Christina are up to',
