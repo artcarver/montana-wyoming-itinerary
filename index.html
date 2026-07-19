@@ -29,6 +29,8 @@
   @keyframes om-rise { from { transform: translateY(6px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
   .om-day-photos { display: flex; align-items: center; justify-content: center; flex: 1 1 auto; z-index: 1; }
   .om-day-polaroid { width: 104px; height: 116px; object-fit: cover; border: 7px solid #F3E9D2; border-bottom-width: 30px; box-shadow: 0 8px 18px rgba(0,0,0,0.45); background: #F3E9D2; }
+  .om-h1-a { display: block; }
+  .om-h1-amp { color: #D9982F; }
   @media (min-width: 681px) { .om-day-header-inner { display: flex !important; align-items: center; gap: 30px; } .om-day-text { flex: 0 1 auto; min-width: 0; } }
   @media (max-width: 680px) {
     .om-day-photos { display: none !important; }
@@ -43,6 +45,7 @@
     .om-hero-scrim { display: none !important; }
     .om-hero-inner { padding: 36px 20px 40px !important; text-align: center !important; }
     .om-h1 { font-size: 46px !important; color: #F3E9D2 !important; text-shadow: none !important; }
+    .om-h1-amp, .om-h1-b { display: block !important; }
     .om-hero-accent { display: block !important; margin-left: auto !important; margin-right: auto !important; }
     .om-hero-p { font-size: 16px !important; max-width: 100% !important; color: #C9D6C9 !important; margin-left: auto !important; margin-right: auto !important; }
     .om-hero-eyebrow { justify-content: center !important; }
@@ -136,7 +139,7 @@
           <span style="width:36px; height:2px; background:#D9982F; flex:none;"></span>
           <span style="font-family:'Oswald',sans-serif; font-weight:500; letter-spacing:3.5px; font-size:13px; text-transform:uppercase; color:#EAD9AE;">A National Parks Road Trip &middot; <span style="white-space:nowrap;">Aug 8&ndash;15, 2026</span></span>
         </div>
-        <h1 class="om-h1" style="font-family:'Oswald',sans-serif; font-weight:700; font-size:76px; line-height:0.86; letter-spacing:1px; text-transform:uppercase; margin:18px 0 0; color:#F3E9D2; text-shadow:2px 3px 0 rgba(0,0,0,0.24);">Montana<br><span style="color:#D9982F;">&amp;</span> Wyoming</h1>
+        <h1 class="om-h1" style="font-family:'Oswald',sans-serif; font-weight:700; font-size:76px; line-height:0.86; letter-spacing:1px; text-transform:uppercase; margin:18px 0 0; color:#F3E9D2; text-shadow:2px 3px 0 rgba(0,0,0,0.24);"><span class="om-h1-a">Montana</span><span class="om-h1-amp"> &amp; </span><span class="om-h1-b">Wyoming</span></h1>
         <div class="om-hero-accent" style="display:block; width:112px; height:5px; background:#D9982F; margin:22px 0 0;"></div>
         <p class="om-hero-p" style="font-family:'Spectral',serif; font-size:19px; line-height:1.5; max-width:560px; margin:20px 0 0; color:#DCE4D6; font-weight:400;">Glacier to Yellowstone to Grand Teton. Eight days through the Northern Rockies, from the switchbacks of Going-to-the-Sun Road to the geyser basins and the Tetons at first light.</p>
         <div class="om-hero-route" style="display:flex; align-items:center; flex-wrap:wrap; gap:9px; margin-top:26px; font-family:'Oswald',sans-serif; text-transform:uppercase;">
