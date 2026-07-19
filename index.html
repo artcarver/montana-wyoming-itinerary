@@ -192,8 +192,7 @@
 
       <!-- WILDLIFE -->
       <div style="font-family:'Oswald',sans-serif; text-transform:uppercase; letter-spacing:3px; font-size:13px; color:#BC4B2A; font-weight:600; margin-top:56px;">The Wildlife</div>
-      <h2 style="font-family:'Oswald',sans-serif; font-weight:600; font-size:32px; text-transform:uppercase; letter-spacing:0.5px; margin:4px 0 6px; color:#20392B;">What you’ll see, and where</h2>
-      <p style="font-family:'Spectral',serif; font-size:14px; line-height:1.5; color:#5A4F36; max-width:640px; margin:0 0 22px;">Two of the best wildlife regions in the country. Most of these you’ll spot from the road or a short walk &mdash; bring binoculars, and look at first light.</p>
+      <h2 style="font-family:'Oswald',sans-serif; font-weight:600; font-size:32px; text-transform:uppercase; letter-spacing:0.5px; margin:4px 0 22px; color:#20392B;">What you’ll see, and where</h2>
       <div class="om-grid-4" style="display:grid; grid-template-columns:repeat(4,1fr); gap:16px;">
         <sc-for list="{{ wildlife }}" as="animal" hint-placeholder-count="8">
           <div onClick="{{ animal.onOpen }}" style="cursor:pointer; background:#FBF5E4; border:1px solid #C9B98A; overflow:hidden; display:flex; flex-direction:column; transition:transform 0.12s;" style-hover="transform:translateY(-3px);">
@@ -219,10 +218,30 @@
           <div style="padding:22px 26px 28px;">
             <div style="font-family:'Oswald',sans-serif; font-size:9px; letter-spacing:1.5px; text-transform:uppercase; color:#BC4B2A; font-weight:600;">{{ activeAnimal.where }}</div>
             <div style="font-family:'Oswald',sans-serif; font-weight:600; font-size:26px; text-transform:uppercase; letter-spacing:0.5px; color:#20392B; margin-top:4px; line-height:1;">{{ activeAnimal.name }}</div>
-            <div style="width:56px; height:4px; background:#D9982F; margin:12px 0 14px;"></div>
+            <div style="width:56px; height:4px; background:#D9982F; margin:12px 0 12px;"></div>
+            <p style="font-family:'Spectral',serif; font-size:15px; line-height:1.5; color:#4A4029; margin:0 0 20px;">{{ activeAnimal.short }}</p>
+
+            <div style="font-family:'Oswald',sans-serif; font-weight:600; font-size:11px; letter-spacing:1.5px; text-transform:uppercase; color:#20392B; margin-bottom:11px;">Days you might see one</div>
+            <div style="display:flex; flex-direction:column; gap:10px; margin-bottom:22px;">
+              <sc-for list="{{ activeAnimal.days }}" as="d" hint-placeholder-count="2">
+                <div style="display:flex; gap:11px; align-items:baseline;">
+                  <span style="flex:none; font-family:'Oswald',sans-serif; font-weight:700; font-size:9.5px; letter-spacing:1px; text-transform:uppercase; color:#F3E9D2; background:#3F7A44; padding:4px 8px; white-space:nowrap;">{{ d.label }}</span>
+                  <span style="font-family:'Spectral',serif; font-size:13.5px; line-height:1.45; color:#4A4029;"><span style="font-family:'Oswald',sans-serif; font-weight:600; font-size:10px; letter-spacing:1px; text-transform:uppercase; color:#8A7C58; margin-right:6px;">{{ d.date }}</span>{{ d.loc }}</span>
+                </div>
+              </sc-for>
+            </div>
+
+            <div style="font-family:'Oswald',sans-serif; font-weight:600; font-size:11px; letter-spacing:1.5px; text-transform:uppercase; color:#20392B; margin-bottom:11px;">Field notes</div>
+            <ul style="list-style:none; margin:0 0 22px; padding:0;">
+              <sc-for list="{{ activeAnimal.tips }}" as="b" hint-placeholder-count="3">
+                <li style="font-family:'Spectral',serif; font-size:14px; line-height:1.5; color:#4A4029; padding-left:18px; position:relative; margin-bottom:8px;"><span style="position:absolute; left:0; top:1px; color:#BC4B2A; font-weight:700;">&bull;</span>{{ b.t }}</li>
+              </sc-for>
+            </ul>
+
+            <div style="font-family:'Oswald',sans-serif; font-weight:600; font-size:11px; letter-spacing:1.5px; text-transform:uppercase; color:#20392B; margin-bottom:11px;">Fun facts</div>
             <ul style="list-style:none; margin:0; padding:0;">
-              <sc-for list="{{ activeAnimal.bullets }}" as="b" hint-placeholder-count="5">
-                <li style="font-family:'Spectral',serif; font-size:14.5px; line-height:1.5; color:#4A4029; padding-left:18px; position:relative; margin-bottom:9px;"><span style="position:absolute; left:0; top:1px; color:#BC4B2A; font-weight:700;">&bull;</span>{{ b.t }}</li>
+              <sc-for list="{{ activeAnimal.facts }}" as="f" hint-placeholder-count="3">
+                <li style="font-family:'Spectral',serif; font-size:14px; line-height:1.5; color:#4A4029; padding-left:22px; position:relative; margin-bottom:8px;"><span style="position:absolute; left:0; top:0; color:#D9982F; font-size:13px;">&#9733;</span>{{ f.t }}</li>
               </sc-for>
             </ul>
           </div>
@@ -1167,28 +1186,131 @@ class Component extends DCLogic {
     const wildlife = [
       { name: 'Bison', img: './images/wild-bison.jpg', pos: 'center 60%', where: 'Yellowstone · Days 5–6',
         short: 'You’ll see them everywhere — herds often block the road. Stay in the car; they charge if crowded.',
-        bullets: [ { t: 'Lamar Valley at dawn on Day 5 (Aug 12) — the biggest herds, right along the road.' }, { t: 'Hayden Valley that afternoon, and around Madison and Firehole on Day 6 (Aug 13).' }, { t: 'Also common right in West Yellowstone town, where you sleep Days 5–6.' }, { t: 'Expect “bison jams” — wait in the car and never get out to photograph one.' }, { t: 'Keep at least 25 yards back. If one raises its tail or paws the ground, retreat.' }, { t: 'Fast and unpredictable (35 mph); mid-August is the rut, so bulls bellow and spar.' }, { t: 'North America’s largest land animal — bulls reach 2,000 lbs.' } ] },
-      { name: 'Grizzly Bear', img: './images/wild-grizzly.jpg', pos: 'center 42%', where: 'Yellowstone · Day 5, dawn',
+        days: [
+          { label: 'Day 5', date: 'Aug 12', loc: 'Lamar and Hayden Valleys at dawn — the biggest herds, right along the road.' },
+          { label: 'Day 6', date: 'Aug 13', loc: 'Around Madison and the Firehole on the geyser loop.' },
+          { label: 'Days 5–6', date: 'Aug 12–13', loc: 'Often wandering West Yellowstone town, where you sleep.' }
+        ],
+        tips: [
+          { t: 'Expect “bison jams” — wait in the car and never step out to photograph one.' },
+          { t: 'Keep at least 25 yards back; if one raises its tail or paws the ground, back away.' },
+          { t: 'Mid-August is the rut, so bulls bellow, wallow, and spar — give them extra room.' }
+        ],
+        facts: [
+          { t: 'North America’s largest land animal — bulls reach 2,000 lbs, yet sprint 35 mph and can clear a 6-ft fence.' },
+          { t: 'Yellowstone’s is the largest wild herd in the country, and the only one that has lived here continuously since prehistoric times.' },
+          { t: 'Those dust “wallows” they roll in help shed shaggy fur and shake off biting insects.' }
+        ] },
+      { name: 'Grizzly Bear', img: './images/wild-grizzly.jpg', pos: 'center 42%', where: 'Yellowstone · Day 5',
         short: 'Best odds on the early Lamar stop — look for pulled-over scopes. Carry bear spray on every hike.',
-        bullets: [ { t: 'Best window: the early Lamar Valley stop, ~6 AM on Day 5 (Aug 12).' }, { t: 'Scan meadows and hillsides at first light; look for a “bear jam” of cars and scopes.' }, { t: 'Also possible in Hayden Valley and over Dunraven Pass.' }, { t: 'Tell it from a black bear: shoulder hump, dished face, and long pale claws.' }, { t: 'Keep 100 yards away — always — and never get between a sow and her cubs.' }, { t: 'Carry bear spray (buy it in-park) on your hip, not the pack, on every hike — especially Avalanche Lake (Day 2) and Hidden Lake (Day 3).' }, { t: 'Make noise and hike in a group; most encounters are surprises.' } ] },
-      { name: 'Gray Wolf', img: './images/wild-wolf.jpg', pos: 'center', where: 'Yellowstone · Day 5, Lamar',
+        days: [
+          { label: 'Day 5', date: 'Aug 12', loc: 'Lamar Valley at first light (~6 AM); also Hayden Valley and over Dunraven Pass.' },
+          { label: 'Days 2–3', date: 'Aug 9–10', loc: 'Bear country on the Avalanche Lake and Hidden Lake hikes — carry spray on your hip.' }
+        ],
+        tips: [
+          { t: 'Scan meadows and hillsides at dawn; look for a “bear jam” of cars and spotting scopes.' },
+          { t: 'Tell it from a black bear by the shoulder hump, dished face, and long pale claws.' },
+          { t: 'Keep 100 yards away — always — and never get between a sow and her cubs.' }
+        ],
+        facts: [
+          { t: 'That shoulder hump is pure muscle that powers their digging.' },
+          { t: 'Their sense of smell beats a bloodhound’s — they can pick up food from miles away.' },
+          { t: 'In late summer they enter “hyperphagia,” fattening for winter by eating up to 20,000 calories a day.' }
+        ] },
+      { name: 'Gray Wolf', img: './images/wild-wolf.jpg', pos: 'center', where: 'Yellowstone · Day 5',
         short: 'Be in Lamar by 6 AM and scan the ridgelines. Ask the scope crowd what they’re watching.',
-        bullets: [ { t: 'Lamar Valley at dawn — be in the valley by 6 AM on Day 5 (Aug 12).' }, { t: 'Slough Creek and the Lamar River confluence are the most reliable pullouts.' }, { t: 'Find the wolf-watchers with big scopes and ask what they’re seeing — they love to share.' }, { t: 'Glass the far ridgelines and treelines — sightings are usually distant.' }, { t: 'Listen for howling, and watch for ravens circling a carcass.' }, { t: 'Binoculars are a must; a borrowed or guided scope makes the difference.' }, { t: 'Reintroduced in 1995. Early-August mornings run ~40°F, so bring a jacket.' } ] },
-      { name: 'Moose', img: './images/wild-moose.jpg', pos: '38% 50%', where: 'Glacier Day 4 · Teton Day 7',
+        days: [
+          { label: 'Day 5', date: 'Aug 12', loc: 'Lamar Valley at dawn — Slough Creek and the Lamar River confluence are the best pullouts.' }
+        ],
+        tips: [
+          { t: 'Find the wolf-watchers with big scopes and ask what they’re seeing — they love to share.' },
+          { t: 'Glass the far ridgelines and treelines; sightings are usually distant.' },
+          { t: 'Listen for howling and watch for ravens circling a carcass. Mornings run ~40°F — bring a jacket.' }
+        ],
+        facts: [
+          { t: 'Reintroduced to Yellowstone in 1995 after being gone for about 70 years.' },
+          { t: 'Their return reshaped the whole valley — a famous “trophic cascade” that changed elk, willows, even the rivers.' },
+          { t: 'A howl carries 6–10 miles, and a pack can cover 30+ miles in a single day.' }
+        ] },
+      { name: 'Moose', img: './images/wild-moose.jpg', pos: '38% 50%', where: 'Glacier & Grand Teton',
         short: 'Your best shot: Fishercap Lake at 8 AM (Day 4). Also Oxbow Bend and Willow Flats at dawn.',
-        bullets: [ { t: 'Best shot: Fishercap Lake, Many Glacier, ~8 AM on Day 4 (Aug 11) — a short flat walk.' }, { t: 'In Grand Teton: Oxbow Bend and Willow Flats (by Jackson Lake Lodge) at dawn or dusk, Day 7 (Aug 14).' }, { t: 'Look in the willows and marshy shallows where they feed.' }, { t: 'Possible again along the Snake River float that evening.' }, { t: 'Huge and territorial — give them a wide berth, especially cows with calves.' }, { t: 'The largest deer species; bulls top 1,000 lbs and carry broad, palmate antlers by August.' } ] },
-      { name: 'Elk', img: './images/wild-elk.jpg', pos: 'center 42%', where: 'Yellowstone Day 5 · Jackson',
+        days: [
+          { label: 'Day 4', date: 'Aug 11', loc: 'Fishercap Lake, Many Glacier, ~8 AM — a short flat walk, and your best shot of the trip.' },
+          { label: 'Days 2–3', date: 'Aug 9–10', loc: 'Willows and marshy shallows on Glacier’s west side.' },
+          { label: 'Day 7', date: 'Aug 14', loc: 'Oxbow Bend, Willow Flats, and the evening Snake River float in Grand Teton.' }
+        ],
+        tips: [
+          { t: 'Look in the willows and marshy shallows where they feed at dawn and dusk.' },
+          { t: 'Huge and territorial — give them a wide berth, especially cows with calves.' }
+        ],
+        facts: [
+          { t: 'The largest deer on Earth; bulls top 1,000 lbs and carry broad, palmate antlers up to 6 ft across.' },
+          { t: 'They’ll wade right in and feed underwater, holding their breath for up to 30 seconds.' },
+          { t: 'That flap of skin swinging under the chin has a name — it’s called a “bell.”' }
+        ] },
+      { name: 'Elk', img: './images/wild-elk.jpg', pos: 'center 42%', where: 'Yellowstone & Jackson',
         short: 'On the Mammoth Hot Springs lawns, and grazing around Jackson at dusk. Give bulls a wide berth.',
-        bullets: [ { t: 'On the manicured Mammoth Hot Springs lawns on Day 5 (Aug 12) — nearly guaranteed.' }, { t: 'Around Jackson and the National Elk Refuge on Days 7–8 (Aug 14–15).' }, { t: 'Dawn and dusk are best; midday they bed down in the shade.' }, { t: 'By late August bulls are in velvet and the rut is starting — listen for bugling at dusk.' }, { t: 'Keep your distance: cows are protective and rutting bulls turn aggressive.' }, { t: 'The Mammoth herd is habituated but wild — never walk between animals.' } ] },
-      { name: 'Mountain Goat', img: './images/wild-goat.jpg', pos: 'center 74%', where: 'Glacier · Day 3, Logan Pass',
+        days: [
+          { label: 'Day 5', date: 'Aug 12', loc: 'The manicured Mammoth Hot Springs lawns — nearly guaranteed.' },
+          { label: 'Days 7–8', date: 'Aug 14–15', loc: 'Around Jackson and the National Elk Refuge.' }
+        ],
+        tips: [
+          { t: 'Dawn and dusk are best; midday they bed down in the shade.' },
+          { t: 'Keep your distance — cows are protective and rutting bulls turn aggressive.' },
+          { t: 'By late August bulls are in velvet and the rut is starting — listen for bugling at dusk.' }
+        ],
+        facts: [
+          { t: 'A bull’s antlers can grow nearly an inch a day — among the fastest-growing tissue of any animal.' },
+          { t: 'The bugle — a high, eerie whistle from a 700-lb animal — is one of the wildest sounds in the Rockies.' },
+          { t: 'The National Elk Refuge outside Jackson shelters thousands of elk through the winter.' }
+        ] },
+      { name: 'Mountain Goat', img: './images/wild-goat.jpg', pos: 'center 74%', where: 'Glacier · Days 2–3',
         short: 'Right along the Hidden Lake Overlook trail — often a few feet away. Don’t feed them.',
-        bullets: [ { t: 'The Hidden Lake Overlook trail from Logan Pass on Day 3 (Aug 10) — the single best spot.' }, { t: 'Goats graze the cliffs and meadows, often just feet from the boardwalk.' }, { t: 'Go early: Logan Pass parking fills by ~9 AM (and is capped at 3 hours in 2026).' }, { t: 'Scan the snowfields and cliff ledges — their white coats stand out.' }, { t: 'Don’t approach or feed them — they crave salt and will lick sweat off packs and poles.' }, { t: 'Watch for bighorn sheep on the same slopes.' }, { t: 'Also seen along the Highline Trail and near the Weeping Wall.' } ] },
-      { name: 'Pronghorn', img: './images/wild-pronghorn.jpg', pos: 'center', where: 'Yellowstone · Day 5, north range',
+        days: [
+          { label: 'Day 3', date: 'Aug 10', loc: 'Hidden Lake Overlook trail from Logan Pass — the single best spot, often feet from the boardwalk.' },
+          { label: 'Day 2', date: 'Aug 9', loc: 'Along the Highline Trail and near the Weeping Wall.' }
+        ],
+        tips: [
+          { t: 'Go early: Logan Pass parking fills by ~9 AM and is capped at 3 hours in 2026.' },
+          { t: 'Scan the snowfields and cliff ledges — their white coats stand out.' },
+          { t: 'Don’t approach or feed them; they crave salt and will lick sweat off packs and poles. Watch for bighorn sheep on the same slopes.' }
+        ],
+        facts: [
+          { t: 'It isn’t a true goat at all — it’s the only species in its genus, and closer kin to antelopes.' },
+          { t: 'Hard-rimmed hooves with soft, rubbery pads let it grip near-vertical rock.' },
+          { t: 'It’s Glacier’s unofficial symbol — and was the logo of the old Great Northern Railway.' }
+        ] },
+      { name: 'Pronghorn', img: './images/wild-pronghorn.jpg', pos: 'center', where: 'Yellowstone · Day 5',
         short: 'In the sagebrush between Gardiner and Lamar. The fastest land animal in North America.',
-        bullets: [ { t: 'Open sagebrush flats between Gardiner and Lamar on Day 5 (Aug 12).' }, { t: 'Often right along US-89 and the Lamar road — watch from the car.' }, { t: 'Spot the white rump and throat bands; they flare the rump hair when alarmed.' }, { t: 'The fastest land animal in North America (~60 mph).' }, { t: 'That speed evolved to outrun the now-extinct American cheetah.' }, { t: 'Skittish — glass them from a distance rather than approaching.' } ] },
-      { name: 'Bald Eagle', img: './images/wild-eagle.jpg', pos: '32% 45%', where: 'Grand Teton · Day 7, Snake River',
+        days: [
+          { label: 'Day 5', date: 'Aug 12', loc: 'Open sagebrush flats between Gardiner and Lamar, often right along US-89.' }
+        ],
+        tips: [
+          { t: 'Watch from the car — they graze close to the road.' },
+          { t: 'Spot the white rump and throat bands; they flare the rump hair when alarmed.' },
+          { t: 'Skittish — glass them from a distance rather than approaching.' }
+        ],
+        facts: [
+          { t: 'The fastest land animal in North America (~55–60 mph) and second-fastest on Earth after the cheetah.' },
+          { t: 'Unlike a cheetah it can hold that speed for miles — likely evolved to outrun the now-extinct American cheetah.' },
+          { t: 'It won’t jump fences (it ducks under them), and its eyes can catch movement up to four miles away.' }
+        ] },
+      { name: 'Bald Eagle', img: './images/wild-eagle.jpg', pos: '32% 45%', where: 'Grand Teton · Days 7–8',
         short: 'Watch the cottonwoods from the 5 PM float — ospreys too, and moose on the banks.',
-        bullets: [ { t: 'The 5 PM Snake River scenic float on Day 7 (Aug 14) is your best chance.' }, { t: 'Watch the tall cottonwoods along the banks for perched adults (white head and tail).' }, { t: 'Ospreys dive for trout on the same stretch — smaller, with a dark eye-stripe.' }, { t: 'Also check Oxbow Bend and Jackson Lake earlier in the day.' }, { t: 'Bring a zoom — the float keeps a respectful distance from the banks.' }, { t: 'Late-afternoon float light is the best of the day for wildlife and photos.' } ] }
+        days: [
+          { label: 'Day 7', date: 'Aug 14', loc: 'The 5 PM Snake River scenic float — your best chance; also Oxbow Bend and Jackson Lake earlier.' },
+          { label: 'Day 8', date: 'Aug 15', loc: 'Along the Tetons and Jackson Lake on the last morning.' }
+        ],
+        tips: [
+          { t: 'Scan the tall cottonwoods along the banks for perched adults with white heads and tails.' },
+          { t: 'Ospreys dive for trout on the same water — smaller, with a dark eye-stripe.' },
+          { t: 'Bring a zoom; the float keeps a respectful distance, and late-day light is the best of the day.' }
+        ],
+        facts: [
+          { t: 'It isn’t really bald — “balde” is an old word for white-headed.' },
+          { t: 'Its nest is the biggest of any North American bird — up to a ton — and its wingspan reaches about 7 ft.' },
+          { t: 'It spots fish from a mile off, dives at 75–100 mph, and rebounded from near-extinction after DDT was banned in 1972.' }
+        ] }
     ].map((a, i) => ({ ...a, onOpen: () => this.openAnimal(i) }));
     const _ai = this.state.activeAnimal;
     const activeAnimalObj = (_ai != null && wildlife[_ai]) ? wildlife[_ai] : null;
