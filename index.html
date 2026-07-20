@@ -113,10 +113,14 @@
           </div>
         </div>
         <div class="om-hero-stats" style="flex:0 0 auto; display:flex; flex-direction:column; align-items:center; gap:11px;">
-          <div style="position:relative; width:108px; height:108px; flex:none; display:flex; align-items:center; justify-content:center;">
+          <div style="position:relative; width:108px; height:108px; flex:none; transform:rotate(-5deg);">
             <div style="position:absolute; inset:0; border:2px dashed rgba(243,233,210,0.42); border-radius:50%;"></div>
-            <div style="position:absolute; inset:7px; border:1px solid rgba(243,233,210,0.55); border-radius:50%; background:radial-gradient(circle, rgba(217,152,47,0.18), rgba(217,152,47,0) 72%);"></div>
-            <div style="font-family:'Oswald',sans-serif; font-weight:700; font-size:44px; color:#D9982F; line-height:1; letter-spacing:-1px;">{{ cdNum }}</div>
+            <div style="position:absolute; inset:7px; border:2px solid rgba(243,233,210,0.28); border-radius:50%; background:radial-gradient(circle, rgba(217,152,47,0.18), rgba(217,152,47,0) 72%);"></div>
+            <svg viewBox="0 0 108 108" style="position:absolute; inset:0; width:100%; height:100%; transform:rotate(-90deg);">
+              <circle cx="54" cy="54" r="46.5" fill="none" stroke="{{ cdArcColor }}" stroke-width="3" stroke-linecap="round" stroke-dasharray="{{ cdDash }}"></circle>
+            </svg>
+            <div style="position:absolute; inset:8px; border-radius:50%; background-image:radial-gradient(rgba(20,40,25,0.6) 0.5px, transparent 0.7px); background-size:3px 3px; opacity:0.4; pointer-events:none;"></div>
+            <div style="position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-family:'Oswald',sans-serif; font-weight:700; font-size:44px; color:#D9982F; line-height:1; letter-spacing:-1px;">{{ cdNum }}</div>
           </div>
           <div style="font-family:'Oswald',sans-serif; font-weight:600; letter-spacing:3px; font-size:11px; text-transform:uppercase; color:#EAD9AE; text-align:center;">{{ cdTop }} {{ cdBot }}</div>
         </div>
@@ -1077,6 +1081,11 @@ class Component extends DCLogic {
     } else {
       cdNum = trip.total + '/' + trip.total; cdTop = 'Trip'; cdBot = 'complete';
     }
+    // Progress arc for the countdown stamp (fills as the trip is under way).
+    const CD_C = 2 * Math.PI * 46.5;
+    const cdProgress = trip.phase === 'during' ? (trip.currentIdx + 1) / trip.total : (trip.phase === 'after' ? 1 : 0);
+    const cdDash = (cdProgress * CD_C).toFixed(1) + ' ' + CD_C.toFixed(1);
+    const cdArcColor = cdProgress > 0 ? '#D9982F' : 'transparent';
 
     const tabBase = "cursor:pointer; font-family:'Oswald',sans-serif; font-weight:500; letter-spacing:1.5px; text-transform:uppercase; font-size:12px; border:none; padding:8px 16px;";
     const ovBtnStyle = tabBase + (isOverview ? 'background:#D9982F; color:#20392B;' : 'background:transparent; color:#9CB3A0;');
@@ -1331,7 +1340,7 @@ class Component extends DCLogic {
       closeAnimal: () => this.closeAnimal(),
       tripSub, tripStarted,
       heroImg, heroRibbon, heroRibbonBg, heroRibbonColor, heroContext,
-      cdNum, cdTop, cdBot,
+      cdNum, cdTop, cdBot, cdDash, cdArcColor,
       photosUrl: this.PHOTOS_URL,
       photosTitle: 'Photos from Montana',
       photosSub: 'See what Gwen & Christina are up to',
