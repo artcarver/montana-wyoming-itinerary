@@ -46,8 +46,22 @@ jobs:
         if: steps.cfg.outputs.bt == 'workflow'
         uses: actions/checkout@v4
 
-      - name: Configure Pages
+      # configure-pages hits the Pages API, which itself has intermittent
+      # 5xx outages. Retry it, and never let it fail the run — deploy-pages
+      # below (with its own retries) does the actual publish.
+      - name: Configure Pages (attempt 1)
+        id: cfg1
         if: steps.cfg.outputs.bt == 'workflow'
+        continue-on-error: true
+        uses: actions/configure-pages@v5
+
+      - name: Wait before Configure retry
+        if: steps.cfg.outputs.bt == 'workflow' && steps.cfg1.outcome == 'failure'
+        run: sleep 15
+
+      - name: Configure Pages (attempt 2)
+        if: steps.cfg.outputs.bt == 'workflow' && steps.cfg1.outcome == 'failure'
+        continue-on-error: true
         uses: actions/configure-pages@v5
 
       - name: Upload artifact
