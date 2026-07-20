@@ -32,7 +32,13 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          bt=$(gh api "repos/${{ github.repository }}/pages" --jq '.build_type' 2>/dev/null || echo none)
+          # Read the Pages build_type, but never let a flaky/5xx API response
+          # (which can print a multi-line error body) reach $GITHUB_OUTPUT.
+          bt=$(gh api "repos/${{ github.repository }}/pages" --jq '.build_type' 2>/dev/null | head -n1 | tr -d '[:space:]')
+          case "$bt" in
+            workflow|legacy) ;;
+            *) bt=none ;;
+          esac
           echo "Pages build_type: $bt"
           echo "bt=$bt" >> "$GITHUB_OUTPUT"
 
