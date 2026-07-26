@@ -209,7 +209,7 @@
             <div style="height:118px; overflow:hidden; border-bottom:3px solid #BC4B2A;"><img src="{{ animal.img }}" alt="{{ animal.name }}" loading="lazy" style="width:100%; height:100%; object-fit:cover; object-position:{{ animal.pos }}; display:block;"></div>
             <div style="padding:11px 13px 14px;">
               <div style="font-family:'Oswald',sans-serif; font-weight:600; font-size:15px; text-transform:uppercase; color:#20392B; line-height:1.1;">{{ animal.name }}</div>
-              <div style="font-family:'Oswald',sans-serif; font-size:11px; letter-spacing:1px; text-transform:uppercase; color:#BC4B2A; margin-top:3px;">{{ animal.where }}</div>
+              <div style="font-family:'Oswald',sans-serif; font-size:11px; letter-spacing:1px; text-transform:uppercase; color:#6B5F44; margin-top:3px;">{{ animal.where }}</div>
               <div style="font-family:'Spectral',serif; font-size:12.5px; line-height:1.45; color:#6B5F44; margin-top:6px;">{{ animal.short }}</div>
             </div>
           </div>
@@ -226,7 +226,7 @@
             <button onClick="{{ closeAnimal }}" aria-label="Close" style="cursor:pointer; position:absolute; top:12px; right:12px; width:34px; height:34px; border:none; background:rgba(20,40,25,0.6); color:#F3E9D2; font-size:20px; line-height:1;">&times;</button>
           </div>
           <div style="padding:22px 26px 28px;">
-            <div style="font-family:'Oswald',sans-serif; font-size:11px; letter-spacing:1.5px; text-transform:uppercase; color:#BC4B2A; font-weight:600;">{{ activeAnimal.where }}</div>
+            <div style="font-family:'Oswald',sans-serif; font-size:11px; letter-spacing:1.5px; text-transform:uppercase; color:#6B5F44; font-weight:600;">{{ activeAnimal.where }}</div>
             <div style="font-family:'Oswald',sans-serif; font-weight:600; font-size:26px; text-transform:uppercase; letter-spacing:0.5px; color:#20392B; margin-top:4px; line-height:1;">{{ activeAnimal.name }}</div>
             <div style="width:56px; height:4px; background:#D9982F; margin:12px 0 12px;"></div>
             <p style="font-family:'Spectral',serif; font-size:15px; line-height:1.5; color:#4A4029; margin:0 0 20px;">{{ activeAnimal.short }}</p>
