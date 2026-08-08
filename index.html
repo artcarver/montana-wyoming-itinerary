@@ -429,7 +429,6 @@
               <div style="display:flex; align-items:baseline; gap:14px; flex-wrap:wrap;">
                 <span style="font-family:'Oswald',sans-serif; font-weight:700; font-size:13px; letter-spacing:2px; text-transform:uppercase; color:#D9982F;">Day {{ day.num }}</span>
                 <span style="font-family:'Oswald',sans-serif; font-size:12px; letter-spacing:1.5px; text-transform:uppercase; color:#9CB3A0;">{{ day.weekday }}, {{ day.date }}</span>
-                <span style="font-family:'Oswald',sans-serif; font-size:11px; letter-spacing:1.5px; text-transform:uppercase; color:#F3E9D2; background:{{ day.regionChip }}; padding:3px 9px;">{{ day.regionLabel }}</span>
                 <sc-if value="{{ day.isCurrent }}" hint-placeholder-val="{{ false }}"><span style="font-family:'Oswald',sans-serif; font-weight:600; font-size:11px; letter-spacing:1.5px; text-transform:uppercase; color:#20392B; background:#D9982F; padding:3px 9px;">&#9673; Today</span></sc-if>
               </div>
               <h2 class="om-day-h2" style="font-family:'Oswald',sans-serif; font-weight:600; font-size:30px; text-transform:uppercase; letter-spacing:0.5px; margin:8px 0 0; line-height:1; color:#F3E9D2;">{{ day.title }}</h2>
@@ -927,12 +926,6 @@ class Component extends DCLogic {
     glacier: '#33698C', transit: '#C98A2E', yellowstone: '#BC4B2A', teton: '#3F7A44', home: '#5E7E8B'
   };
 
-  // Darker region shades, for chips that carry cream text. The REGIONS tones are
-  // tuned for accents on the cream page; behind 11px type they drop under 4.5:1.
-  REGION_CHIPS = {
-    glacier: '#2A5573', transit: '#8A5E1B', yellowstone: '#9E3E22', teton: '#316237', home: '#46606B'
-  };
-
   // Shared photo album link — swap in the real shared-album URL when you have it.
   PHOTOS_URL = 'https://photos.app.goo.gl/cLbghpJNMDxUCBQH9';
 
@@ -1013,7 +1006,6 @@ class Component extends DCLogic {
     };
     const days = this.rawDays().map((d, di) => {
       const regionColor = this.REGIONS[d.region];
-      const regionChip = this.REGION_CHIPS[d.region] || regionColor;
       const stops = d.stops.map((st, si) => {
         const key = di + '-' + si;
         const open = this.isOpen(key);
@@ -1044,7 +1036,7 @@ class Component extends DCLogic {
       return {
         num: d.num, weekday: d.weekday, date: d.date, dateShort: d.dateShort,
         title: d.title, subtitle: d.subtitle,
-        regionColor, regionChip, regionLabel: d.regionLabel,
+        regionColor,
         bullets: BULLETS[d.num] || [],
         drive: d.drive, walk: d.walk, sun: d.sun,
         driveShort: d.drive, walkShort: d.walk || '',
