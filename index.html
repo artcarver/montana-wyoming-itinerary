@@ -158,8 +158,32 @@
       </a>
       </sc-if>
 
+      <!-- DAY CARDS -->
+      <div style="font-family:'Oswald',sans-serif; text-transform:uppercase; letter-spacing:3px; font-size:13px; color:#3F5A46; font-weight:600; margin-top:24px;">Day by Day</div>
+      <h2 style="font-family:'Oswald',sans-serif; font-weight:600; font-size:32px; text-transform:uppercase; letter-spacing:0.5px; margin:4px 0 22px; color:#20392B;">The whole trip at a glance</h2>
+      <div class="om-grid-3 om-days-grid" style="display:grid; grid-template-columns:repeat(3,1fr); grid-auto-rows:1fr; gap:18px;">
+        <sc-for list="{{ days }}" as="day" hint-placeholder-count="9">
+          <button onClick="{{ day.onOpen }}" style="text-align:left; cursor:pointer; background:#FBF5E4; border:2px solid #20392B; border-top:6px solid {{ day.regionColor }}; padding:18px 18px 20px; font-family:inherit; display:flex; flex-direction:column; gap:10px; transition:transform 0.12s;" style-hover="transform:translateY(-3px); background:#FFFCF1;">
+            <div style="display:flex; align-items:center; justify-content:space-between;">
+              <span style="font-family:'Oswald',sans-serif; font-weight:700; letter-spacing:1px; font-size:12px; text-transform:uppercase; color:{{ day.regionColor }};">Day {{ day.num }}</span>
+              <span style="font-family:'Oswald',sans-serif; font-size:11px; letter-spacing:1px; text-transform:uppercase; color:#6B5F44;">{{ day.dateShort }}</span>
+            </div>
+            <sc-if value="{{ day.isCurrent }}" hint-placeholder-val="{{ false }}"><div style="font-family:'Oswald',sans-serif; font-weight:600; font-size:11px; letter-spacing:1px; text-transform:uppercase; color:#20392B; background:#D9982F; padding:3px 8px; align-self:flex-start;">&#9673; You are here</div></sc-if>
+            <div style="font-family:'Oswald',sans-serif; font-weight:600; font-size:18px; line-height:1.1; text-transform:uppercase; color:#20392B;">{{ day.title }}</div>
+            <ul style="list-style:none; margin:2px 0 0; padding:0; display:flex; flex-direction:column; gap:7px; flex:1;">
+              <sc-for list="{{ day.bullets }}" as="b" hint-placeholder-count="4">
+                <li style="display:flex; align-items:baseline; gap:9px; font-family:'Spectral',serif; font-size:13px; line-height:1.35; color:#4A4029;">
+                  <span style="flex:none; width:5px; height:5px; margin-top:6px; border-radius:50%; background:{{ day.regionColor }};"></span>
+                  <span>{{ b }}</span>
+                </li>
+              </sc-for>
+            </ul>
+          </button>
+        </sc-for>
+      </div>
+
       <!-- THREE PARKS -->
-      <div style="font-family:'Oswald',sans-serif; text-transform:uppercase; letter-spacing:3px; font-size:13px; color:#3F5A46; font-weight:600; margin-top:24px;">The Parks</div>
+      <div style="font-family:'Oswald',sans-serif; text-transform:uppercase; letter-spacing:3px; font-size:13px; color:#3F5A46; font-weight:600; margin-top:56px;">The Parks</div>
       <h2 style="font-family:'Oswald',sans-serif; font-weight:600; font-size:32px; text-transform:uppercase; letter-spacing:0.5px; margin:4px 0 22px; color:#20392B;">Three landscapes, one road trip</h2>
       <div class="om-grid-3" style="display:grid; grid-template-columns:repeat(3,1fr); gap:20px;">
         <!-- Glacier -->
@@ -259,29 +283,6 @@
       </div>
       </sc-if>
 
-      <!-- DAY CARDS -->
-      <div style="font-family:'Oswald',sans-serif; text-transform:uppercase; letter-spacing:3px; font-size:13px; color:#3F5A46; font-weight:600; margin-top:56px;">Day by Day</div>
-      <h2 style="font-family:'Oswald',sans-serif; font-weight:600; font-size:32px; text-transform:uppercase; letter-spacing:0.5px; margin:4px 0 22px; color:#20392B;">The whole trip at a glance</h2>
-      <div class="om-grid-3 om-days-grid" style="display:grid; grid-template-columns:repeat(3,1fr); grid-auto-rows:1fr; gap:18px;">
-        <sc-for list="{{ days }}" as="day" hint-placeholder-count="9">
-          <button onClick="{{ day.onOpen }}" style="text-align:left; cursor:pointer; background:#FBF5E4; border:2px solid #20392B; border-top:6px solid {{ day.regionColor }}; padding:18px 18px 20px; font-family:inherit; display:flex; flex-direction:column; gap:10px; transition:transform 0.12s;" style-hover="transform:translateY(-3px); background:#FFFCF1;">
-            <div style="display:flex; align-items:center; justify-content:space-between;">
-              <span style="font-family:'Oswald',sans-serif; font-weight:700; letter-spacing:1px; font-size:12px; text-transform:uppercase; color:{{ day.regionColor }};">Day {{ day.num }}</span>
-              <span style="font-family:'Oswald',sans-serif; font-size:11px; letter-spacing:1px; text-transform:uppercase; color:#6B5F44;">{{ day.dateShort }}</span>
-            </div>
-            <sc-if value="{{ day.isCurrent }}" hint-placeholder-val="{{ false }}"><div style="font-family:'Oswald',sans-serif; font-weight:600; font-size:11px; letter-spacing:1px; text-transform:uppercase; color:#20392B; background:#D9982F; padding:3px 8px; align-self:flex-start;">&#9673; You are here</div></sc-if>
-            <div style="font-family:'Oswald',sans-serif; font-weight:600; font-size:18px; line-height:1.1; text-transform:uppercase; color:#20392B;">{{ day.title }}</div>
-            <ul style="list-style:none; margin:2px 0 0; padding:0; display:flex; flex-direction:column; gap:7px; flex:1;">
-              <sc-for list="{{ day.bullets }}" as="b" hint-placeholder-count="4">
-                <li style="display:flex; align-items:baseline; gap:9px; font-family:'Spectral',serif; font-size:13px; line-height:1.35; color:#4A4029;">
-                  <span style="flex:none; width:5px; height:5px; margin-top:6px; border-radius:50%; background:{{ day.regionColor }};"></span>
-                  <span>{{ b }}</span>
-                </li>
-              </sc-for>
-            </ul>
-          </button>
-        </sc-for>
-      </div>
 
       <!-- GETTING THERE -->
       <div style="font-family:'Oswald',sans-serif; text-transform:uppercase; letter-spacing:3px; font-size:13px; color:#3F5A46; font-weight:600; margin-top:56px;">Getting There</div>
