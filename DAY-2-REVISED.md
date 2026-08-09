@@ -47,9 +47,9 @@ Overnight **inversions trap smoke in the valleys** (Hungry Horse and the Lake Mc
 
 The core reordering: **drive straight to Avalanche Creek to secure parking, save Lake McDonald Lodge for the way back, and drop Johns Lake Loop.** With an 8:30 departure you cannot fit a 2-mile warm-up loop and still park at Avalanche.
 
-- **8:15 AM — Buy the park pass online before you leave** _[Logistics]_
-  Buy the $80 America the Beautiful pass at **[yourpassnow.com](https://yourpassnow.com)** on your phone over hotel wifi.
-  This is the single best time-saver today. It lets you use the pass-holder lane and skips the transaction at the booth. It covers Glacier, Yellowstone, and Grand Teton — you were buying it anyway.
+- **8:15 AM — Breakfast: eat in the car** _[Food]_
+  ✅ Park pass already in hand — use the pass-holder lane at the booth.
+  Use the breakfast groceries from the Bozeman stop and eat on the 15-minute drive. **See the breakfast options section below** if you want something hot — the short version is that a sit-down breakfast and Avalanche Creek parking are mutually exclusive this morning.
 
 - **8:30 AM — Depart Mini Golden Inns** _[Travel]_  _(▸ 15 min to West Glacier)_
   Hungry Horse → West Glacier entrance on Hwy 2.
@@ -97,6 +97,25 @@ The core reordering: **drive straight to Avalanche Creek to secure parking, save
 
 ---
 
+## Breakfast Options — In and Near the Park
+
+The constraint: **a sit-down breakfast and a 9:15 AM arrival at Avalanche Creek cannot both happen.** Pick one.
+
+| Place | Where | Hours | Notes |
+|---|---|---|---|
+| **Eddie's Cafe & Gifts** | Apgar Village — ~2 min off route, just past the entrance | Opens **8:00 AM**, breakfast till 11:15 | Omelets, pancakes, **breakfast burritos**. Order at the counter to go — costs ~15 min total. |
+| **Russell's Fireside Dining Room** | Lake McDonald Lodge — directly on route | **6:30–10:00 AM** | Full hot buffet + lighter continental option. First-come, **no reservations**. The best food, but 45–60 min seated. |
+| **West Glacier Restaurant & Bar** | 200 Going-to-the-Sun Rd — outside the entrance | Opens **7:30 AM**, breakfast till 10:30 | Full menu. 406-888-5662. |
+| **Carolyn's Cafe** | Hungry Horse — right by the hotel | Breakfast served late morning | At a gas station, locally well-regarded. Closest to the door. |
+
+**Recommended:** eat the Bozeman groceries in the car, and if you want something hot, grab an **Eddie's breakfast burrito to go** in Apgar. Protecting the Avalanche parking window is worth more this morning than a table.
+
+**The alternative, if you'd rather sit down:** take **Russell's** and consciously flip to the afternoon fallback — Lake McDonald Lodge and Apgar in the morning, Avalanche Creek at 3:30–4:00 PM. That's a legitimately good version of the day: cleanest air, emptied lot, and an 8:52 PM sunset gives you plenty of light for a 4:00 PM start. The trade-off is that it consumes the evening Lake McDonald sunset stop.
+
+⚠️ Both in-park spots are concession-operated and hours shift late in the season — worth a quick confirm if you're routing the morning around one.
+
+---
+
 ## What Changed and Why
 
 | Original | Revised | Reason |
@@ -123,3 +142,6 @@ The core reordering: **drive straight to Avalanche Creek to secure parking, save
 - [NWS — Air Quality Alert summary](https://forecast.weather.gov/wwamap/wwatxtget.php?cwa=usa&wwa=Air+Quality+Alert)
 - [Glacier NP — Current Fire Information](https://www.nps.gov/glac/learn/nature/fire-information.htm)
 - [AirNow Fire and Smoke Map](https://fire.airnow.gov)
+- [Russell's Fireside Dining Room — Glacier National Park Lodges](https://www.glaciernationalparklodges.com/dining/lake-mcdonald-lodge/russells-fireside-dining-room/)
+- [Eddie's Apgar Cafe — Glacier Country](https://glaciermt.com/listing/eddies-apgar-cafe)
+- [West Glacier Restaurant & Bar](https://www.yelp.com/biz/west-glacier-restaurant-and-bar-west-glacier-3)
