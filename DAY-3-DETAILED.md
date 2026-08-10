@@ -17,7 +17,7 @@ Everything below is built around these. Nothing else on the day is fixed.
 | # | Constraint | Consequence |
 |---|---|---|
 | 1 | **Boat tour 5:00 PM**, ticket office by 4:30 | Must leave the St. Mary area by **3:45 PM**, no exceptions |
-| 2 | **Logan Pass parking capped at 3 hours** (enforced, new July 2026) | Park at 7:30 → gone by 10:30 |
+| 2 | **Logan Pass parking capped at 3 hours** (enforced, new July 2026) | Park at 8:00 → **out by 11:00** |
 | 3 | **Construction delays up to 30 min** on a one-way crossing | Buffer is built in; if you don't use it, you gain time on the east side |
 
 ---
