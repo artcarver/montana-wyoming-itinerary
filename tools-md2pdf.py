@@ -147,6 +147,7 @@ def normalize_lists(text: str) -> str:
 
 
 def build(md_path: Path, out_pdf: Path) -> None:
+    out_pdf = out_pdf.resolve()
     text = normalize_lists(md_path.read_text())
 
     html_body = markdown.markdown(

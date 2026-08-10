@@ -242,13 +242,20 @@ US-89, **4 mi south of the Many Glacier turnoff, 4 mi north of St. Mary** — di
 **Ptarmigan Dining Room, Many Glacier Hotel.**
 **5:00–9:30 PM, no reservations, first-come.** Historic 1915 lodge dining room, lake views in evening light, **zero extra driving** — two minutes from the dock. ⚠️ Everyone off your boat has the same idea, so **walk straight there** rather than lingering. The Swiss Lounge in the same building is a fine place to wait with a drink.
 
-**Babb Bar / Cattle Baron Supper Club, Babb.**
-The steakhouse option, also on the route. Big steaks, ~$50–60 per person. Reviewers commonly note Two Sisters delivers comparable food for about half.
+**Johnson's of St. Mary.**
+21 Red Eagle Rd, **11:00 AM – 8:30 PM.** Open since 1950 and the **longest-running family-owned business on the Blackfeet Reservation.** Family-style meals — homemade soup, homemade bread, buffalo steak, fried chicken with mashed potatoes and vegetables. Off the boat at 6:30 puts you here by 7:15, comfortable before close. The most distinctive sit-down meal on the east side.
+
+**Nell's at Swiftcurrent Motor Inn**, Many Glacier.
+**Dinner 4:30 – 10:00 PM**, about a mile past Many Glacier Hotel. Casual, and the way to eat at Many Glacier *without* the post-boat crush at the Ptarmigan.
 
 **Snowgoose Grille, St. Mary Village.**
 Your own hotel. **7:00 AM – 9:00 PM daily.** Rustic Montana menu, come-as-you-are. The zero-effort fallback if you're wrecked.
 
 **Park Cafe, St. Mary** — 406-732-9979. Local institution for pie if you want dessert on its own.
+
+❌ **Babb Bar / Cattle Baron Supper Club — permanently unavailable.** Destroyed by fire on January 14, 2026. A small modular "mini Babb Bar" occupies the site while the owners rebuild.
+
+**Not worth the drive tonight: East Glacier Park** (Serrano's, Solterra, Great Northern Dining Room) is a genuinely better restaurant cluster, but it's **1h15 from Many Glacier** and Serrano's closes at 9. You pass through East Glacier in daylight on Day 4 heading south — eat there then, not after dark tonight.
 
 ### 8:00 PM — St. Mary Village — check in
 **24-hour front desk**, so there is zero time pressure. Unload, shower, unpack for the first time all day.
