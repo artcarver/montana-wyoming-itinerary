@@ -163,17 +163,19 @@ Arriving at 8:00 on a Monday should get you a spot without drama — the lot his
 **Eat lunch at Virginia Falls** if you haven't already.
 
 ### 2:45 PM — Sun Point
-**Mile 42.** A rocky promontory jutting into **St. Mary Lake**, with wide views up the valley to Little Chief and Going-to-the-Sun mountains. **0.2 mi walk to the point.** ⚠️ **Wind out on the point is serious** — hold onto hats and phones. **20 min.**
+**Mile 42.** A rocky promontory jutting into **St. Mary Lake**, with wide views up the valley to Little Chief and Going-to-the-Sun mountains. **0.2 mi walk to the point, flat.** ⚠️ **Wind out on the point is serious** — hold onto hats and phones. **20 min.**
 
-### 3:10 PM — Wild Goose Island Overlook
+### 3:15 PM — Rising Sun _(quick stop)_
+**Mile 45.** General store and restrooms. **Last bathroom before Many Glacier.** Grab water — you have a boat tour and no dinner until after 6:30. **15 min max.**
+
+🍔 **Lunch bailout lives here — see below** if the packed sandwiches aren't cutting it.
+
+### 3:35 PM — Wild Goose Island Overlook
 **Mile 46.** **The iconic Glacier photograph** — a tiny tree-topped island in St. Mary Lake with mountains stacked behind it. Roadside pullout, no walking.
 
 ⚠️ **Manage expectations:** this is a long-distance shot and haze is exactly what kills it. It may be flat and washed out today. Take it anyway, and know the afternoon light is working against you regardless — this view is best at sunrise.
 
 **10 min, then go.**
-
-### 3:25 PM — Rising Sun _(quick stop)_
-**Mile 45.** General store and restrooms. **Last bathroom before Many Glacier.** Grab water and a snack — you have a boat tour and no dinner until after 6:30. **15 min max.**
 
 ---
 
@@ -205,15 +207,48 @@ The trip's marquee experience.
 
 ---
 
-## Dinner — Decide Before You Board
+## 🍽️ Lunch — Backup Plan
 
-You'll be off the boat at 6:30, 40 minutes from St. Mary, and hungry. Three options:
+**There is no food between West Glacier and Rising Sun.** Logan Pass Visitor Center has restrooms, exhibits, and a bookstore — no café. Whatever's in your pack is what you have from 6:30 AM until mile 45.
 
-1. **Ptarmigan Dining Room, Many Glacier Hotel** — dinner **5:00–9:30 PM**, first-come/first-served, no reservations. **Zero extra driving**, historic lodge dining room, lake views in evening light. ⚠️ Everyone off your boat has the same idea — **walk straight there.** Swiss Lounge in the same building if there's a wait.
-2. **Two Sisters Cafe, Babb** — on US-89, **4 mi north of St. Mary, directly on your drive back.** Food Network–featured, famous Red Burger and huckleberry pie, huckleberry margaritas. Fun rather than fancy, and great value.
-3. **Nell's at St. Mary Village** — on-site at your hotel. The no-effort option.
+**Primary plan:** packed lunch at **Virginia Falls (~1:45 PM)**, sitting near the base of a 50-ft falls. Substantial snack at **Lunch Creek (11:10 AM)** to bridge the gap from breakfast.
 
-**Recommended: Ptarmigan.** You're already there, the setting is exceptional, and it means you arrive at St. Mary fed rather than at 8 PM looking for food.
+**If the sandwiches aren't cutting it — Two Dog Flats Grill, Rising Sun Motor Inn.**
+The only real restaurant between Logan Pass and St. Mary. Full-service: build-your-own burgers, sandwiches, soups, salads. **Mile 45**, already a scheduled stop.
+
+**To make it a sit-down lunch, cut Virginia Falls.** The afternoon becomes:
+
+| Time | Stop |
+|---|---|
+| 1:45 PM | Off the falls trail (St. Mary Falls only) |
+| 2:10 PM | Sun Point |
+| **2:45 PM** | **Two Dog Flats Grill — real lunch** |
+| 3:40 PM | Wild Goose Island |
+| **3:45 PM** | **Depart for Many Glacier** ⏱️ |
+
+A 2:45 lunch and a 7:05 dinner sit together fine.
+
+**Also available at St. Mary Village** (mile 50, if you end up there): **Curly Bear Café** for sandwiches, **Glacier Perk** for coffee and grab-and-go.
+
+---
+
+## 🍽️ Dinner — Decide Before You Board
+
+Off the boat at 6:30, 40 min from St. Mary, hungry.
+
+**⭐ Two Sisters Cafe, Babb — recommended.**
+US-89, **4 mi south of the Many Glacier turnoff, 4 mi north of St. Mary** — directly on your drive back, at the perfect point to break it. **Open Monday until 9:00 PM** (closed Saturdays). Food Network–featured. The **Red Burger** is the signature; they also claim the best **huckleberry pie** in Montana, plus huckleberry margaritas and huckleberry beer. Arrive ~7:05, then 10 min to the hotel. No wait-list scramble with the boat crowd.
+
+**Ptarmigan Dining Room, Many Glacier Hotel.**
+**5:00–9:30 PM, no reservations, first-come.** Historic 1915 lodge dining room, lake views in evening light, **zero extra driving** — two minutes from the dock. ⚠️ Everyone off your boat has the same idea, so **walk straight there** rather than lingering. The Swiss Lounge in the same building is a fine place to wait with a drink.
+
+**Babb Bar / Cattle Baron Supper Club, Babb.**
+The steakhouse option, also on the route. Big steaks, ~$50–60 per person. Reviewers commonly note Two Sisters delivers comparable food for about half.
+
+**Snowgoose Grille, St. Mary Village.**
+Your own hotel. **7:00 AM – 9:00 PM daily.** Rustic Montana menu, come-as-you-are. The zero-effort fallback if you're wrecked.
+
+**Park Cafe, St. Mary** — 406-732-9979. Local institution for pie if you want dessert on its own.
 
 ### 8:00 PM — St. Mary Village — check in
 **24-hour front desk**, so there is zero time pressure. Unload, shower, unpack for the first time all day.
@@ -259,6 +294,9 @@ Heavy smoke makes for a deep red, soft-edged sun. **Rising Sun boat ramp** or th
 | Logan Pass out by | **11:00 AM** (3-hr limit) |
 | Logan Pass Visitor Center | 8:00 AM – 4:30 PM |
 | Ptarmigan Dining Room | 5:00 – 9:30 PM, no reservations |
+| Two Sisters Cafe, Babb | until 9:00 PM Mon |
+| Snowgoose Grille, St. Mary | 7:00 AM – 9:00 PM |
+| Two Dog Flats Grill, Rising Sun | lunch backup, mile 45 |
 | Sunrise / Sunset | 6:18 AM / 8:50 PM |
 | Bathrooms | Logan Pass · Rising Sun · Many Glacier |
 | Cell signal | **None** past Babb, spotty on GTSR |
