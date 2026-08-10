@@ -93,7 +93,19 @@ Arriving at 8:00 on a Monday should get you a spot without drama — the lot his
 
 **Layer up.** It'll be around 50°F with WSW wind gusting to 22 mph. It feels much colder than the 68°F daytime high suggests.
 
-### 8:15 AM — Hidden Lake Overlook _(▲ 2.7 mi RT · 540 ft gain · ~1.5–2 hrs)_
+> ### ⚠️ Elevation note — read before you start
+> You flew in from sea level 48 hours ago, you're standing at 6,646 ft, and there's smoke in the air. That stack hits harder than any trail profile suggests.
+>
+> **The good news: the Highline Trail is flat.** It is also the best thing up here. Your one real climb today is Hidden Lake, and it's the easiest trail on the whole itinerary to turn around on.
+>
+> **Priority order: Highline is the must-do. Hidden Lake is the stretch goal.**
+>
+> - **Pace to conversation.** If you're too winded to talk, you're going too fast. Slowing down works better than stopping.
+> - **Short, frequent breaks** beat long ones.
+> - **Drink more than feels necessary.** Dehydration at altitude imitates altitude sickness almost exactly.
+> - **Turning around early is not failing.** Every trail today is worth it partway.
+
+### 8:15 AM — Hidden Lake Overlook _(▲ up to 2.7 mi RT · 540 ft gain · ~1.5–2 hrs)_
 **Trailhead: directly behind the Logan Pass Visitor Center.**
 
 - First **0.7 mi is boardwalk**, climbing steadily through alpine meadow. In early August this should still be wildflowers — glacier lily, beargrass, Indian paintbrush.
@@ -104,9 +116,15 @@ Arriving at 8:00 on a Monday should get you a spot without drama — the lot his
 
 ⛔ **Do not descend to the lake itself.** It's 1.2 mi further down and 765 ft of climbing to get back out. It would eat your Highline time and your parking clock.
 
-**Turn around at the overlook. Back at the car by ~10:00.**
+**🎯 The bail-out points, in order — all of them are a good day:**
+- **0.5 mi (boardwalk, ~150 ft):** you've already seen the meadow, the wildflowers, and most likely the goats. **This is where the value is concentrated.** Turning around here costs you very little.
+- **0.7 mi (end of boardwalk, ~300 ft):** big open views back toward Reynolds Mountain and Clements Mountain. A completely satisfying turnaround.
+- **1.35 mi (the overlook, 540 ft):** Bearhat Mountain over Hidden Lake. The full payoff — take it if the climb is going well.
 
-### 10:05 AM — Highline Trail _(▲ 1.5–2 mi RT · essentially flat · ~1 hr)_
+**Back at the car by ~10:00 regardless of how far you got.**
+
+### 10:05 AM — Highline Trail _(▲ 1.5–2 mi RT · **essentially flat** · ~1 hr)_
+**⭐ The must-do. Roughly 100 ft of gain over a mile and a half — the best view-to-effort ratio in the park.**
 **Trailhead: across the road from the Logan Pass parking lot.** Look for the crosswalk.
 
 - **The first 0.3 mi is the famous ledge** — the trail is carved into a cliff face with a sheer drop on your left and a **bolted garden-hose cable** at shoulder height to hold. It is genuinely safe and the tread is wide enough, but if either of you is uneasy with exposure, this is the part to know about in advance. Hold the cable, look at your feet, keep moving.
@@ -249,16 +267,22 @@ Heavy smoke makes for a deep red, soft-edged sun. **Rising Sun boat ramp** or th
 
 ## Trails at a Glance
 
+Ordered by **effort**, easiest first — since elevation is the limiting factor.
+
 | Trail | Distance | Gain | Time | Verdict |
 |---|---|---|---|---|
-| **Hidden Lake Overlook** | 2.7 mi RT | 540 ft | 1.5–2 hr | **Do it** — best hike of the day |
-| **Highline Trail** (partial) | 1.5–2 mi RT | flat | 1 hr | **Do it** — nothing else like it |
-| **St. Mary + Virginia Falls** | 3.4 mi RT | 260 ft | 2 hr | **Do it** — Virginia is worth the extra mile |
-| **Sunrift Gorge** | 100 yd | none | 10 min | **Do it** — tiny effort, big payoff |
-| **Baring Falls** | 0.6 mi RT | 100 ft | 30 min | Add if ahead of schedule |
-| **Sun Point** | 0.4 mi RT | none | 20 min | Quick, windy, worth it |
-| **Hidden Lake (to the lake)** | +2.4 mi | +765 ft | +2 hr | ⛔ Skip — kills the schedule |
+| **Sunrift Gorge** | 100 yd | **none** | 10 min | **Do it** — no effort, real payoff |
+| **Sun Point** | 0.4 mi RT | **none** | 20 min | **Do it** — flat, windy, wide lake views |
+| **Trail of the Cedars** *(opt)* | 1 mi loop | **none** | 45 min | Flat boardwalk — only if skipped yesterday |
+| **Highline Trail** (partial) | 1.5–2 mi RT | **~100 ft** | 1 hr | ⭐ **The must-do.** Flat, and nothing else like it |
+| **Baring Falls** *(opt)* | 0.6 mi RT | 100 ft | 30 min | Add only if the morning went well |
+| **St. Mary Falls only** | 1.6 mi RT | 260 ft | 1 hr | **Do it** — descent first, gradual climb back |
+| **+ Virginia Falls** | +1.8 mi | +200 ft | +45 min | **First thing to cut** if legs are done |
+| **Hidden Lake Overlook** | up to 2.7 mi RT | up to 540 ft | 1.5–2 hr | **Stretch goal** — turn around freely |
+| **Hidden Lake (to the lake)** | +2.4 mi | +765 ft | +2 hr | ⛔ Skip — brutal climb out |
 | **Avalanche Lake** | 5.8 mi RT | 500 ft | 3.5 hr | ⛔ Not possible today |
+
+**Total ascent for the day: ~900–1,000 ft**, and roughly half of it is the single Hidden Lake climb. Cut that short and the day becomes genuinely easy.
 
 ---
 
