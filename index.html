@@ -147,12 +147,12 @@
       </div>
     </div>
 
-    <div class="om-section-pad" style="max-width:1080px; margin:0 auto; padding:0px 40px 80px;">
+    <div class="om-section-pad" style="max-width:1080px; margin:0 auto; padding:30px 40px 80px;">
 
       <!-- LIVE: photos banner (appears once the trip starts) -->
       <sc-if value="{{ tripStarted }}" hint-placeholder-val="{{ false }}">
       <a href="{{ photosUrl }}" target="_blank" rel="noopener" style="display:flex; align-items:center; gap:16px; text-decoration:none; background:#FBF5E4; border:1px solid #C9B98A; border-left:4px solid #BC4B2A; padding:16px 20px; margin-bottom:8px;" style-hover="background:#FFFCF1;">
-        <span class="om-photos-emoji" style="flex:none; width:40px; height:40px; display:flex; align-items:center; justify-content:center; background:#F6E2D8; border:1px solid #E3B7A4; font-size:20px;">📷</span>
+        <span class="om-photos-emoji" style="flex:none; width:40px; height:40px; display:flex; align-items:center; justify-content:center; background:#F6E2D8; border:1px solid #E3B7A4;"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="#BC4B2A" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true"><path d="M2.75 8.4a1 1 0 0 1 1-1h2.55l1.3-2h8.8l1.3 2h2.55a1 1 0 0 1 1 1v9.35a1 1 0 0 1-1 1H3.75a1 1 0 0 1-1-1V8.4Z"/><circle cx="12" cy="12.9" r="3.45"/></svg></span>
         <div style="flex:1;">
           <div style="font-family:'Oswald',sans-serif; font-weight:600; font-size:16px; text-transform:uppercase; letter-spacing:0.5px; color:#20392B;">{{ photosTitle }}</div>
           <div style="font-family:'Spectral',serif; font-size:13px; color:#6B5F44; margin-top:2px;">{{ photosSub }}</div>
